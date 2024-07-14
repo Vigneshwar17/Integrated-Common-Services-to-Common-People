@@ -1,45 +1,68 @@
 Integrated Common Services to Common People
+
 Team Shamrocks
+
 We are Team Shamrocks, a group of five dedicated members committed to improving the accessibility of essential services to the common people. 
 Our project addresses the problem statement "Integrated Common Services to Common People" by creating a comprehensive website that covers four key service areas: 
 Government, Health, Transport, and Finance.
 
 Introduction
+
 Our project aims to bridge the gap between common people and essential services by integrating multiple services into a single, user-friendly website.
 This integration helps users access various services more conveniently and efficiently.
 
 Features
+
 ->User-friendly Interface: Simple and intuitive design to ensure ease of use.
+
 ->Integrated Services: Access multiple services from a single platform.
+
 ->Responsive Design: Optimized for various devices including desktops, tablets, and smartphones.
+
 ->Secure and Reliable: Ensures user data privacy and service reliability.
 
-Service Areas
+Service Areas 
+
 Government Services
+
 Our website integrates several government services, allowing users to access essential information and services directly from our platform.
 
 Health Services:
+
 We provide a comprehensive directory of health services, including diagnostic centers, elder and nurse care centers, emergency services, health insurance, and the best hospitals in Chennai.
 
 Transport Services:
+
 Our transport services section includes on-spot service centers, MTC bus routes and timings, nearest service centers, buy or sell vehicles, and cost comparison tools.
 
 Finance Services:
+
 We offer various finance-related services to help users manage their finances effectively. This includes information on loans, insurance, banking services, and investment opportunities.
 
 Technologies Used:
+
 ->HTML
+
 ->CSS
+
 ->JavaScript
+
 ->Python (for backend processing)
+
 ->MySQL (for database management)
+
 ->Bootstrap (for responsive design)
 
 Team Members:
+
 1.Vigneshwar S
+
 2.Badri P
+
 3.Marishwaran A
+
 4.Bavadharini S
+
 5.Jinapriya S
 
 Installation

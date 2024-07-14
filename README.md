@@ -51,18 +51,6 @@ We offer various finance-related services to help users manage their finances ef
 
 • Bootstrap (for responsive design)
 
-👉Team Members:
-
-1.Vigneshwar S
-
-2.Badri P
-
-3.Marishwaran A
-
-4.Bavadharini S
-
-5.Jinapriya S
-
 👉Installation:
 
 To install and run this project locally, follow these steps:
@@ -95,7 +83,7 @@ Usage
 
 We welcome contributions from the community. To contribute:
 
-Fork the repository:
+👉Fork the repository:
 
 1.Create a new branch (git checkout -b feature/YourFeature).
 
@@ -109,3 +97,16 @@ Fork the repository:
 
 We would like to thank all the members of Team Shamrocks for their hard work and dedication to this project. 
 Special thanks to our mentors and advisors for their guidance and support.
+
+
+👉Team Members:
+
+1.Vigneshwar S
+
+2.Badri P
+
+3.Marishwaran A
+
+4.Bavadharini S
+
+5.Jinapriya S

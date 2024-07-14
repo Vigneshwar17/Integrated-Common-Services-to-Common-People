@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Calculator</title>
+    <style>
+    body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('finance.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: #e0e0e0;
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(107, 105, 105, 0.283);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #e2e1e1;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    letter-spacing: 1px;
+}
+
+.loan-type-selector {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.loan-type-selector button {
+    
+    border: none;
+    background-color: #0b3c5d;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-left: 10px;
+    
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.loan-type-selector button:hover {
+    background-color: #0b3c5d;
+    transform: scale(1.05);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 1.1em;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #333;
+    color: #ffffff;
+    font-size: 1em;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: #0b3c5d;
+    
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0b3c5d;
+    transform: scale(1.05);
+}
+
+#result {
+    margin-top: 30px;
+    background-color: #0b3c5d;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+
+ </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bank Interest Rates</h1>
+        <div class="loan-type-selector">
+            <button id="personalLoanBtn" onclick="selectLoanType('personal')">Personal Loan</button>
+            
+
+            <button id="homeLoanBtn" onclick="selectLoanType('home')">Home Loan</button>
+            
+            <button id="vehicleLoanBtn" onclick="selectLoanType('vehicle')">Vehicle Loan</button>
+           
+            <button id="educationLoanBtn" onclick="selectLoanType('education')">Education Loan</button>
+        </div>
+        <div class="form-group">
+            <label for="loanAmount">Loan Amount</label>
+            <input type="number" id="loanAmount">
+        </div>
+        <div class="form-group">
+            <label for="tenure">Tenure (in years)</label>
+            <input type="number" id="tenure">
+        </div>
+        <button onclick="calculateInterest()">Calculate Interest</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        let personalLoanBanks = [
+    { name: 'AXIS BANK', interestRate: 10.5 },
+    { name: 'HDFC BANK', interestRate: 10.25 },
+    { name: 'STATE BANK OF INDIA', interestRate: 11.75 },
+    { name: 'CANARA BANK', interestRate: 10.6 },
+    { name: 'BANK OF INDIA', interestRate: 10.4 },
+    { name: 'KOTAK MAHINDRA BANK', interestRate: 16.99},
+    { name: 'TAMILNADU MERCANTILE BANK', interestRate: 14.05 },
+];
+
+let homeLoanBanks = [
+    { name: 'AXIS BANK', interestRate: 5.5 },
+    { name: 'HDFC BANK', interestRate: 5.25 },
+    { name: 'STATE BANK OF INDIA', interestRate: 5.75 },
+    { name: 'CANARA BANK', interestRate: 5.6 },
+    { name: 'BANK OF INDIA', interestRate: 5.4 },
+    { name: 'KOTAK MAHINDRA BANK', interestRate: 8.70 },
+    { name: 'TAMILNADU MERCANTILE BANK', interestRate: 9.45 },
+    
+];
+
+let vehicleLoanBanks = [
+    { name: 'AXIS BANK', interestRate: 7.5 },
+    { name: 'HDFC BANK', interestRate: 7.25 },
+    { name: 'STATE BANK OF INDIA', interestRate: 7.75 },
+    { name: 'CANARA BANK', interestRate: 7.6 },
+    { name: 'BANK OF INDIA', interestRate: 7.4 },
+    { name: 'KOTAK MAHINDRA BANK', interestRate: 8.2 },
+    { name: 'TAMILNADU MERCANTILE BANK', interestRate: 9.70 },
+];
+
+let educationLoanBanks = [
+    { name: 'AXIS BANK', interestRate: 6.5 },
+    { name: 'HDFC BANK', interestRate: 6.25 },
+    { name: 'STATE BANK OF INDIA', interestRate: 6.75 },
+    { name: 'CANARA BANK', interestRate: 6.6 },
+    { name: 'BANK OF INDIA', interestRate: 6.4 },
+    { name: 'KOTAK MAHINDRA BANK', interestRate: 11.50 },
+    { name: 'TAMILNADU MERCANTILE BANK', interestRate: 11.75 },
+];
+
+let selectedLoanType = 'personal';
+
+function selectLoanType(type) {
+    selectedLoanType = type;
+}
+
+function calculateInterest() {
+    let amount = parseFloat(document.getElementById('loanAmount').value);
+    let tenure = parseInt(document.getElementById('tenure').value);
+    let banks;
+    let result = '';
+
+    switch (selectedLoanType) {
+        case 'personal':
+            banks = personalLoanBanks;
+            break;
+        case 'home':
+            banks = homeLoanBanks;
+            break;
+        case 'vehicle':
+            banks = vehicleLoanBanks;
+            break;
+        case 'education':
+            banks = educationLoanBanks;
+            break;
+    }
+
+    banks.forEach(bank => {
+        let interest = amount * tenure * bank.interestRate / 100;
+        result += `<p>${bank.name} - ${bank.interestRate}%: Interest Amount: ${interest}</p>`;
+    });
+
+    document.getElementById('result').innerHTML = result;
+}
+
+    </script>
+</body>
+</html>

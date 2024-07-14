@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="TN logo.png">
+    <title>Diagnostic Centre</title>
+    <style>
+        body {
+            background:#dbd2d2;
+            font-family: Arial, sans-serif;
+            /*display: flex; 
+            justify-content: center;
+            align-items: center;  */ 
+            height: 100vh;
+            margin-left: 50px;
+            color: #161616;
+            overflow-x: hidden;
+        }
+
+        .table-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 93%;
+            max-width: 1200px;
+            
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background: #1a57da;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        tbody tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background:#6b7272;
+            color: #ffffff; 
+            transition: 1s;
+            transform: translateY(-10px);
+        
+        }
+
+        caption {
+            color: #444543;
+            font-size: 2.5em;
+            margin: 10px 0;
+        }
+
+        #LAND {
+            margin-left: 0;
+        }
+
+        #AADHAR {
+            margin-left: 0;
+            /* margin-top:1000px; */
+        }
+        .datetime {
+    font-size: 0.9em;
+    color: #ffffff;
+    margin-left: 160px;
+}
+/* Add any other necessary theme styles here */
+/* Navbar container */
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #0b3c5d;
+    padding: 3px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 107%;
+    height: 120px;
+    margin-left:-50px;
+    margin-top: -20px;
+    /* margin-top: -10px; */
+}
+
+/* Logo styling */
+.logo img {
+    height: 50px;
+    margin-right: 200px; /* Push the logo to the left */
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* Dropdown button styling */
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Arial', sans-serif; /* Change to a professional font */
+}
+
+/* Hover effect for dropdown button */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+/* Dropdown content styling */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #C2CFD7;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px; /* Rounded corners */
+    overflow: hidden; /* Ensure rounded corners are respected */
+    opacity: 0; /* Initially hidden */
+    transition: 5s ease-in-out; /* Fade effect */
+}
+
+/* Dropdown link styling */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Arial', sans-serif; /* Match the font of dropdown button */
+}
+
+/* Hover effect for dropdown links */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #0056b3;
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1; /* Fully visible */
+}
+
+footer {
+    background-color: #4199A7; /* Blue background */
+    color: white;
+    font-family: Arial, sans-serif;
+    margin-left: -49px;
+    width:105%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+    
+
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #fff;
+    border-bottom: 1px solid #fff; /* Adding a bottom border for section titles */
+    padding-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #f0f0f0; /* Lighter shade on hover */
+}
+
+.footer-section.contact {
+    /* Adding specific styles for the contact section */
+}
+
+.footer-section.contact address {
+    font-style: normal;
+    color: #ddd;
+}
+
+.footer-section.contact address a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section.contact address a:hover {
+    color: #fff;
+}
+
+
+.footer-section .contact address {
+    font-style: normal;
+    line-height: 1.6;
+}
+
+.footer-section .contact a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section .contact a:hover {
+    text-decoration: underline;
+}
+
+.footer-section .branding .logo {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.footer-section .social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-section .social-icons a {
+    color: white;
+    font-size: 1.2em;
+}
+
+.footer-bottom {
+    background-color: #000;
+    color: white;
+    text-align:center;
+    padding: 10px 0;
+    position:aboslute;
+    
+}
+
+.footer-bottom a {
+    color: #0ff;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="TN logo.png" alt="Government Logo">
+        </div>
+        
+        <div class="dropdown">
+            <a href="home.html"><button class="dropbtn">Home</button></a>
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropbtn">Govt.Service</button>
+            <div class="dropdown-content">
+                <a href="AadharandLand.html">Aadhar and Land Service</a>
+                <a href="GovernmentScheme.html">Government Schemes</a>
+                <a href="passport.html">Passport Service</a>
+                <a href="pensiondetail.html">Pensioner Service</a>
+                <a href="ration.html">Ration and VoterID Service</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Finance</button>
+            <div class="dropdown-content">
+                <a href="Finance.html">Interest Calculator</a>
+                <a href="financeapi.html">Tax-Saving Recommender</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">HealthService(Chennai)</button>
+            <div class="dropdown-content">
+                <a href="Hospitals.html">Hospitals</a>
+                <a href="DiagnosticCenters.html">Diagnostic Centre</a>
+                <a href="ElderandNurseCare.html">Nurse Care Details</a>
+                <a href="Emergency.html">Emergency Centres</a>
+                <a href="HealthInsurance.html">Health Insurance</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Transport(Chennai)</button>
+            <div class="dropdown-content">
+                <a href="BusRoutes.html">List Of Buses</a>
+                <a href="BuyOrSell.html">Second Hand Vehicle</a>
+                <a href="CostComparison.html">Cost Comparison</a>
+                <a href="NearestServiceCenters.html">Service Centre</a>
+                <a href="OnspotServiceCenter.html">Onspot Service Center</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <a href="#footer-container"><button class="dropbtn">About</button></a>
+        </div>
+        <!-- <div class="dropdown">
+            <button class="dropbtn">Login</button>
+        </div> -->
+        <div class="datetime" id="datetime"></div>
+        <script>
+            function updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    year: 'numeric', 
+                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
+                    day: '2-digit' 
+                };
+                const date = now.toLocaleDateString(undefined, options);
+                const time = now.toLocaleTimeString();
+                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
+            }
+        
+            setInterval(updateDateTime, 1000);
+            updateDateTime(); // Initial call to display date/time immediately
+        </script>
+        
+        
+    </div>
+    <div class="table-container">
+        <table class="service-centers-table">
+            <caption>List of Diagnostic Centers</caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ehrlich Laboratory Pvt Ltd</td>
+                    <td>No 46 & 48, Near Vitan Super Market, Masilamani Road Royapettah, Chennai - 600014</td>
+                </tr>
+                <tr>
+                    <td>Dr RAI Memorial Medical Centre</td>
+                    <td>No 562, Opp DMS Office, Anna Salai Century Plaza Alwarpet, Chennai - 600018</td>
+                </tr>
+                <tr>
+                    <td>Rajiv C T Scan Centre</td>
+                    <td>No 57, Near Alsa Mall, Monteith Road Egmore, Chennai - 600008</td>
+                </tr>
+                <tr>
+                    <td>Gokul Laboratories</td>
+                    <td>No 3, Opposite Ayyappan Temple, Kannabiran Koil Street Perambur, Chennai - 600011</td>
+                </tr>
+                <tr>
+                    <td>Precision Diagnostic Medall Co</td>
+                    <td>No 9 C Dr Rangarajan Memorial Hospital Sundaram Medical Foundation, 4th Avenue Shanthi Colony Anna Nagar, Chennai - 600040</td>
+                </tr>
+                <tr>
+                    <td>VRR Scan Centre</td>
+                    <td>No 10, Near Nadigar Sangam, Habibullah Road T Nagar, Chennai - 600017</td>
+                </tr>
+                <tr>
+                    <td>Premier Lab and X Ray</td>
+                    <td>No 963 Crescent Court, Opposite YWCA Hostel, Poonmallae High Road Purasawalkam, Chennai - 600084</td>
+                </tr>
+                <tr>
+                    <td>Premier Diagnostic Centre</td>
+                    <td>New No 442 Old No 747 & 748 K S Hospital, Opposite Maruti Showroom, Poonamallee High Road Kilpauk, Chennai - 600010</td>
+                </tr>
+                <tr>
+                    <td>Hitech Diagnostic Centre</td>
+                    <td>No 220, Near Airtel Office, Triplicane High Road Triplicane, Chennai - 600005</td>
+                </tr>
+                <tr>
+                    <td>Bharat Scans Pvt Ltd</td>
+                    <td>No 197, Opposite New College Near Sathyam Cinemas, Peters Road Royapettah, Chennai - 600014</td>
+                </tr>
+                <tr>
+                    <td>Maha Scans and Laboratories</td>
+                    <td>No 45 MAM Towers, Near Santhosham Chest Hospital, Egmore High Road Anna Nagar, Chennai - 600040</td>
+                </tr>
+                <tr>
+                    <td>Gemini Scans</td>
+                    <td>No 822, Near Vivekananda School, MTH Road Ambattur, Chennai - 600053</td>
+                </tr>
+                <tr>
+                    <td>Ess Vee Hospital</td>
+                    <td>No 506, Mth Road, Near Rakki Cinema Hall Cholambedu Ambattur, Chennai - 600053</td>
+                </tr>
+                <tr>
+                    <td>Dr Rabindrans Health Care Centre Pvt Ltd</td>
+                    <td>No 212, Mth Road, Secretariat Colony Near Ambattur Ot Bus Stop Ambattur, Chennai - 600053</td>
+                </tr>
+                <tr>
+                    <td>Anderson Diagnostics and Labs</td>
+                    <td>No 150, Poonamallee High Road, Opposite Dasaprakash Hotel Purasawalkam, Chennai - 600084</td>
+                </tr>
+                <tr>
+                    <td>Aarthi Scans (Ashok Nagar)</td>
+                    <td>No 60, 100 Feet Road, Opposite Srm University Admin Office Ashok Nagar, Chennai - 600026</td>
+                </tr>
+                <tr>
+                    <td>R P Tech Diagnostics Centre</td>
+                    <td>No 117, Kanigapuram 2nd Street, Near Sivan Park KK Nagar, Chennai - 600078</td>
+                </tr>
+                <tr>
+                    <td>ACEER Hospital</td>
+                    <td>Shastri Nagar, Kolathur Laxmipuram, Chennai - 600099</td>
+                </tr>
+                <tr>
+                    <td>Mehta Hospital</td>
+                    <td>No.2, McNichols Road, 3rd Lane Egmore, Chennai - 600031</td>
+                </tr>
+                <tr>
+                    <td>Chennai Diagnostic Center</td>
+                    <td>No. 70, Pulianthope High Road, Pulianthope Washermanpet, Chennai - 600012</td>
+                </tr>
+                <tr>
+                    <td>Dhamo Medical and Research Laboratories</td>
+                    <td>5th Cross St, Balaji Nagar, Ekkatuthangal Ramapuram, Chennai - 600032</td>
+                </tr>
+                <tr>
+                    <td>Phoenix Diagnostic Center</td>
+                    <td>No 74, Church Road, Behind Cts, Perungudi Anna Nagar, Chennai - 600096</td>
+                </tr>
+                <tr>
+                    <td>Sarath Diagnostic Centre</td>
+                    <td>New No 60 G1, Subhashri Appartments, 7th Avenue, Opposite Hotel Sangamam Ashok Nagar, Chennai - 600083</td>
+                </tr>
+                <tr>
+                    <td>K V T Clinical Lab</td>
+                    <td>Old No 637, New No 490, T H Road, Near Apollo Washermanpet, Chennai - 600081</td>
+                </tr>
+                <tr>
+                    <td>Sri Sai Labs</td>
+                    <td>No 11, Near Sai Baba Temple, Dr Nanjunrrao Colony Mylapore, Chennai - 600004</td>
+                </tr>
+                <tr>
+                    <td>Porur Medical Lab</td>
+                    <td>No:5/100, Lakshmi nagar, 1st main road, Opposite to Water Tank Laxmipuram, Chennai - 600116</td>
+                </tr>
+                <tr>
+                    <td>Stannis Real Diagnostics</td>
+                    <td>No 4/5, Mount Poonamallee Road, Near Bus Stop Laxmipuram, Chennai - 600116</td>
+                </tr>
+                <tr>
+                    <td>Aishwarya Clinical Laboratory</td>
+                    <td>No 149 Nelson Plaza Basement, Nelson Manickam Road, Opposite Bank of Baroda, Choolaimedu Azad Nagar, Chennai - 600094</td>
+                </tr>
+                <tr>
+                    <td>Bio Care Diagnostic Centre</td>
+                    <td>No 47c 1st Floor, Velachery Main Road, Near Velachery Police Station</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        <div class="footer-container" id="footer-container">
+            <div class="footer-section branding">
+                <div class="logo">Integrated Services Scheme</div> <br>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a> &nbsp;
+                    <a href="https://www.google.com/search"><i class="fab fa-google"></i></a>&nbsp;
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="passport.html">Passport </a></li>
+                    <li><a href="pensiondetail.html">Pension schemes</a></li>
+                    <li><a href="ration.html">VoterID</a></li>
+                    <li><a href="Finance.html">Bank Interest-Calculator</a></li>
+                    <li><a href="HealthInsurance.html">Health Insurance</a></li>
+                    <li><a href="BuyOrSell.html">Sales Dealership</a></li>
+                    <li><a href="OnspotServiceCenter.html">Onspot Service Centers</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">Website Policies</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Visitors</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Get In Touch</h4>
+                <address>
+                    Rajalakshimi Institue of Technology<br>
+                    <a href="Ph:72002 20849">+91 72002 20849</a>
+                    <a href="Ph:87784 39525">+91 87784 39525</a>
+                    <a href="Ph:95978 09593">+91 95978 09593</a>
+                    <a href="Ph:90431 44325">+91 90431 44323</a>
+                    <a href="Ph:63826 06757">+91 63826 06757</a> 
+                    <a href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
+                    <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"></a>badri.p.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"></a>marishwaran.a.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"></a>bavadharini.s.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"></a>jinapriya.s.2022.cce@ritchennai.edu.in</a>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 Government Services. All Rights Reserved.
+        </div>
+    </footer>
+
+
+    <!-- FontAwesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <!-- FontAwesome for icons -->
+    
+    
+    <!-- JavaScript for Slideshow -->
+   
+</body>
+</html>

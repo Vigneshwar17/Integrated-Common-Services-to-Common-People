@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="TN logo.png">
+    <title>Service Centre</title>
+    <style>
+        body {
+            background: #dbd2d2;  
+            font-family: Arial, sans-serif;
+            /*display: flex; 
+            justify-content: center;
+            align-items: center;  */ 
+            height: 100vh;
+            margin-left: 50px;
+            margin-right: 50px;
+            color: #0b0a0a;
+            overflow-x: hidden;
+        }
+
+        .table-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 93%;
+            max-width: 1200px;
+            
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background: #1a57da;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        tbody tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background:#6b7272;
+            color: #ffffff; 
+            transition: 1s;
+            transform: translateY(-10px);
+        
+        }
+
+        caption {
+            color: #444543;
+            font-size: 2.5em;
+            margin: 10px 0;
+        }
+
+        #LAND {
+            margin-left: 0;
+        }
+
+        #AADHAR {
+            margin-left: 0;
+            /* margin-top:1000px; */
+        }
+        .datetime {
+    font-size: 0.9em;
+    color: #ffffff;
+    margin-left: 160px;
+}
+/* Add any other necessary theme styles here */
+/* Navbar container */
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #0b3c5d;
+    padding: 0px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 107%;
+    height: 15%;
+    margin-left:-50px;
+    margin-top: -10px;
+}
+
+/* Logo styling */
+.logo img {
+    height: 50px;
+    margin-right: 240px; /* Push the logo to the left */
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* Dropdown button styling */
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Arial', sans-serif; /* Change to a professional font */
+}
+
+/* Hover effect for dropdown button */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+/* Dropdown content styling */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #C2CFD7;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px; /* Rounded corners */
+    overflow: hidden; /* Ensure rounded corners are respected */
+    opacity: 0; /* Initially hidden */
+    transition: 5s ease-in-out; /* Fade effect */
+}
+
+/* Dropdown link styling */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Arial', sans-serif; /* Match the font of dropdown button */
+}
+
+/* Hover effect for dropdown links */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #0056b3;
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1; /* Fully visible */
+}
+
+footer {
+    background-color: #4199A7; /* Blue background */
+    color: white;
+    font-family: Arial, sans-serif;
+    margin-left: -49px;
+    width:109%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+    
+
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #fff;
+    border-bottom: 1px solid #fff; /* Adding a bottom border for section titles */
+    padding-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #f0f0f0; /* Lighter shade on hover */
+}
+
+.footer-section.contact {
+    /* Adding specific styles for the contact section */
+}
+
+.footer-section.contact address {
+    font-style: normal;
+    color: #ddd;
+}
+
+.footer-section.contact address a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section.contact address a:hover {
+    color: #fff;
+}
+
+
+.footer-section .contact address {
+    font-style: normal;
+    line-height: 1.6;
+}
+
+.footer-section .contact a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section .contact a:hover {
+    text-decoration: underline;
+}
+
+.footer-section .branding .logo {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.footer-section .social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-section .social-icons a {
+    color: white;
+    font-size: 1.2em;
+}
+
+.footer-bottom {
+    background-color: #000;
+    color: white;
+    text-align:center;
+    padding: 10px 0;
+    position:aboslute;
+    
+}
+
+.footer-bottom a {
+    color: #0ff;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="TN logo.png" alt="Government Logo">
+        </div>
+        
+        <div class="dropdown">
+            <a href="home.html"><button class="dropbtn">Home</button></a>
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropbtn">Govt.Service</button>
+            <div class="dropdown-content">
+                <a href="AadharandLand.html">Aadhar and Land Service</a>
+                <a href="GovernmentScheme.html">Government Schemes</a>
+                <a href="passport.html">Passport Service</a>
+                <a href="pensiondetail.html">Pensioner Service</a>
+                <a href="ration.html">Ration and VoterID Service</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Finance</button>
+            <div class="dropdown-content">
+                <a href="Finance.html">Interest Calculator</a>
+                <a href="financeapi.html">Tax-Saving Recommender</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">HealthService(Chennai)</button>
+            <div class="dropdown-content">
+                <a href="Hospitals.html">Hospitals</a>
+                <a href="DiagnosticCenters.html">Diagnostic Centre</a>
+                <a href="ElderandNurseCare.html">Nurse Care Details</a>
+                <a href="Emergency.html">Emergency Centres</a>
+                <a href="HealthInsurance.html">Health Insurance</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Transport(Chennai)</button>
+            <div class="dropdown-content">
+                <a href="BusRoutes.html">List Of Buses</a>
+                <a href="BuyOrSell.html">Second Hand Vehicle</a>
+                <a href="CostComparison.html">Cost Comparison</a>
+                <a href="NearestServiceCenters.html">Service Centre</a>
+                <a href="OnspotServiceCenter.html">Onspot Service Center</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <a href="#footer-container"><button class="dropbtn">About</button></a>
+        </div>
+        <!-- <div class="dropdown">
+            <button class="dropbtn">Login</button>
+        </div> -->
+        <div class="datetime" id="datetime"></div>
+        <script>
+            function updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    year: 'numeric', 
+                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
+                    day: '2-digit' 
+                };
+                const date = now.toLocaleDateString(undefined, options);
+                const time = now.toLocaleTimeString();
+                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
+            }
+        
+            setInterval(updateDateTime, 1000);
+            updateDateTime(); // Initial call to display date/time immediately
+        </script>
+        
+        
+    </div>
+    <h1>Vehicle Service Centers</h1>
+
+    <table class="service-centers-table">
+        <caption>Chennai</caption>
+        <thead>
+            <tr>
+                <th>Sl.No</th>
+                <th>Workshop Name</th>
+                <th>Address</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>K S R Motors</td>
+                <td>Plot No 13, Lakshmi Nagar, Nedunkundram, Vandalur Post, Chennai</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Murugan Automobiles</td>
+                <td>Plot No 23, Kuberan Nagar, Extension Ram, Nagar, 8th Main Road, Maddipakkam, Chennai - 91</td>
+                <td>Upholstery</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Kanagavel Motors</td>
+                <td>1, Parthasarathi Street, Triplicane, Chennai - 5</td>
+                <td>Minor</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>K S R Motors</td>
+                <td>Plot No 13, Lakshmi Nagar, Nedunkundram, Vandalur Post, Chennai - 48</td>
+                <td>Minor</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Kanagavel Motors</td>
+                <td>1, Parthasarathi Street, Triplicane, Chennai - 5</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Chevro Fabrication Works</td>
+                <td>No 1, Near Royal Club, Mel Ayyanambakkam, Koladi Road, Chennai - 600095</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Murugan Automobiles</td>
+                <td>Plot No.23, Kuberan Nagar, Extension Ram Nagar, 8th Main Road, Maddipakkam, Chennai - 91</td>
+                <td>Electrical</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Jayasakthi Body Works</td>
+                <td>No.1/1A, Thandurai Main Road, Banavedu Thottam, Poonamallee, Chennai - 600056</td>
+                <td>Major</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Oshin Auto Electrical A/C Work</td>
+                <td>No 2, Othavadi Street, Koyambedu, Chennai - 107</td>
+                <td>Electrical</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>KRG Motors</td>
+                <td>No 6, Sri Senthil Velaven Nagar, Redhills, Sothpakkam, Chennai - 52</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Umamaheshwari Auto Garage</td>
+                <td>No.33, Venkatanarayana Road, Shopping Complex, Nandanam, Chennai - 35</td>
+                <td>Body</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="service-centers-table">
+        <caption>Cuddalore</caption>
+        <thead>
+            <tr>
+                <th>Sl.No</th>
+                <th>Workshop Name</th>
+                <th>Address</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>12</td>
+                <td>OM Sakthi Engineering Works</td>
+                <td>D.S.N Nagar, Nellikuppam Main Road, Cuddalore</td>
+                <td>Minor</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Sri Sai Motors</td>
+                <td>No 65, Neyveli Main Road, Panruti, Cuddalore - 607106</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Goodwill Motor Works</td>
+                <td>No 25, Kamarajar Salai, Manjakuppam, Cuddalore - 607001</td>
+                <td>Major</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Sri Sakthi Motors</td>
+                <td>No 10, Thirupathiripuliyur, Cuddalore - 607002</td>
+                <td>Electrical</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Sri Ganesh Automobiles</td>
+                <td>No 3, Tirupapuliyur, Cuddalore - 607002</td>
+                <td>Minor</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>OM Murugan Motors</td>
+                <td>No 45, Nellikuppam Road, Cuddalore - 607003</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Sri Sakthi Motor Works</td>
+                <td>No 30, Nellikuppam Road, Cuddalore - 607004</td>
+                <td>Major</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Vijay Motors</td>
+                <td>No 50, Kamarajar Salai, Manjakuppam, Cuddalore - 607005</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>Sri Sai Auto Works</td>
+                <td>No 35, Neyveli Main Road, Panruti, Cuddalore - 607106</td>
+                <td>Electrical</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="service-centers-table">
+        <caption>Dharmapuri</caption>
+        <thead>
+            <tr>
+                <th>Sl.No</th>
+                <th>Workshop Name</th>
+                <th>Address</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>21</td>
+                <td>Sri Vaari Motors</td>
+                <td>No 15, Kaveri Nagar, Dharmapuri</td>
+                <td>Minor</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>Maruti Motors</td>
+                <td>No 25, Salem Main Road, Dharmapuri - 636701</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Sri Sakthi Motors</td>
+                <td>No 10, Gandhi Nagar, Dharmapuri - 636705</td>
+                <td>Electrical</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>Raja Automobiles</td>
+                <td>No 8, Salem Main Road, Dharmapuri - 636701</td>
+                <td>Major</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>Maruthi Motors</td>
+                <td>No 2, Dharmapuri Main Road, Denkanikottai</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>Sri Balaji Motors</td>
+                <td>No 4, Sathyamangalam, Dharmapuri</td>
+                <td>Electrical</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>Prabhu Auto Works</td>
+                <td>No 6, Saravanan Nagar, Dharmapuri</td>
+                <td>Minor</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>Vijay Motors</td>
+                <td>No 12, Maruthi Nagar, Dharmapuri</td>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>Raja Auto Garage</td>
+                <td>No 9, Denkanikottai Main Road, Dharmapuri</td>
+                <td>Major</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>Universal Auto Works</td>
+                <td>No 1, Salem Main Road, Dharmapuri - 636701</td>
+                <td>Body</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <footer>
+        <div class="footer-container" id="footer-container">
+            <div class="footer-section branding">
+                <div class="logo">Integrated Services Scheme</div> <br>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a> &nbsp;
+                    <a href="https://www.google.com/search"><i class="fab fa-google"></i></a>&nbsp;
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="passport.html">Passport </a></li>
+                    <li><a href="pensiondetail.html">Pension schemes</a></li>
+                    <li><a href="ration.html">VoterID</a></li>
+                    <li><a href="Finance.html">Bank Interest-Calculator</a></li>
+                    <li><a href="HealthInsurance.html">Health Insurance</a></li>
+                    <li><a href="BuyOrSell.html">Sales Dealership</a></li>
+                    <li><a href="OnspotServiceCenter.html">Onspot Service Centers</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">Website Policies</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Visitors</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Get In Touch</h4>
+                <address>
+                    Rajalakshimi Institue of Technology<br>
+                    <a href="Ph:72002 20849">+91 72002 20849</a>
+                    <a href="Ph:87784 39525">+91 87784 39525</a>
+                    <a href="Ph:95978 09593">+91 95978 09593</a>
+                    <a href="Ph:90431 44325">+91 90431 44323</a>
+                    <a href="Ph:63826 06757">+91 63826 06757</a> 
+                    <a href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
+                    <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"></a>badri.p.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"></a>marishwaran.a.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"></a>bavadharini.s.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"></a>jinapriya.s.2022.cce@ritchennai.edu.in</a>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 Government Services. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- FontAwesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <!-- FontAwesome for icons -->
+    
+    
+    <!-- JavaScript for Slideshow -->
+   
+</body>
+</html>

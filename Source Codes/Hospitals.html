@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="TN logo.png">
+    <title>Hospitals</title>
+    <style>
+        body {
+            background:#dbd2d2;  
+            font-family: Arial, sans-serif;
+            /*display: flex; 
+            justify-content: center;
+            align-items: center;  */ 
+            height: 100vh;
+            margin-left: 50px;
+            color: #0d0d0d;
+            overflow-x: hidden;
+        }
+
+        .table-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 93%;
+            max-width: 1200px;
+            
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background: #1a57da;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        tbody tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background:#6b7272;
+            color: #ffffff; 
+            transition: 1s;
+            transform: translateY(-10px);
+        
+        }
+
+        caption {
+            color: #444543;
+            font-size: 2.5em;
+            margin: 10px 0;
+        }
+
+        #LAND {
+            margin-left: 0;
+        }
+
+        #AADHAR {
+            margin-left: 0;
+            /* margin-top:1000px; */
+        }
+        .datetime {
+    font-size: 0.9em;
+    color: #ffffff;
+    margin-left: 160px;
+}
+/* Add any other necessary theme styles here */
+/* Navbar container */
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #0b3c5d;
+    padding: 0px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 107%;
+    height: 15%;
+    margin-left:-50px;
+    margin-top: -10px;
+}
+
+/* Logo styling */
+.logo img {
+    height: 50px;
+    margin-right: 240px; /* Push the logo to the left */
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* Dropdown button styling */
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Arial', sans-serif; /* Change to a professional font */
+}
+
+/* Hover effect for dropdown button */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+/* Dropdown content styling */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #C2CFD7;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px; /* Rounded corners */
+    overflow: hidden; /* Ensure rounded corners are respected */
+    opacity: 0; /* Initially hidden */
+    transition: 5s ease-in-out; /* Fade effect */
+}
+
+/* Dropdown link styling */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Arial', sans-serif; /* Match the font of dropdown button */
+}
+
+/* Hover effect for dropdown links */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #0056b3;
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1; /* Fully visible */
+}
+
+footer {
+    background-color: #4199A7; /* Blue background */
+    color: white;
+    font-family: Arial, sans-serif;
+    margin-left: -49px;
+    width:105%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+    
+
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #fff;
+    border-bottom: 1px solid #fff; /* Adding a bottom border for section titles */
+    padding-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #f0f0f0; /* Lighter shade on hover */
+}
+
+.footer-section.contact {
+    /* Adding specific styles for the contact section */
+}
+
+.footer-section.contact address {
+    font-style: normal;
+    color: #ddd;
+}
+
+.footer-section.contact address a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section.contact address a:hover {
+    color: #fff;
+}
+
+
+.footer-section .contact address {
+    font-style: normal;
+    line-height: 1.6;
+}
+
+.footer-section .contact a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section .contact a:hover {
+    text-decoration: underline;
+}
+
+.footer-section .branding .logo {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.footer-section .social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-section .social-icons a {
+    color: white;
+    font-size: 1.2em;
+}
+
+.footer-bottom {
+    background-color: #000;
+    color: white;
+    text-align:center;
+    padding: 10px 0;
+    position:aboslute;
+    
+}
+
+.footer-bottom a {
+    color: #0ff;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+.btn{
+    margin-left: 75px;
+    background-color: #0b3c5d;
+    color: #ffffff;
+    border-radius: 25px;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.buttons{
+    margin-left: 50px;
+}
+.buttons :hover{
+    transform: scale(1.1);
+    
+}
+.container{
+ text-align: center;
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="TN logo.png" alt="Government Logo">
+        </div>
+        
+        <div class="dropdown">
+            <a href="home.html"><button class="dropbtn">Home</button></a>
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropbtn">Govt.Service</button>
+            <div class="dropdown-content">
+                <a href="AadharandLand.html">Aadhar and Land Service</a>
+                <a href="GovernmentScheme.html">Government Schemes</a>
+                <a href="passport.html">Passport Service</a>
+                <a href="pensiondetail.html">Pensioner Service</a>
+                <a href="ration.html">Ration and VoterID Service</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Finance</button>
+            <div class="dropdown-content">
+                <a href="Finance.html">Interest Calculator</a>
+                <a href="financeapi.html">Tax-Saving Recommender</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">HealthService(Chennai)</button>
+            <div class="dropdown-content">
+                <a href="Hospitals.html">Hospitals</a>
+                <a href="DiagnosticCenters.html">Diagnostic Centre</a>
+                <a href="ElderandNurseCare.html">Nurse Care Details</a>
+                <a href="Emergency.html">Emergency Centres</a>
+                <a href="HealthInsurance.html">Health Insurance</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Transport(Chennai)</button>
+            <div class="dropdown-content">
+                <a href="BusRoutes.html">List Of Buses</a>
+                <a href="BuyOrSell.html">Second Hand Vehicle</a>
+                <a href="CostComparison.html">Cost Comparison</a>
+                <a href="NearestServiceCenters.html">Service Centre</a>
+                <a href="OnspotServiceCenter.html">Onspot Service Center</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <a href="#footer-container"><button class="dropbtn">About</button></a>
+        </div>
+        <!-- <div class="dropdown">
+            <button class="dropbtn">Login</button>
+        </div> -->
+        <div class="datetime" id="datetime"></div>
+        <script>
+            function updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    year: 'numeric', 
+                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
+                    day: '2-digit' 
+                };
+                const date = now.toLocaleDateString(undefined, options);
+                const time = now.toLocaleTimeString();
+                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
+            }
+        
+            setInterval(updateDateTime, 1000);
+            updateDateTime(); // Initial call to display date/time immediately
+        </script>
+        
+        
+    </div>
+    <div class="container">
+        <h1>Welcome to the Hospital Services</h1>
+        <p>Select an area from below to learn more.</p>
+    </div> 
+     <br>
+    <div class="buttons">
+        <button class="btn" onclick="showHospitals('alwarpet')">Alwarpet</button>
+        <button class="btn" onclick="showHospitals('annanagar')">Anna Nagar</button>
+        <button class="btn" onclick="showHospitals('tnagar')">T Nagar</button>
+        <button class="btn" onclick="showHospitals('ambattur')">Ambattur</button>
+        <button class="btn" onclick="showHospitals('mylapore')">Mylapore</button>
+        <button class="btn" onclick="showHospitals('kilpauk')">Kilpauk</button>
+    </div>
+    <div id="hospitals-list"></div>
+    
+    <script> 
+        const hospitals = {
+    alwarpet: [
+        {name: "Apollo Spectra Hospital", address: "12, CP Ramaswamy Iyer Rd, Natesan Colony, Alwarpet, Chennai, Tamil Nadu 600018", phone: "084484 40991", rating: "4.5", services: "General Surgery, Orthopedics"},
+        {name: "Kauvery Hospital", address: "81, TTK Road Junction, CIT Colony, Alwarpet, Chennai, Tamil Nadu 600018", phone: "044 4000 6000", rating: "4.7", services: "Cardiology, Neurology"},
+        {name: "Motherhood Hospital", address: "New, 542, TT Krishnamachari Rd, opp. Indian Terrain, Alwarpet, Chennai, Tamil Nadu 600018", phone: "084948 00098", rating: "4.6", services: "Maternity, Pediatrics"},
+        {name: "Apollo Speciality Hospital", address: "Teynampet, 6, Cenotaph Rd, Chennai, Tamil Nadu 600035", phone: "1860 500 1066", rating: "4.8", services: "Cardiology, Neurology"},
+        {name: "Sri Kauvery Medical Care (India) Limited", address: "no. 8A, Murrays Gate Rd, Alwarpet, Chennai, Tamil Nadu 600018", phone: "044 4000 6000", rating: "4.5", services: "Orthopedics, Cardiology"},
+        {name: "Venkataeswara Hospitals", address: "36 - A, Chamiers Rd, Nandanam Extension, Nandanam, Chennai, Tamil Nadu 600035", phone: "044 4511 1111", rating: "4.3", services: "General Surgery, Pediatrics"},
+        {name: "ICARE MULTISPECIALITY CLINIC", address: "no.75, CP Ramaswamy Iyer Rd, SBI Colony, Alwarpet, Chennai, Tamil Nadu 600018", phone: "098410 25050", rating: "4.2", services: "General Medicine, Orthopedics"},
+        {name: "Thaaimai Hospital", address: "New, 35, TT Krishnamachari Rd, opposite to Sankara Hall, Alwarpet, Chennai, Tamil Nadu 600018", phone: "091500 27901", rating: "4.4", services: "Maternity, Pediatrics"},
+        {name: "RIO Hospital", address: "252 A, TT Krishnamachari Rd, near Narada gana Sabha, Alwarpet, Chennai, Tamil Nadu 600018", phone: "081100 59999", rating: "4.3", services: "Orthopedics, General Medicine"},
+        {name: "Be Well Hospital", address: "No.20, Maharaja Surya Rao Rd, Dutch Village, Vannia Teynampet, Venus Colony, Alwarpet, Chennai, Tamil Nadu 600018", phone: "084730 27292", rating: "4.1", services: "General Surgery, Pediatrics"}
+    ],
+    annanagar: [
+        {name: "Dr Kanniraj's Magna Ortho Clinic", address: "9(12), 18th avenue, 80th St, Ashok Nagar, Chennai, Tamil Nadu 600083", phone: "072004 00075", rating: "4.4", services: "Orthopedics"},
+        {name: "Apollo AyurVAID", address: "64, 1st Floor, Vanagaram-Ambattur Rd, Ayanambakkam, Kil Ayanambakkam, Chennai, Tamil Nadu 600095", phone: "072386 09425", rating: "4.3", services: "Ayurveda"},
+        {name: "Apollo Children's Hospitals", address: "15, Shafee Mohammed Rd, Thousand Lights West, Thousand Lights, Chennai, Tamil Nadu 600006", phone: "044 2829 3333", rating: "4.8", services: "Pediatrics"},
+        {name: "Billroth Hospital", address: "43, Lakshmi Talkies Road, Shenoy Nagar, Chennai, Tamil Nadu 600030", phone: "044 2664 2200", rating: "4.5", services: "General Surgery, Cardiology"},
+        {name: "Prime Indian Hospitals", address: "71, Dhanalakshmi St, Brindavan Extension, Arumbakkam, Chennai, Tamil Nadu 600106", phone: "044 2363 1234", rating: "4.6", services: "General Medicine, Orthopedics"},
+        {name: "SIMS Hospital", address: "New No. 282, Old No. 169, Jawaharlal Nehru Salai, 100 Feet Road, Vadapalani, Chennai, Tamil Nadu 600026", phone: "044 2000 2001", rating: "4.7", services: "Multi-Specialty"},
+        {name: "Sundaram Medical Foundation", address: "9, Shanthi Colony, 4th Ave, Anna Nagar, Chennai, Tamil Nadu 600040", phone: "044 2626 0000", rating: "4.8", services: "Multi-Specialty"},
+        {name: "VeeCare Hospital", address: "H4, V.S. Mani Nagar, Iyyappanthangal, Chennai, Tamil Nadu 600056", phone: "044 2679 4300", rating: "4.6", services: "General Surgery, Cardiology"},
+        {name: "Velammal Medical College Hospital & Research Institute", address: "4th Main Rd, P Block, Thiruvallur, Chennai, Tamil Nadu 600077", phone: "044 2653 2345", rating: "4.5", services: "General Medicine, Orthopedics"},
+        {name: "Vijaya Hospital", address: "180, NSK Salai, Vadapalani, Chennai, Tamil Nadu 600026", phone: "044 2488 2596", rating: "4.4", services: "Cardiology, Neurology"}
+    ],
+    tnagar: [
+        {name: "Be Well Hospitals", address: "5A, Vijaya Raghava Rd, Drivers Colony, T Nagar, Chennai, Tamil Nadu 600017", phone: "044 2435 3434", rating: "4.3", services: "General Surgery, Pediatrics"},
+        {name: "Cloudnine Hospital", address: "39, Radhakrishnan Salai, Mylapore, Chennai, Tamil Nadu 600004", phone: "044 4916 4444", rating: "4.8", services: "Maternity, Pediatrics"},
+        {name: "Fortis Malar Hospital", address: "52, First Main Road, Gandhi Nagar, Adyar, Chennai, Tamil Nadu 600020", phone: "044 4289 2222", rating: "4.7", services: "Cardiology, Neurology"},
+        {name: "Madras ENT Research Foundation", address: "1, 1st Cross St, Teynampet, Chennai, Tamil Nadu 600018", phone: "044 2431 4991", rating: "4.6", services: "ENT"},
+        {name: "Nalam Medical Centre", address: "6/15, 1st Main Rd, CIT Nagar West, CIT Nagar, Chennai, Tamil Nadu 600035", phone: "044 2433 8383", rating: "4.5", services: "General Medicine, Orthopedics"},
+        {name: "Noble Hospital", address: "6th Cross St, Lake Area, Nungambakkam, Chennai, Tamil Nadu 600034", phone: "044 2827 0000", rating: "4.4", services: "Cardiology, Neurology"},
+        {name: "PRS Hospital", address: "A9, 2nd Ave, Anna Nagar, Chennai, Tamil Nadu 600040", phone: "044 2621 6666", rating: "4.6", services: "Orthopedics, General Surgery"},
+        {name: "Shens Hospital", address: "45, Arcot Rd, Kodambakkam, Chennai, Tamil Nadu 600024", phone: "044 2372 3737", rating: "4.5", services: "Multi-Specialty"},
+        {name: "The Madras Medical Mission Hospital", address: "4A, Dr. Jayalalitha Nagar, Mogappair, Chennai, Tamil Nadu 600107", phone: "044 2656 6317", rating: "4.8", services: "Cardiology, Neurology"},
+        {name: "Vijaya Health Centre", address: "180, NSK Salai, Vadapalani, Chennai, Tamil Nadu 600026", phone: "044 2480 6420", rating: "4.7", services: "Cardiology, Orthopedics"}
+    ],
+    ambattur: [
+        {name: "Annai Arul Hospital", address: "No 48, CTH Road, Venkatapuram, Ambattur, Chennai, Tamil Nadu 600053", phone: "044 2657 1111", rating: "4.2", services: "General Surgery, Orthopedics"},
+        {name: "Apollo Speciality Hospitals", address: "21, Greams Lane, Off Greams Road, Chennai, Tamil Nadu 600006", phone: "044 2829 3333", rating: "4.8", services: "Cardiology, Neurology"},
+        {name: "Government Peripheral Hospital", address: "No 31, CTH Road, Venkatapuram, Ambattur, Chennai, Tamil Nadu 600053", phone: "044 2657 2333", rating: "4.5", services: "General Medicine, Orthopedics"},
+        {name: "K.J. Hospital", address: "No. 927, Poonamallee High Road, Kilpauk, Chennai, Tamil Nadu 600010", phone: "044 2641 1444", rating: "4.6", services: "General Surgery, Pediatrics"},
+        {name: "Meenakshi Medical College Hospital and Research Institute", address: "No 12, Vembuli Amman Koil St, Kattupakkam, Chennai, Tamil Nadu 600056", phone: "044 2382 2356", rating: "4.3", services: "Cardiology, Orthopedics"},
+        {name: "Rathna Siddha Hospital", address: "No. 99/2, South Sivan Koil St, Vadapalani, Chennai, Tamil Nadu 600026", phone: "044 2483 2293", rating: "4.5", services: "General Medicine, Orthopedics"},
+        {name: "Sri Devi Hospital", address: "No. 1, 1st Cross St, Ponniammanmedu, Madhavaram, Chennai, Tamil Nadu 600060", phone: "044 2552 9552", rating: "4.4", services: "Multi-Specialty"},
+        {name: "St. Isabel's Hospital", address: "49, Oliver Road, Mylapore, Chennai, Tamil Nadu 600004", phone: "044 2464 6960", rating: "4.5", services: "General Surgery, Orthopedics"},
+        {name: "Sugam Hospital", address: "No. 130, TTK Road, Alwarpet, Chennai, Tamil Nadu 600018", phone: "044 2467 0300", rating: "4.6", services: "Multi-Specialty"},
+        {name: "Thyrocare Aarogyam Center", address: "No. 16, V.O.C. St, Kamaraj Nagar, Avadi, Chennai, Tamil Nadu 600054", phone: "044 2655 2000", rating: "4.2", services: "General Medicine, Orthopedics"}
+    ],
+    mylapore: [
+        {name: "Apollo Spectra Hospitals", address: "12, CP Ramaswamy Iyer Rd, Alwarpet, Chennai, Tamil Nadu 600018", phone: "044 2433 1999", rating: "4.5", services: "General Surgery, Orthopedics"},
+        {name: "Be Well Hospital", address: "20, Maharaja Surya Rao Rd, Alwarpet, Chennai, Tamil Nadu 600018", phone: "044 2498 2090", rating: "4.4", services: "General Surgery, Pediatrics"},
+        {name: "Chennai Meenakshi Multispeciality Hospital", address: "148, Luz Church Rd, Mylapore, Chennai, Tamil Nadu 600004", phone: "044 2498 8100", rating: "4.3", services: "General Medicine, Orthopedics"},
+        {name: "CSI Kalyani Multispeciality Hospital", address: "15, Dr. Radhakrishnan Salai, Mylapore, Chennai, Tamil Nadu 600004", phone: "044 2847 5555", rating: "4.4", services: "General Surgery, Pediatrics"},
+        {name: "Dr. Rai Memorial Medical Centre", address: "562, TTK Rd, Alwarpet, Chennai, Tamil Nadu 600018", phone: "044 2431 2820", rating: "4.2", services: "General Medicine, Orthopedics"},
+        {name: "Lifeline Multispeciality Hospital", address: "First Main Road, Kasthuribai Nagar, Adyar, Chennai, Tamil Nadu 600020", phone: "044 2445 5666", rating: "4.5", services: "General Surgery, Pediatrics"},
+        {name: "Malar Hospitals", address: "52, 1st Main Rd, Gandhi Nagar, Adyar, Chennai, Tamil Nadu 600020", phone: "044 2491 3125", rating: "4.6", services: "General Medicine, Orthopedics"},
+        {name: "MIOT International", address: "4/112, Mount Poonamalle High Rd, Manapakkam, Chennai, Tamil Nadu 600089", phone: "044 4200 2288", rating: "4.7", services: "General Surgery, Pediatrics"},
+        {name: "SRM Institute for Medical Science", address: "1, Jawaharlal Nehru Salai, Vadapalani, Chennai, Tamil Nadu 600026", phone: "044 2000 2001", rating: "4.6", services: "Multi-Specialty"},
+        {name: "St. Isabel's Hospital", address: "49, Oliver Rd, Mylapore, Chennai, Tamil Nadu 600004", phone: "044 2499 4840", rating: "4.5", services: "General Surgery, Orthopedics"}
+    ],
+    kilpauk: [
+        {name: "Apollo First Med Hospitals", address: "154, Poonamallee High Rd, Kilpauk, Chennai, Tamil Nadu 600010", phone: "044 2829 3434", rating: "4.7", services: "General Surgery, Pediatrics"},
+        {name: "Billroth Hospitals", address: "43, Lakshmi Talkies Road, Shenoy Nagar, Chennai, Tamil Nadu 600030", phone: "044 2664 2200", rating: "4.6", services: "Cardiology, Neurology"},
+        {name: "K. J. Hospital Research & Postgraduate Centre", address: "927, Poonamallee High Rd, Kilpauk, Chennai, Tamil Nadu 600010", phone: "044 2641 1444", rating: "4.5", services: "General Surgery, Pediatrics"},
+        {name: "Murugan Hospitals", address: "17, Chetpet Main Rd, Chetpet, Chennai, Tamil Nadu 600031", phone: "044 2836 6636", rating: "4.4", services: "General Medicine, Orthopedics"},
+        {name: "Dr. U. Mohan Rao Memorial Hospital", address: "623, Poonamallee High Rd, Kilpauk, Chennai, Tamil Nadu 600010", phone: "044 2641 1444", rating: "4.3", services: "Cardiology, Neurology"},
+        {name: "New Hope Indian Hospital", address: "24, New Hope Indian Hospital, 13th St, Kilpauk Garden Colony, Kilpauk, Chennai, Tamil Nadu 600010", phone: "044 2836 3991", rating: "4.4", services: "General Surgery, Pediatrics"},
+        {name: "Raju Hospital", address: "35, Besant Ave Rd, Adyar, Chennai, Tamil Nadu 600020", phone: "044 2491 4143", rating: "4.2", services: "General Medicine, Orthopedics"},
+        {name: "Right Hospitals", address: "1st Floor, Ananda Bhavan, No. 7 & 8, 8, 9, Valluvarkottam High Rd, Tirumurthy Nagar, Nungambakkam, Chennai, Tamil Nadu 600034", phone: "044 2833 1666", rating: "4.3", services: "General Surgery, Pediatrics"},
+        {name: "Sri Kumaran Health Centre Pvt Ltd", address: "No. 11, East Spur Tank Road, Chetpet, Chennai, Tamil Nadu 600031", phone: "044 2836 6666", rating: "4.4", services: "Cardiology, Neurology"},
+        {name: "VS Hospitals", address: "13, East Spur Tank Rd, Chetpet, Chennai, Tamil Nadu 600031", phone: "044 4200 2000", rating: "4.6", services: "General Surgery, Pediatrics"}
+    ]
+};
+
+function showHospitals(area) {
+    const hospitalsList = document.getElementById('hospitals-list');
+    hospitalsList.innerHTML = '';
+    
+    const areaHospitals = hospitals[area];
+    if (areaHospitals) {
+        areaHospitals.forEach(hospital => {
+            const hospitalDiv = document.createElement('div');
+            hospitalDiv.innerHTML = `
+                <h2>${hospital.name}</h2>
+                <p><strong>Address:</strong> ${hospital.address}</p>
+                <p><strong>Phone:</strong> ${hospital.phone}</p>
+                <p><strong>Rating:</strong> ${hospital.rating}</p>
+                <p><strong>Services:</strong> ${hospital.services}</p>
+                <hr>
+            `;
+            hospitalsList.appendChild(hospitalDiv);
+        });
+    } else {
+        hospitalsList.innerHTML = '<p>No hospitals found in this area.</p>';
+    }
+}
+</script>
+        
+        
+    </div>
+    <footer>
+        <div class="footer-container" id="footer-container">
+            <div class="footer-section branding">
+                <div class="logo">Integrated Services Scheme</div> <br>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a> &nbsp;
+                    <a href="https://www.google.com/search"><i class="fab fa-google"></i></a>&nbsp;
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="passport.html">Passport </a></li>
+                    <li><a href="pensiondetail.html">Pension schemes</a></li>
+                    <li><a href="ration.html">VoterID</a></li>
+                    <li><a href="Finance.html">Bank Interest-Calculator</a></li>
+                    <li><a href="HealthInsurance.html">Health Insurance</a></li>
+                    <li><a href="BuyOrSell.html">Sales Dealership</a></li>
+                    <li><a href="OnspotServiceCenter.html">Onspot Service Centers</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">Website Policies</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Visitors</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Get In Touch</h4>
+                <address>
+                    Rajalakshimi Institue of Technology<br>
+                    <a href="Ph:72002 20849">+91 72002 20849</a>
+                    <a href="Ph:87784 39525">+91 87784 39525</a>
+                    <a href="Ph:95978 09593">+91 95978 09593</a>
+                    <a href="Ph:90431 44325">+91 90431 44323</a>
+                    <a href="Ph:63826 06757">+91 63826 06757</a> 
+                    <a href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
+                    <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"></a>badri.p.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"></a>marishwaran.a.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"></a>bavadharini.s.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"></a>jinapriya.s.2022.cce@ritchennai.edu.in</a>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 Government Services. All Rights Reserved.
+        </div>
+    </footer>
+
+
+    <!-- FontAwesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <!-- FontAwesome for icons -->
+    
+    
+    <!-- JavaScript for Slideshow -->
+   
+</body>
+</html>

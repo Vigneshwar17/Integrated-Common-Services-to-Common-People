@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated Service Webpage</title>
+    <link rel="stylesheet" href="homeSTYLE.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="TN logo.png">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="TN logo.png" alt="Government Logo">
+        </div>
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <div class="dropdown">
+            <button class="dropbtn">Home</button>
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropbtn">Govt.Service</button>
+            <div class="dropdown-content">
+                <a href="AadharandLand.html">Aadhar and Land Service</a>
+                <a href="GovernmentScheme.html">Government Schemes</a>
+                <a href="passport.html">Passport Service</a>
+                <a href="pensiondetail.html">Pensioner Service</a>
+                <a href="ration.html">Ration and VoterID Service</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Finance</button>
+            <div class="dropdown-content">
+                <a href="Finance.html">Interest Calculator</a>
+                <a href="financeapi.html">Tax-Saving Recommender</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Health Service(Chennai)</button>
+            <div class="dropdown-content">
+                <a href="Hospitals.html">Hospitals</a>
+                <a href="DiagnosticCenters.html">Diagnostic Centre</a>
+                <a href="ElderandNurseCare.html">Nurse Care Details</a>
+                <a href="Emergency.html">Emergency Centres</a>
+                <a href="HealthInsurance.html">Health Insurance</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Transport(Chennai)</button>
+            <div class="dropdown-content">
+                <a href="BusRoutes.html">List Of Buses</a>
+                <a href="BuyOrSell.html">Second Hand Vehicle</a>
+                <a href="CostComparison.html">Cost Comparison</a>
+                <a href="NearestServiceCenters.html">Service Centre</a>
+                <a href="OnspotServiceCenter.html">Onspot Service Center</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <a href="#footer-container"><button class="dropbtn">About</button></a>
+        </div>
+        <!-- <div class="dropdown">
+            <button class="dropbtn">Login</button>
+        </div> -->
+        <div class="datetime" id="datetime"></div>
+        <script>
+            function updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    year: 'numeric', 
+                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
+                    day: '2-digit' 
+                };
+                const date = now.toLocaleDateString(undefined, options);
+                const time = now.toLocaleTimeString();
+                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
+            }
+        
+            setInterval(updateDateTime, 1000);
+            updateDateTime(); // Initial call to display date/time immediately
+        </script>
+        
+        
+    </div>
+
+    <div class="container">
+        <h1>Welcome to the Integrated Services</h1>
+        <p>Select a service from the navigation bar above to learn more.</p>
+    </div>    
+
+    <!-- Slideshow Container -->
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="img15.jpg">
+        </div>
+        <div class="mySlides fade">
+            <img src="img5.jpg">
+        </div>
+        <div class="mySlides fade">
+            <img src="img4.jpg">
+        </div>
+        <div class="mySlides fade">
+            <img src="img2.jpg">
+        </div>
+        <div class="mySlides fade">
+            <img src="img3.jpg">
+        </div>
+        <div class="mySlides fade">
+            <img src="img14.webp">
+        </div>
+        
+        <!-- Add more slides as needed -->
+    
+        <!-- Previous and Next buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    
+    <!-- Dots/bullets -->
+     <br>
+     <br>
+    <div style="text-align:center; margin-top: 10px;">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+        <!-- Add more dots as needed -->
+    </div>
+    
+    <script>
+        let slideIndex = 0;
+        showSlides();
+    
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            
+            // Hide all slides
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            
+            // Increment slideIndex and reset if necessary
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            
+            // Hide all dots
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            
+            // Display current slide and dot
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            
+            // Change slide every 2 seconds
+            setTimeout(showSlides, 3000);
+        }
+    
+        function plusSlides(n) {
+            slideIndex += n;
+            showSlides();
+        }
+    
+        function currentSlide(n) {
+            slideIndex = n;
+            showSlides();
+        }
+    </script>
+    <br><br><br><br>
+
+    <div class="marquee-container">
+        <div class="marquee-text">
+            Welcome to our Integrated Service! Check out our latest updates and services below.
+        </div>
+    </div>
+    <div class="container">
+        <h1>Our Services</h1>
+    </div>  
+    <div class="card-container">
+        
+        <div class="card">
+            <img src="img1.jpeg" alt="Aadhar and Land Services">
+            <h3>Aadhar and Land Services</h3>
+            <p>Aadhaar Seva Kendras (ASKs) provide streamlined Aadhaar enrollment and update services. Land Service Providing offices, or Tehsil/Taluk offices, manage land records and facilitate property transactions. They ensure accurate land ownership records, transparency in dealings, and efficient land administration, empowering citizens with secure land tenure and essential land-related services..</p>
+            <a href="AadharandLand.html"><button class="details-button">More Details</button></a>
+            <!-- <div class="card-footer">
+                <div class="footer-icon">
+                    <img src="ghost.jpg" alt="Anganwadi Icon">
+                </div> 
+                <div class="footer-text">
+                    <p>Anganwadi Service</p>
+                    <p>Started in 1975</p>
+                </div>
+            </div> -->
+        </div>
+        <div class="card">
+            <img src="img5.jpg" alt="Government Schemes">
+            <h3>Government Schemes</h3>
+            <p>The Indian government offers diverse schemes to support students, women, and farmers. Educational scholarships empower students, while Beti Bachao Beti Padhao and MUDRA Yojana foster female education and entrepreneurship. Farmers benefit from financial stability and crop insurance through PM-KISAN and Pradhan Mantri Fasal Bima Yojana, ensuring sustainable agricultural development and security.</p>
+            <a href="GovernmentScheme.html"><button class="details-button">More Details</button></a>
+            
+        </div>
+        <div class="card">
+            <img src="img9.jpeg" alt="Finance Service">
+            <h3>Financial Advisor</h3>
+            <p>Explore our Finance Service featuring a Bank Interest Calculator and Finance Suggestion Recommender. Plan your savings with precision using our Bank Interest Calculator, and receive personalized financial advice through our Finance Suggestion Recommender to optimize your financial strategy and achieve your goals efficiently.</p>
+            <a href="financeapi.html"><button class="details-button">More Details</button></a>
+           
+        </div>
+
+        <div class="card">
+            <img src="img10.jpeg" alt="Health Services">
+            <h3>Health Services</h3>
+            <p>Discover comprehensive Hospital Services in Chennai featuring a curated list of top hospitals, emergency care centers, health insurance options, and state-of-the-art diagnostic centers. Whether you need urgent medical attention, reliable health insurance coverage, or advanced diagnostic services, our platform ensures access to trusted healthcare facilities for your peace of mind and well-being.</p>
+            <a href="Hospitals.html"><button class="details-button">More Details</button></a>
+        </div>
+        <div class="card">
+            <img src="img11.jpg" alt="Nursing Details">
+            <h3>Nurse Care Service</h3>
+            <p> Ensuring compassionate care from qualified professionals. We connect you with experienced nurses who provide personalized healthcare in Chennai's top hospitals and home settings. Whether you require post-operative care, elderly assistance, or medical support at home, our dedicated nurses ensure comfort and recovery with expertise and empathy.</p>
+            <a href="ElderandNurseCare.html"><button class="details-button">More Details</button></a>
+            
+        </div>
+        <div class="card">
+            <img src="img12.jpg" alt="Transport">
+            <h3>Transport & Sales Service</h3>
+            <p>Offering detailed information on routes, cost comparisons, and service centers in Chennai. Whether you're commuting locally or planning a journey, our platform provides insights into transportation options, including fares and schedules. Explore efficient routes, service centers for maintenance, and reliable cost comparisons to streamline your travel planning with ease and confidence.</p>
+            <a href="BusRoutes.html"><button class="details-button">More Details</button></a>
+           
+        </div>
+        <!-- Add more cards as needed -->
+    </div>
+<br><br><br>
+<div class="about-us">
+    <div class="text">
+        <h2>About Us</h2>
+        <p>We are committed to provide integrated and accessible services to the community. Our mission is to enhance the quality of life of people well-being through comprehensive support and services in health, finance, transport, and various government schemes. Our dedicated team works tirelessly to ensure that every citizen has access to the resources they need.</p>
+    </div>
+    <div class="image">
+        <img src="img8.jpg" alt="About Us">
+    </div>
+</div>
+
+    <footer>
+        <div class="footer-container" id="footer-container">
+            <div class="footer-section branding">
+                <div class="logo">Integrated Services Scheme</div> <br>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a> &nbsp;
+                    <a href="https://www.google.com/search"><i class="fab fa-google"></i></a>&nbsp;
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="passport.html">Passport </a></li>
+                    <li><a href="pensiondetail.html">Pension schemes</a></li>
+                    <li><a href="ration.html">VoterID</a></li>
+                    <li><a href="Finance.html">Bank Interest-Calculator</a></li>
+                    <li><a href="HealthInsurance.html">Health Insurance</a></li>
+                    <li><a href="BuyOrSell.html">Sales Dealership</a></li>
+                    <li><a href="OnspotServiceCenter.html">Onspot Service Centers</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">Website Policies</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Visitors</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Get In Touch</h4>
+                <address>
+                    Rajalakshimi Institue of Technology<br>
+                    <a href="Ph:72002 20849">+91 72002 20849</a>
+                    <a href="Ph:87784 39525">+91 87784 39525</a>
+                    <a href="Ph:95978 09593">+91 95978 09593</a>
+                    <a href="Ph:90431 44325">+91 90431 44323</a>
+                    <a href="Ph:63826 06757">+91 63826 06757</a> 
+                    <a href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
+                    <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"></a>badri.p.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"></a>marishwaran.a.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"></a>bavadharini.s.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"></a>jinapriya.s.2022.cce@ritchennai.edu.in</a>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 Government Services. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- FontAwesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <!-- FontAwesome for icons -->
+    
+    
+    <!-- JavaScript for Slideshow -->
+   
+</body>
+</html>

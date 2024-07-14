@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="TN logo.png">
+    <title>Government Scheme</title>
+    <style>
+        body {
+            background:#dbd2d2;  
+            font-family: Arial, sans-serif;
+            /*display: flex; 
+            justify-content: center;
+            align-items: center;  */ 
+            height: 100vh;
+            margin-left: 50px;
+            color: #0d0d0d;
+            overflow-x: hidden;
+        }
+
+        .table-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 93%;
+            max-width: 1200px;
+            
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background: #1a57da;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        tbody tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background:#6b7272;
+            color: #ffffff; 
+            transition: 1s;
+            transform: translateY(-10px);
+        
+        }
+
+        caption {
+            color: #444543;
+            font-size: 2.5em;
+            margin: 10px 0;
+        }
+
+        #LAND {
+            margin-left: 0;
+        }
+
+        #AADHAR {
+            margin-left: 0;
+            /* margin-top:1000px; */
+        }
+        .datetime {
+    font-size: 0.9em;
+    color: #ffffff;
+    margin-left: 160px;
+}
+/* Add any other necessary theme styles here */
+/* Navbar container */
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #0b3c5d;
+    padding: 0px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 107%;
+    height: 15%;
+    margin-left:-50px;
+    margin-top: -10px;
+}
+
+/* Logo styling */
+.logo img {
+    height: 50px;
+    margin-right: 240px; /* Push the logo to the left */
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* Dropdown button styling */
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Arial', sans-serif; /* Change to a professional font */
+}
+
+/* Hover effect for dropdown button */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+/* Dropdown content styling */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #C2CFD7;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px; /* Rounded corners */
+    overflow: hidden; /* Ensure rounded corners are respected */
+    opacity: 0; /* Initially hidden */
+    transition: 5s ease-in-out; /* Fade effect */
+}
+
+/* Dropdown link styling */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Arial', sans-serif; /* Match the font of dropdown button */
+}
+
+/* Hover effect for dropdown links */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #0056b3;
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1; /* Fully visible */
+}
+
+footer {
+    background-color: #4199A7; /* Blue background */
+    color: white;
+    font-family: Arial, sans-serif;
+    margin-left: -49px;
+    width:105%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+    
+
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #fff;
+    border-bottom: 1px solid #fff; /* Adding a bottom border for section titles */
+    padding-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #f0f0f0; /* Lighter shade on hover */
+}
+
+.footer-section.contact {
+    /* Adding specific styles for the contact section */
+}
+
+.footer-section.contact address {
+    font-style: normal;
+    color: #ddd;
+}
+
+.footer-section.contact address a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section.contact address a:hover {
+    color: #fff;
+}
+
+
+.footer-section .contact address {
+    font-style: normal;
+    line-height: 1.6;
+}
+
+.footer-section .contact a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section .contact a:hover {
+    text-decoration: underline;
+}
+
+.footer-section .branding .logo {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.footer-section .social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-section .social-icons a {
+    color: white;
+    font-size: 1.2em;
+}
+
+.footer-bottom {
+    background-color: #000;
+    color: white;
+    text-align:center;
+    padding: 10px 0;
+    position:aboslute;
+    
+}
+
+.footer-bottom a {
+    color: #0ff;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="TN logo.png" alt="Government Logo">
+        </div>
+        
+        <div class="dropdown">
+            <a href="home.html"><button class="dropbtn">Home</button></a>
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropbtn">Govt.Service</button>
+            <div class="dropdown-content">
+                <a href="AadharandLand.html">Aadhar and Land Service</a>
+                <a href="GovernmentScheme.html">Government Schemes</a>
+                <a href="passport.html">Passport Service</a>
+                <a href="pensiondetail.html">Pensioner Service</a>
+                <a href="ration.html">Ration and VoterID Service</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Finance</button>
+            <div class="dropdown-content">
+                <a href="Finance.html">Interest Calculator</a>
+                <a href="financeapi.html">Tax-Saving Recommender</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">HealthService(Chennai)</button>
+            <div class="dropdown-content">
+                <a href="Hospitals.html">Hospitals</a>
+                <a href="DiagnosticCenters.html">Diagnostic Centre</a>
+                <a href="ElderandNurseCare.html">Nurse Care Details</a>
+                <a href="Emergency.html">Emergency Centres</a>
+                <a href="HealthInsurance.html">Health Insurance</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Transport(Chennai)</button>
+            <div class="dropdown-content">
+                <a href="BusRoutes.html">List Of Buses</a>
+                <a href="BuyOrSell.html">Second Hand Vehicle</a>
+                <a href="CostComparison.html">Cost Comparison</a>
+                <a href="NearestServiceCenters.html">Service Centre</a>
+                <a href="OnspotServiceCenter.html">Onspot Service Center</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <a href="#footer-container"><button class="dropbtn">About</button></a>
+        </div>
+        <!-- <div class="dropdown">
+            <button class="dropbtn">Login</button>
+        </div> -->
+        <div class="datetime" id="datetime"></div>
+        <script>
+            function updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    year: 'numeric', 
+                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
+                    day: '2-digit' 
+                };
+                const date = now.toLocaleDateString(undefined, options);
+                const time = now.toLocaleTimeString();
+                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
+            }
+        
+            setInterval(updateDateTime, 1000);
+            updateDateTime(); // Initial call to display date/time immediately
+        </script>
+        
+        
+    </div>
+    <div class="table-container">
+        <table>
+            <caption>Students Government Scheme</caption>
+            <thead>
+                <tr>
+                    <th>S.NO</th>
+                    <th>SCHEME</th>
+                    <th>ELIGIBILITY</th>
+                    <th>CONTACT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A.</td>
+                    <td>Awards to Bright Students Scheme</td>
+                    <td>Two boys and two girls in each category i.e., Adi Dravidars, Tribals and Adi Dravidars converted to Christianity who secure highest marks in X standard examination in each district are granted financial assistance for next six years for pursuing higher education. A sum of Rs.1,600/- each for the first year and Rs.2,000/- per annum for the subsequent years is paid.<br>Required documents: Community Certificate and Mark List</td>
+                    <td>Director, Department of Adi Dravidar Welfare.<br>Telephone: 28594780<br>Fax: 28419612</td>
+                </tr>
+                <tr>
+                    <td>B.</td>
+                    <td>Special Incentive Scheme for Girl Students</td>
+                    <td>(a) To reduce drop outs .Girls who are studying in the standards from III to V are given an incentive of Rs.50/- per student for 10 months in a year.<br>(b) For Continuing Secondary Education: Girl students studying in VIth standard are given Rs.100/- per month as an incentive for 10 months in a year and for girls studying in VII and VIII standards are given Rs.150/- per month as incentive for 10 months in a year.<br>The money is deposited in their Mother’s respective Post office savings A/c or in Student’s Bank A/c.<br>Required documents: Community Certificate<br>*For Girl students belonging to Adi Dravidars/ Tribals studying in Government / Government- aided schools.</td>
+                    <td>District Adi Dravidar and Tribal Welfare Officer / Project Officer (Tribal Welfare). through Headmaster of the Schools.</td>
+                </tr>
+                <tr>
+                    <td>C.</td>
+                    <td>Special fees and Examination Fees to the Post Graduate Girl students.</td>
+                    <td>All Scheduled Caste, Scheduled Tribe and Scheduled Caste converts to Christianity students studying in Government / Government aided Arts and Science Colleges are provided with Special Fees and Exam Fees.<br>No income limit<br>All Adi Dravidars, Tribals and Adi Dravidar converted to Christianity Girl students studying in Govt / Govt Aided Arts and Science Colleges.</td>
+                    <td>College Principal/ District Adi Dravidar & Tribal Welfare Officers / Project Officer (Tribal Welfare).</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <table>
+            <caption>Government Scheme for Women</caption>
+            <thead>
+                <tr>
+                    <th>S.NO</th>
+                    <th>SCHEME</th>
+                    <th>ELIGIBILITY</th>
+                    <th>CONTACT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A.</td>
+                    <td>Land Purchase Scheme</td>
+                    <td>The aim of the scheme is to improve the land holding of Adi Dravidars and to enhance the socio-economic status of Adi Dravida women.<br>
+                        • 30% of the Project Cost or Rs.2.25 Lakh whichever is lower will be released as TAHDCO subsidy.<br>
+                        • Exemption of 100% stamp duty in this scheme.<br>
+                        • The subsidy will be Front end subsidy<br>
+                        Required documents:<br>
+                        - Community Certificate<br>
+                        - Income Certificate<br>
+                        - Family ration Card<br>
+                        - Agreement for the proposed land purchase<br>
+                        - Encumbrance Certificate and copy of each of ChittaAdangal.<br>
+                        • The applicant should be woman belonging to SC community.<br>
+                        • The applicant should be in the age group of 18-65.<br>
+                        • The occupation of the applicant should be agriculture.<br>
+                        • The annual family income should not exceed Rs.1.00 Lakh.<br>
+                        • Applicants and their family members should not have availed any subsidy so far.<br>
+                    </td>
+                    <td>Managing Director TAHDCO<br>
+                        31, Cenotaph Road, Teynampet,<br>
+                        Chennai – 18.<br>
+                        Telephone : 044- 26310021<br>
+                        Fax : 24310196
+                    </td>
+                </tr>
+                <tr>
+                    <td>B.</td>
+                    <td>Economic Assistance to Women Self-Help Groups</td>
+                    <td>Tribal women self-help groups which have been credit rated twice can avail loan. The objective of the programme is to assist the tribal women SHGs to engage themselves in income generating activities effectively.<br>
+                        • 50% of the estimated cost of the programme or Rs.3.75 lakh whichever is less is released as subsidy.<br>
+                        Required documents:<br>
+                        - Quotation with TIN No.<br>
+                        - Copy of resolution of the group.<br>
+                        - Project report of the business for which loan is required.<br>
+                        - Certificate in proof of the group having been credit rated twice.<br>
+                        - Copy of bank pass book photos of the promoter and the members of the group.<br>
+                        - SHGs should fill up the application forms properly and submit to the Districts Manager, TAHDCO directly or through the project officer, Tamil Nadu Women’s Development Corporation along with Community Certificate and certificate.<br>
+                        • The group should consist of 12 to 15 members only of the tribal women.<br>
+                        • The group should have been credit rated twice.<br>
+                        • Age limit of the members 18 – 60 years.<br>
+                        • Family annual income of each member of the group should not exceed Rs.1 lakh.<br>
+                        • Family annual income of the promoter of the group may be up to Rs.2 lakh.<br>
+                        • Priority will be given to groups getting revolving fund.
+                    </td>
+                    <td>Managing Director TAHDCO<br>
+                        31, Cenotaph Road, Teynampet,<br>
+                        Chennai – 18.<br>
+                        Telephone : 044-26310021<br>
+                        Fax : 24310196
+                    </td>
+                </tr>
+                <tr>
+                    <td>C.</td>
+                    <td>Providing training for women development</td>
+                    <td>Training such as tailoring, bamboo basket knitting, etc. for Tribal women.<br>
+                        Required documents:<br>
+                        - None specified in detail in the provided information.<br>
+                    </td>
+                    <td>District Adi Dravidar and Tribal Welfare Officer/ Project Officer (TW)</td>
+                </tr>
+                <tr>
+                    <td>D.</td>
+                    <td>Economic Assistance to SHG</td>
+                    <td>Adi Dravidar Women, Men and Transgender Self Help Groups which are graded twice are eligible for Economic Assistance. The aim of the programme is to make the Self Help Groups to implement economic development schemes efficiently.<br>
+                        • 50% of the Project Cost or Rs.2.50 Lakh whichever is lower will be released as TAHDCO subsidy.<br>
+                        • The subsidy will be a Front end subsidy<br>
+                        • The members of the Self Help Group shall belong to SC.<br>
+                        • The Annual family Income of the Self Help Group members should not exceed Rs.2.00 lakh each.<br>
+                        • The Self Help Group should have qualified in the first rating for Revolving Fund.<br>
+                        • The Self Help Group should have qualified in second rating for Economic Assistance.<br>
+                        • The members of Self Help Group and their family members should not have availed any subsidy so far from any other Government scheme for Revolving Fund and Economic Assistance.
+                    </td>
+                    <td>Managing Director TAHDCO<br>
+                        31, Cenotaph Road, Teynampet,<br>
+                        Chennai – 18.<br>
+                        Telephone : 044-26310021<br>
+                        Fax : 24310196
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <table>
+            <caption>Government Scheme for Farmers</caption>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Scheme</th>
+                    <th>ELIGIBILITY</th>
+                    <th>CONTACT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A.</td>
+                    <td>Distribution subsidy for seeds of High yielding varieties (HYV) and Hybrid varieties</td>
+                    <td>HYV – 50% subsidy to a maximum of Rs.15/- per kg<br>
+                        Hybrid – subsidy of Rs.50/- per kg<br>
+                        Required Documents: Integrated Farmers Hand Book or ChittaAdangal<br>
+                        * 33% of the allocation to SF / MF and 30% to Women farmers.<br>
+                        * Assistance limited to 2 hectare per farmer
+                    </td>
+                    <td>Director of Agriculture, Directorate of Agriculture, Chepauk, Chennai-5<br>
+                        Ph. : 28524894<br>
+                        Fax : 28551763
+                    </td>
+                </tr>
+                <tr>
+                    <td>B.</td>
+                    <td>Front line demonstration on Integrated crop management</td>
+                    <td>Subsidy at Rs.7,000/- per Ha [Rs.6,800/- for inputs (liquid bio-fertilizers, bio-control agents, MN mixture, weedicide & Plant protection chemicals) and Rs.200/- for contingency]<br>
+                        Required Documents: Integrated Farmers Hand Book or ChittaAdangal<br>
+                        * All farmers of Cuddalore, Villupuram and Tiruvannamalai district.<br>
+                        * 33% of the allocation to SF / MF and 30% to Women farmers.
+                    </td>
+                    <td>Director of Agriculture, Directorate of Agriculture, Chepauk, Chennai-5<br>
+                        Ph. : 28524894<br>
+                        Fax : 28551763
+                    </td>
+                </tr>
+                <tr>
+                    <td>C.</td>
+                    <td>Demonstration on intercropping with pulses in Sugarcane</td>
+                    <td>Subsidy at Rs.8,000/- per Ha (Rs.7,760/- for inputs & Rs.240/- for contingency)<br>
+                        Required Documents: Integrated Farmers Hand Book or ChittaAdangal<br>
+                        * 33% of the allocation to SF / MF and 30% to Women farmers.
+                    </td>
+                    <td>Director of Agriculture, Directorate of Agriculture, Chepauk, Chennai-5<br>
+                        Ph. : 28524894<br>
+                        Fax : 28551763
+                    </td>
+                </tr>
+                <tr>
+                    <td>D.</td>
+                    <td>Training of farmers</td>
+                    <td>a) Inter-State at Rs.1,250/- per day per farmer (7 days)<br>
+                        b) Within State at Rs.1,000/- per day per farmer (3 days)<br>
+                        c) Within District at Rs.250/- per day per farmer<br>
+                        Required Documents: Integrated Farmers Hand Book or ChittaAdangal<br>
+                        * All farmers including SC, ST & Women farmers.<br>
+                        * Members of Self Help Group, Farmers Interest Group, Commodity Interest Group, Farm Women groups and Farmers organization.<br>
+                        * General – 80%, SC – 19%, ST – 1%
+                    </td>
+                    <td>Director of Agriculture, Directorate of Agriculture, Chepauk, Chennai-5<br>
+                        Ph. : 28524894<br>
+                        Fax : 28551763
+                    </td>
+                </tr>
+                <tr>
+                    <td>E.</td>
+                    <td>Mobilization of different Farmers’ groups including Farmers’ Interest Groups, Commodity Interest Groups and Farmer Co-Operatives</td>
+                    <td>i) Capacity building, Skill development and support service at Rs.5,000/- per Group per year<br>
+                        ii) Seed Money / revolving Fund at Rs.10,000/- per Farmers’ Interest Group/ Commodity Interest Group / Women Food Security Groups<br>
+                        Required Documents: Integrated Farmers Hand Book or ChittaAdangal<br>
+                        * All farmers including SC, ST & Women farmers.<br>
+                        * Members of Self Help Group, Farmers Interest Group, Commodity Interest Group, Farm Women groups and Farmers organization.<br>
+                        * General – 80%, SC – 19%, ST – 1%
+                    </td>
+                    <td>Director of Agriculture, Directorate of Agriculture, Chepauk, Chennai-5<br>
+                        Ph. : 28524894<br>
+                        Fax : 28551763
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        <div class="footer-container" id="footer-container">
+            <div class="footer-section branding">
+                <div class="logo">Integrated Services Scheme</div> <br>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a> &nbsp;
+                    <a href="https://www.google.com/search"><i class="fab fa-google"></i></a>&nbsp;
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="passport.html">Passport </a></li>
+                    <li><a href="pensiondetail.html">Pension schemes</a></li>
+                    <li><a href="ration.html">VoterID</a></li>
+                    <li><a href="Finance.html">Bank Interest-Calculator</a></li>
+                    <li><a href="HealthInsurance.html">Health Insurance</a></li>
+                    <li><a href="BuyOrSell.html">Sales Dealership</a></li>
+                    <li><a href="OnspotServiceCenter.html">Onspot Service Centers</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">Website Policies</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Visitors</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Get In Touch</h4>
+                <address>
+                    Rajalakshimi Institue of Technology<br>
+                    <a href="Ph:72002 20849">+91 72002 20849</a>
+                    <a href="Ph:87784 39525">+91 87784 39525</a>
+                    <a href="Ph:95978 09593">+91 95978 09593</a>
+                    <a href="Ph:90431 44325">+91 90431 44323</a>
+                    <a href="Ph:63826 06757">+91 63826 06757</a> 
+                    <a href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
+                    <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"></a>badri.p.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"></a>marishwaran.a.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"></a>bavadharini.s.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"></a>jinapriya.s.2022.cce@ritchennai.edu.in</a>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 Government Services. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

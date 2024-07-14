@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="TN logo.png">
+    <title>Nurse Care Details</title>
+    <style>
+        body {
+            background:#dbd2d2;  
+            font-family: Arial, sans-serif;
+            /*display: flex; 
+            justify-content: center;
+            align-items: center;  */ 
+            height: 100vh;
+            margin-left: 50px;
+            color: #161616;
+            overflow-x: hidden;
+        }
+
+        .table-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 93%;
+            max-width: 1200px;
+            
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background: #1a57da;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        tbody tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background:#6b7272;
+            color: #ffffff; 
+            transition: 1s;
+            transform: translateY(-10px);
+        
+        }
+
+        caption {
+            color: #444543;
+            font-size: 2.5em;
+            margin: 10px 0;
+        }
+
+        #LAND {
+            margin-left: 0;
+        }
+
+        #AADHAR {
+            margin-left: 0;
+            /* margin-top:1000px; */
+        }
+        .datetime {
+    font-size: 0.9em;
+    color: #ffffff;
+    margin-left: 360px;
+}
+/* Add any other necessary theme styles here */
+/* Navbar container */
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #0b3c5d;
+    padding: 0px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 107%;
+    height: 15%;
+    margin-left:-50px;
+    margin-top: -10px;
+}
+
+/* Logo styling */
+.logo img {
+    height: 60px;
+    margin-right: 280px; /* Push the logo to the left */
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* Dropdown button styling */
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Arial', sans-serif; /* Change to a professional font */
+}
+
+/* Hover effect for dropdown button */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+/* Dropdown content styling */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #C2CFD7;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px; /* Rounded corners */
+    overflow: hidden; /* Ensure rounded corners are respected */
+    opacity: 0; /* Initially hidden */
+    transition: 5s ease-in-out; /* Fade effect */
+}
+
+/* Dropdown link styling */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Arial', sans-serif; /* Match the font of dropdown button */
+}
+
+/* Hover effect for dropdown links */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #0056b3;
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1; /* Fully visible */
+}
+
+footer {
+    background-color: #4199A7; /* Blue background */
+    color: white;
+    font-family: Arial, sans-serif;
+    margin-left: -49px;
+    width:105%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+    
+
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #fff;
+    border-bottom: 1px solid #fff; /* Adding a bottom border for section titles */
+    padding-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #f0f0f0; /* Lighter shade on hover */
+}
+
+.footer-section.contact {
+    /* Adding specific styles for the contact section */
+}
+
+.footer-section.contact address {
+    font-style: normal;
+    color: #ddd;
+}
+
+.footer-section.contact address a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section.contact address a:hover {
+    color: #fff;
+}
+
+
+.footer-section .contact address {
+    font-style: normal;
+    line-height: 1.6;
+}
+
+.footer-section .contact a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section .contact a:hover {
+    text-decoration: underline;
+}
+
+.footer-section .branding .logo {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.footer-section .social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-section .social-icons a {
+    color: white;
+    font-size: 1.2em;
+}
+
+.footer-bottom {
+    background-color: #000;
+    color: white;
+    text-align:center;
+    padding: 10px 0;
+    position:aboslute;
+    
+}
+
+.footer-bottom a {
+    color: #0ff;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="TN logo.png" alt="Government Logo">
+        </div>
+        
+        <div class="dropdown">
+            <a href="home.html"><button class="dropbtn">Home</button></a>
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropbtn">Government Service</button>
+            <div class="dropdown-content">
+                <a href="AadharandLand.html">Aadhar and Land Service</a>
+                <a href="GovernmnetScheme.html">Government Schemes</a>
+                <a href="passport.html">Passport Services</a>
+                <a href="pensiondetail.html">Pensioner Services</a>
+                <a href="ration.html">Ration and Voter Cards Services</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Finance</button>
+            <div class="dropdown-content">
+                <a href="Finance.html">Interest Calculator</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Health</button>
+            <div class="dropdown-content">
+                <a href="Hospitals.html">List Of Hospitals</a>
+                <a href="DiagnosticCenters.html">List of Diagnostic Centre</a>
+                <a href="ElderandNurseCare.html">Elder and Nurse Care Centre</a>
+                <a href="HealthInsurance.html">Health Insurance</a>
+                <a href="Emergency.html">Emergency Centres</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Transport</button>
+            <div class="dropdown-content">
+                <a href="BusRoutes.html">List Of Buses</a>
+                <a href="BuyOrSell.html">Second Hand Vehicle</a>
+                <a href="CostComparison.html">Cost Comparison</a>
+                <a href="NearestServiceCenters.html">Service Centres</a>
+                <a href="OnspotServiceCenter.html">OnspotServiceCenter</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <a href="#footer-container"><button class="dropbtn">About</button></a>
+        </div>
+        <!-- <div class="dropdown">
+            <button class="dropbtn">Login</button>
+        </div> -->
+        <div class="datetime" id="datetime"></div>
+        <script>
+            function updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    year: 'numeric', 
+                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
+                    day: '2-digit' 
+                };
+                const date = now.toLocaleDateString(undefined, options);
+                const time = now.toLocaleTimeString();
+                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
+            }
+        
+            setInterval(updateDateTime, 1000);
+            updateDateTime(); // Initial call to display date/time immediately
+        </script>
+    </div>
+    <div class="table-container">
+        <table class="service-centers-table">
+            <caption>List of Home Nursing Services</caption>
+            <thead>
+                <tr>
+                    <th>Service Centre Name</th>
+                    <th>Rating</th>
+                    <th>Review</th>
+                    <th>Address</th>
+                    <th>Enquiries</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Horton Nursing Services</td>
+                    <td>4.0</td>
+                    <td>97 Ratings</td>
+                    <td>Lakshmi Street Kilpauk</td>
+                    <td>95 Enquiries</td>
+                </tr>
+                <tr>
+                    <td>Blossoms Nursing and Home Care</td>
+                    <td>4.0</td>
+                    <td>116 Ratings</td>
+                    <td>MMDA Colony Arumbakkam</td>
+                    <td>425 Enquiries</td>
+                </tr>
+                <tr>
+                    <td>Skandha Management Services</td>
+                    <td>3.8</td>
+                    <td>219 Ratings</td>
+                    <td>Street Dasarathapuram Saligramam</td>
+                    <td>1246 Enquiries</td>
+                </tr>
+                <tr>
+                    <td>The Complete Health Care</td>
+                    <td>4.5</td>
+                    <td>48 Ratings</td>
+                    <td>Kovil Street Mugalivakkam</td>
+                    <td>195 Enquiries</td>
+                </tr>
+                <tr>
+                    <td>ANNAI HOME CARE & PLACEMENT Pvt. Ltd.</td>
+                    <td>4.3</td>
+                    <td>293 Ratings</td>
+                    <td>High Sec School Kodambakkam</td>
+                    <td>142 Enquiries</td>
+                </tr>
+                <tr>
+                    <td>Shakina Home Health Care Services</td>
+                    <td>4.1</td>
+                    <td>9 Ratings</td>
+                    <td>Bharati Street West Mambalam</td>
+                    <td>42 Enquiries</td>
+                </tr>
+                <tr>
+                    <td>Bethesda Home Health Care</td>
+                    <td>4.7</td>
+                    <td>189 Ratings</td>
+                    <td>5th Main Road Thiruvanmiyur</td>
+                    <td>177 Enquiries</td>
+                </tr>
+                <tr>
+                    <td>Jesus Man Power Service</td>
+                    <td>3.9</td>
+                    <td>43 Ratings</td>
+                    <td>KannammaPettai T Nagar</td>
+                    <td>328 Enquiries</td>
+                </tr>
+                <tr>
+                    <td>Sree Maha Home Care</td>
+                    <td>3.3</td>
+                    <td>47 Ratings</td>
+                    <td>Dhamodharan Street T Nagar</td>
+                    <td>52 Enquiries</td>
+                </tr>
+                <tr>
+                    <td>SUBAM MANPOWER CONSULTANCY</td>
+                    <td>4.6</td>
+                    <td>631 Ratings</td>
+                    <td>Sannathi Street Maduravoyal Chennai</td>
+                    <td>67 Enquiries</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        <div class="footer-container" id="footer-container">
+            <div class="footer-section branding">
+                <div class="logo">Integrated Services Scheme</div> <br>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a> &nbsp;
+                    <a href="https://www.google.com/search"><i class="fab fa-google"></i></a>&nbsp;
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="passport.html">Passport </a></li>
+                    <li><a href="pensiondetail.html">Pension schemes</a></li>
+                    <li><a href="ration.html">VoterID</a></li>
+                    <li><a href="Finance.html">Bank Interest-Calculator</a></li>
+                    <li><a href="HealthInsurance.html">Health Insurance</a></li>
+                    <li><a href="BuyOrSell.html">Sales Dealership</a></li>
+                    <li><a href="OnspotServiceCenter.html">Onspot Service Centers</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">Website Policies</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Visitors</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Get In Touch</h4>
+                <address>
+                    Rajalakshimi Institue of Technology<br>
+                    <a href="Ph:72002 20849">+91 72002 20849</a>
+                    <a href="Ph:87784 39525">+91 87784 39525</a>
+                    <a href="Ph:95978 09593">+91 95978 09593</a>
+                    <a href="Ph:90431 44325">+91 90431 44323</a>
+                    <a href="Ph:63826 06757">+91 63826 06757</a> 
+                    <a href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
+                    <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"></a>badri.p.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"></a>marishwaran.a.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"></a>bavadharini.s.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"></a>jinapriya.s.2022.cce@ritchennai.edu.in</a>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 Government Services. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

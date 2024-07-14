@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="TN logo.png">
+    <title>List of Buses</title>
+    <style>
+         body {
+           background-color:#dbd2d2;
+    
+            font-family: Arial, sans-serif;
+            /*display: flex; 
+            justify-content: center;*/
+            align-items: center; 
+            height: 100vh;
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 0px;
+            
+            overflow-x: hidden;
+        }
+
+        .table-container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 93%;
+            max-width: 1200px;
+            
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background: #1a57da;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+         tbody tr:nth-child(even) {
+            background: #e2e1e1;
+        } 
+
+        tbody tr:hover {
+        background-color: #6b7272;
+    
+            color: #ffffff; 
+            transition: 1s;
+            transform: translateY(-10px);
+        
+        }
+        caption {
+            color: #444543;
+            font-size: 2.5em;
+            margin: 10px 0;
+        }
+        bus-routes-table{
+            background-color: #ffffff;
+        }
+
+
+        #LAND {
+            margin-left: 0;
+        }
+
+        #AADHAR {
+            margin-left: 0;
+            /* margin-top:1000px; */
+        }
+        .datetime {
+    font-size: 0.9em;
+    color: #ffffff;
+    margin-left: 300px;
+    
+}
+/* Add any other necessary theme styles here */
+/* Navbar container */
+.navbar {
+    display: flex;
+    align-items: center;
+    margin-left:-150px ;
+    background-color: #0b3c5d;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    height: 80px;
+    width: 130%;
+}
+
+/* Logo styling */
+.logo img {
+    height: 70px;
+    margin-left: 150px; /* Push the logo to the left */
+    margin-right: 150px;
+    padding: 10px;
+    
+    
+}
+
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* Dropdown button styling */
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Arial', sans-serif; /* Change to a professional font */
+}
+
+/* Hover effect for dropdown button */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+/* Dropdown content styling */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #C2CFD7;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px; /* Rounded corners */
+    overflow: hidden; /* Ensure rounded corners are respected */
+    opacity: 0; /* Initially hidden */
+    transition: 5s ease-in-out; /* Fade effect */
+}
+
+/* Dropdown link styling */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Arial', sans-serif; /* Match the font of dropdown button */
+}
+
+/* Hover effect for dropdown links */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #0056b3;
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1; /* Fully visible */
+}
+
+footer {
+    background-color: #4199A7; /* Blue background */
+    color: white;
+    font-family: Arial, sans-serif;
+    margin-left: -29px;
+    margin-right: 50px;
+    width: 105%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+    
+
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #fff;
+    border-bottom: 1px solid #fff; /* Adding a bottom border for section titles */
+    padding-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #f0f0f0; /* Lighter shade on hover */
+}
+
+.footer-section.contact {
+    /* Adding specific styles for the contact section */
+}
+
+.footer-section.contact address {
+    font-style: normal;
+    color: #ddd;
+}
+
+.footer-section.contact address a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section.contact address a:hover {
+    color: #fff;
+}
+
+
+.footer-section .contact address {
+    font-style: normal;
+    line-height: 1.6;
+}
+
+.footer-section .contact a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section .contact a:hover {
+    text-decoration: underline;
+}
+
+.footer-section .branding .logo {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.footer-section .social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-section .social-icons a {
+    color: white;
+    font-size: 1.2em;
+}
+
+.footer-bottom {
+    background-color: #000;
+    color: white;
+    text-align:center;
+    padding: 10px 0;
+    position:aboslute;
+    
+}
+
+.footer-bottom a {
+    color: #0ff;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="TN logo.png" alt="Government Logo">
+        </div>
+        
+        <div class="dropdown">
+            <a href="home.html"><button class="dropbtn">Home</button></a>
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropbtn">Govt.Service</button>
+            <div class="dropdown-content">
+                <a href="AadharandLand.html">Aadhar and Land Service</a>
+                <a href="GovernmentScheme.html">Government Schemes</a>
+                <a href="passport.html">Passport Service</a>
+                <a href="pensiondetail.html">Pensioner Service</a>
+                <a href="ration.html">Ration and VoterID Service</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Finance</button>
+            <div class="dropdown-content">
+                <a href="Finance.html">Interest Calculator</a>
+                <a href="financeapi.html">Tax-Saving Recommender</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">HealthService(Chennai)</button>
+            <div class="dropdown-content">
+                <a href="Hospitals.html">Hospitals</a>
+                <a href="DiagnosticCenters.html">Diagnostic Centre</a>
+                <a href="ElderandNurseCare.html">Nurse Care Details</a>
+                <a href="Emergency.html">Emergency Centres</a>
+                <a href="HealthInsurance.html">Health Insurance</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <button class="dropbtn">Transport(Chennai)</button>
+            <div class="dropdown-content">
+                <a href="BusRoutes.html">List Of Buses</a>
+                <a href="BuyOrSell.html">Second Hand Vehicle</a>
+                <a href="CostComparison.html">Cost Comparison</a>
+                <a href="NearestServiceCenters.html">Service Centre</a>
+                <a href="OnspotServiceCenter.html">Onspot Service Center</a>
+            </div>
+        </div> 
+        <div class="dropdown">
+            <a href="#footer-container"><button class="dropbtn">About</button></a>
+        </div>
+        <!-- <div class="dropdown">
+            <button class="dropbtn">Login</button>
+        </div> -->
+        <div class="datetime" id="datetime"></div>
+        <script>
+            function updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    year: 'numeric', 
+                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
+                    day: '2-digit' 
+                };
+                const date = now.toLocaleDateString(undefined, options);
+                const time = now.toLocaleTimeString();
+                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
+            }
+        
+            setInterval(updateDateTime, 1000);
+            updateDateTime(); // Initial call to display date/time immediately
+        </script>
+        
+        
+    </div>
+    <table class="bus-routes-table">
+    <caption>List of MTC Buses with Routes and Timings</caption>
+    <thead>
+        <tr>
+            <th>Bus Number</th>
+            <th>Starting Point</th>
+            <th>Ending Point</th>
+            <th>Route</th>
+            <th>Timing</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Thiruvottiyur</td>
+            <td>Thiruvanmiyur</td>
+            <td>Adyar, Mylapore, Royapettah, Parry's Corner, Kalmandapam, Tollgate, Rajakadai, Theradi</td>
+            <td>05:30 AM - 10:30 PM</td>
+        </tr>
+        <tr>
+            <td>101</td>
+            <td>Thiruvottiyur</td>
+            <td>Poonamallee</td>
+            <td>Tollgate, Central, KMC, Mathuravoyal, Karayanchavadi</td>
+            <td>06:00 AM - 11:00 PM</td>
+        </tr>
+        <tr>
+            <td>10A</td>
+            <td>Tollgate</td>
+            <td>Saidapet West</td>
+            <td>Kalmandapam, Parrys, Central R.S, Egmore R.S, Maternity Hospital, DPI, Sterling road, Valluvar Kottam, Panagal park, T.Nagar, Srinivasa Theater, Mettupalayam</td>
+            <td>06:15 AM - 10:15 PM</td>
+        </tr>
+        <tr>
+            <td>102</td>
+            <td>Broadway</td>
+            <td>Vandalur</td>
+            <td>Central, Egmore, Ashok Pillar, Guindy, Chrompet, Tambaram</td>
+            <td>05:45 AM - 10:45 PM</td>
+        </tr>
+        <tr>
+            <td>12B</td>
+            <td>Broadway</td>
+            <td>Mylapore</td>
+            <td>High Court, Parrys, Chepauk, Lighthouse</td>
+            <td>06:30 AM - 11:30 PM</td>
+        </tr>
+        <tr>
+            <td>21G</td>
+            <td>Vandalur</td>
+            <td>Broadway</td>
+            <td>Tambaram, Chrompet, Guindy, Ashok Pillar, Egmore, Central</td>
+            <td>05:00 AM - 11:00 PM</td>
+        </tr>
+        <tr>
+            <td>22</td>
+            <td>Ayanavaram</td>
+            <td>Besant Nagar</td>
+            <td>Medavakkam Tank Road, Kilpauk, Egmore, Teynampet, Adyar</td>
+            <td>06:00 AM - 10:00 PM</td>
+        </tr>
+        <tr>
+            <td>25A</td>
+            <td>Poonamallee</td>
+            <td>Anna Square</td>
+            <td>Maduravoyal, Koyambedu, MMDA, Ampa Skywalk, Egmore</td>
+            <td>05:30 AM - 10:30 PM</td>
+        </tr>
+        <tr>
+            <td>29C</td>
+            <td>Perambur</td>
+            <td>Thiruvanmiyur</td>
+            <td>Vepery, Egmore, Thousand Lights, Anna Salai, Gemini, Saidapet, Guindy</td>
+            <td>06:15 AM - 11:15 PM</td>
+        </tr>
+        <tr>
+            <td>41D</td>
+            <td>Thiruvanmiyur</td>
+            <td>Thiruvottiyur</td>
+            <td>Adyar, Mylapore, Royapettah, Parry's Corner, Kalmandapam</td>
+            <td>05:00 AM - 10:00 PM</td>
+        </tr>
+        <tr>
+            <td>52</td>
+            <td>Anna Square</td>
+            <td>Ambattur OT</td>
+            <td>Parrys, Mint, Otteri, Padi, Korattur</td>
+            <td>06:30 AM - 11:30 PM</td>
+        </tr>
+        <tr>
+            <td>54D</td>
+            <td>Koyambedu</td>
+            <td>Tambaram</td>
+            <td>Guindy, Pallavaram, Chrompet</td>
+            <td>05:45 AM - 10:45 PM</td>
+        </tr>
+        <tr>
+            <td>56</td>
+            <td>Redhills</td>
+            <td>CMBT</td>
+            <td>Madhavaram, Retteri, Puzhal</td>
+            <td>06:00 AM - 11:00 PM</td>
+        </tr>
+        <tr>
+            <td>57F</td>
+            <td>Ambattur OT</td>
+            <td>Guindy</td>
+            <td>Korattur, Padi, Anna Nagar West, Vadapalani</td>
+            <td>06:15 AM - 11:15 PM</td>
+        </tr>
+        <tr>
+            <td>70</td>
+            <td>Perambur</td>
+            <td>Tambaram</td>
+            <td>Ayanavaram, Egmore, Anna Salai, Guindy, Pallavaram</td>
+            <td>05:00 AM - 10:00 PM</td>
+        </tr>
+        <tr>
+            <td>71D</td>
+            <td>Ambattur OT</td>
+            <td>Thiruvanmiyur</td>
+            <td>Korattur, Anna Nagar West, CMBT, Vadapalani, Ashok Pillar, Guindy</td>
+            <td>06:30 AM - 11:30 PM</td>
+        </tr>
+        <tr>
+            <td>79</td>
+            <td>High Court</td>
+            <td>Ambattur OT</td>
+            <td>Central, Egmore, Kilpauk, Anna Nagar East, Mogappair</td>
+            <td>05:45 AM - 10:45 PM</td>
+        </tr>
+        <tr>
+            <td>80</td>
+            <td>Ambattur Estate</td>
+            <td>Broadway</td>
+            <td>Redhills, Madhavaram, Padi, Villivakkam</td>
+            <td>06:00 AM - 11:00 PM</td>
+        </tr>
+        <tr>
+            <td>88C</td>
+            <td>Tambaram</td>
+            <td>Parrys</td>
+            <td>Chrompet, Pallavaram, Guindy, Saidapet, Anna Salai</td>
+            <td>06:15 AM - 11:15 PM</td>
+        </tr>
+        <tr>
+            <td>90</td>
+            <td>Kundrathur</td>
+            <td>Broadway</td>
+            <td>Porur, Valasaravakkam, Vadapalani, Koyambedu</td>
+            <td>05:00 AM - 10:00 PM</td>
+        </tr>
+        <tr>
+            <td>91</td>
+            <td>Porur</td>
+            <td>Poonamallee</td>
+            <td>Ramapuram, Alwarthirunagar, Valasaravakkam</td>
+            <td>06:00 AM - 11:00 PM</td>
+        </tr>
+        <tr>
+            <td>102A</td>
+            <td>Thiruvanmiyur</td>
+            <td>Tambaram</td>
+            <td>Adyar, Madhya Kailash, Guindy, Chrompet</td>
+            <td>05:30 AM - 10:30 PM</td>
+        </tr>
+        <tr>
+            <td>118</td>
+            <td>Kundrathur</td>
+            <td>CMBT</td>
+            <td>Porur, Ramapuram, Alwarthirunagar, Vadapalani</td>
+            <td>06:15 AM - 11:15 PM</td>
+        </tr>
+        <tr>
+            <td>120</td>
+            <td>CMBT</td>
+            <td>Thiruvanmiyur</td>
+            <td>Vadapalani, Ashok Pillar, Saidapet, Adyar</td>
+            <td>05:45 AM - 10:45 PM</td>
+        </tr>
+        <tr>
+            <td>159</td>
+            <td>Koyambedu</td>
+            <td>Tambaram</td>
+            <td>Guindy, Pallavaram, Chrompet</td>
+            <td>06:00 AM - 11:00 PM</td>
+        </tr>
+        <tr>
+            <td>219</td>
+            <td>Velachery</td>
+            <td>Avadi</td>
+            <td>Guindy, Vadapalani, Ambattur</td>
+            <td>06:30 AM - 11:30 PM</td>
+        </tr>
+        <tr>
+            <td>257</td>
+            <td>Poonamallee</td>
+            <td>Thiruvottiyur</td>
+            <td>Porur, Vadapalani, CMBT, Perambur</td>
+            <td>05:45 AM - 10:45 PM</td>
+        </tr>
+        <tr>
+            <td>270</td>
+            <td>Kundrathur</td>
+            <td>Tambaram</td>
+            <td>Porur, Ramapuram, Guindy</td>
+            <td>06:00 AM - 11:00 PM</td>
+        </tr>
+        <tr>
+            <td>500</td>
+            <td>Vandalur</td>
+            <td>CMBT</td>
+            <td>Tambaram, Chrompet, Guindy</td>
+            <td>05:30 AM - 10:30 PM</td>
+        </tr>
+        <tr>
+            <td>570</td>
+            <td>Kelambakkam</td>
+            <td>CMBT</td>
+            <td>Siruseri, Sholinganallur, Thoraipakkam, Madhya Kailash, Saidapet</td>
+            <td>06:15 AM - 11:15 PM</td>
+        </tr>
+        <tr>
+            <td>600</td>
+            <td>Thiruvanmiyur</td>
+            <td>Broadway</td>
+            <td>Adyar, Kotturpuram, Anna University, Guindy, Saidapet, Parry's</td>
+            <td>06:00 AM - 10:00 PM</td>
+        </tr>
+        <tr>
+            <td>700</td>
+            <td>Thiruvottiyur</td>
+            <td>Tambaram</td>
+            <td>Parry's Corner, Mount Road, Guindy, Chrompet</td>
+            <td>05:45 AM - 10:45 PM</td>
+        </tr>
+        <tr>
+            <td>900</td>
+            <td>Vandalur</td>
+            <td>CMBT</td>
+            <td>Tambaram, Guindy, Ashok Pillar</td>
+            <td>05:30 AM - 10:30 PM</td>
+        </tr>
+        <tr>
+            <td>1020</td>
+            <td>Thiruvottiyur</td>
+            <td>Poonamallee</td>
+            <td>Tollgate, Central, KMC, Mathuravoyal, Karayanchavadi</td>
+            <td>06:00 AM - 11:00 PM</td>
+        </tr>
+        <tr>
+            <td>2000</td>
+            <td>Broadway</td>
+            <td>Tambaram</td>
+            <td>Central, Egmore, Ashok Pillar, Guindy, Chrompet, Tambaram</td>
+            <td>05:45 AM - 10:45 PM</td>
+        </tr>
+        <tr>
+            <td>2200</td>
+            <td>Kundrathur</td>
+            <td>CMBT</td>
+            <td>Porur, Ramapuram, Alwarthirunagar, Vadapalani</td>
+            <td>06:30 AM - 11:30 PM</td>
+        </tr>
+    </tbody>
+</table>
+    </div>
+    <footer>
+        <div class="footer-container" id="footer-container">
+            <div class="footer-section branding">
+                <div class="logo">Integrated Services Scheme</div> <br>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a> &nbsp;
+                    <a href="https://www.google.com/search"><i class="fab fa-google"></i></a>&nbsp;
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="passport.html">Passport </a></li>
+                    <li><a href="pensiondetail.html">Pension schemes</a></li>
+                    <li><a href="ration.html">VoterID</a></li>
+                    <li><a href="Finance.html">Bank Interest-Calculator</a></li>
+                    <li><a href="HealthInsurance.html">Health Insurance</a></li>
+                    <li><a href="BuyOrSell.html">Sales Dealership</a></li>
+                    <li><a href="OnspotServiceCenter.html">Onspot Service Centers</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">Website Policies</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Visitors</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h4>Get In Touch</h4>
+                <address>
+                    Rajalakshimi Institue of Technology<br>
+                    <a href="Ph:72002 20849">+91 72002 20849</a>
+                    <a href="Ph:87784 39525">+91 87784 39525</a>
+                    <a href="Ph:95978 09593">+91 95978 09593</a>
+                    <a href="Ph:90431 44325">+91 90431 44323</a>
+                    <a href="Ph:63826 06757">+91 63826 06757</a> 
+                    <a href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
+                    <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"></a>badri.p.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"></a>marishwaran.a.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"></a>bavadharini.s.2022.cce@ritchennai.edu.in</a>
+                    <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"></a>jinapriya.s.2022.cce@ritchennai.edu.in</a>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 Government Services. All Rights Reserved.
+        </div>
+    </footer>
+
+
+    <!-- FontAwesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <!-- FontAwesome for icons -->
+    
+    
+    <!-- JavaScript for Slideshow -->
+   
+</body>
+</html>

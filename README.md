@@ -1,15 +1,18 @@
 Integrated Common Services to Common People
 
 
+
 Team Shamrocks
 
 We are Team Shamrocks, a group of five dedicated members committed to improving the accessibility of essential services to the common people.Our project addresses the problem statement "Integrated Common Services to Common People" by creating a comprehensivewebsite that covers four key service areas: 
 Government, Health, Transport, and Finance.
 
 
+
 👉Introduction:
 
 Our project aims to bridge the gap between common people and essential services by integrating multiple services into a single, user-friendly website.This integration helps users access various services more conveniently and efficiently.
+
 
 
 👉Features:
@@ -18,6 +21,7 @@ Our project aims to bridge the gap between common people and essential services 
 • Integrated Services: Access multiple services from a single platform.
 • Responsive Design: Optimized for various devices including desktops, tablets, and smartphones.
 • Secure and Reliable: Ensures user data privacy and service reliability.
+
 
 
 👉Service Areas 
@@ -35,13 +39,21 @@ Our transport services section includes on-spot service centers, MTC bus routes 
 We offer various finance-related services to help users manage their finances effectively. This includes information on loans, insurance, banking services, and investment opportunities.
 
 
+
 👉Technologies Used:
+
 • HTML
+
 • CSS
+
 • JavaScript
+
 • Python (for backend processing)
+
 • MySQL (for database management)
+
 • Bootstrap (for responsive design)
+
 
 
 👉Installation:
@@ -59,6 +71,7 @@ npm install
 npm start
 
 
+
 👉Usage
 
 1.Open your web browser and navigate to http://localhost:3000.
@@ -66,8 +79,10 @@ npm start
 3.Access government, health, transport, and finance services from the homepage.
 
 
+
 👉Contributing:
 We welcome contributions from the community. To contribute:
+
 
 
 👉Fork the repository:
@@ -77,9 +92,11 @@ We welcome contributions from the community. To contribute:
 4.Open a pull request.
 
 
+
 👉Acknowledgements:
 We would like to thank all the members of Team Shamrocks for their hard work and dedication to this project. 
 Special thanks to our mentors and advisors for their guidance and support.
+
 
 
 👉Team Members:

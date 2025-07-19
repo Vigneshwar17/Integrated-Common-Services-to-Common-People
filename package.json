@@ -10,6 +10,7 @@
     "build": "cd client && npm run build",
     "seed": "cd server && node seedData.js",
     "install-deps": "npm install && cd client && npm install && cd ../server && npm install"
+    "install-deps": "npm install && cd client && npm install && cd ../server && npm install"
   },
   "keywords": ["react", "node", "express", "mongodb", "government-services"],
   "author": "Team Shamrocks",

@@ -1,0 +1,20 @@
+{
+  "name": "integrated-services",
+  "version": "1.0.0",
+  "description": "Full-stack integrated services application",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "seed": "cd server && node seedData.js",
+    "install-deps": "npm install && cd client && npm install && cd ../server && npm install"
+  },
+  "keywords": ["react", "node", "express", "mongodb", "government-services"],
+  "author": "Team Shamrocks",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

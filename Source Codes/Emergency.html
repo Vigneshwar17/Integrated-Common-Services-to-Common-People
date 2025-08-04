@@ -1,457 +1,620 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Services</title>
     <link rel="icon" href="TN logo.png">
-    <title>Emergency Centre</title>
-    <style>
-        body {
-            background: #dbd2d2;  
-            font-family: Arial, sans-serif;
-            /*display: flex; 
-            justify-content: center;
-            align-items: center;  */ 
-            height: 100vh;
-            margin-left: 50px;
-            color: #1e1d1d;
-            overflow-x: hidden;
-        }
-
-        .table-container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 93%;
-            max-width: 1200px;
-            
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 0px;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-        }
-
-        th {
-            background: #1a57da;
-            color: #ffffff;
-            text-transform: uppercase;
-        }
-        tbody tr:nth-child(even) {
-            background: #f2f2f2;
-        }
-
-        tbody tr:hover {
-            background:#6b7272;
-            color: #ffffff; 
-            transition: 1s;
-            transform: translateY(-10px);
-        
-        }
-
-        caption {
-            color: #444543;
-            font-size: 2.5em;
-            margin: 10px 0;
-        }
-
-        #LAND {
-            margin-left: 0;
-        }
-
-        #AADHAR {
-            margin-left: 0;
-            /* margin-top:1000px; */
-        }
-        .datetime {
-    font-size: 0.9em;
-    color: #ffffff;
-    margin-left: 160px;
-}
-/* Add any other necessary theme styles here */
-/* Navbar container */
-.navbar {
-    display: flex;
-    align-items: center;
-    background-color: #0b3c5d;
-    padding: 0px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 107%;
-    height: 15%;
-    margin-left:-50px;
-    margin-top: -10px;
-}
-
-/* Logo styling */
-.logo img {
-    height: 60px;
-    margin-right: 200px; /* Push the logo to the left */
-}
-
-/* Dropdown container */
-.dropdown {
-    position: relative;
-    display: inline-block;
-    margin-left: 10px;
-}
-
-/* Dropdown button styling */
-.dropbtn {
-    background-color: transparent;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Arial', sans-serif; /* Change to a professional font */
-}
-
-/* Hover effect for dropdown button */
-.dropbtn:hover, .dropbtn:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-}
-
-/* Dropdown content styling */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #C2CFD7;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-radius: 4px; /* Rounded corners */
-    overflow: hidden; /* Ensure rounded corners are respected */
-    opacity: 0; /* Initially hidden */
-    transition: 5s ease-in-out; /* Fade effect */
-}
-
-/* Dropdown link styling */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-family: 'Arial', sans-serif; /* Match the font of dropdown button */
-}
-
-/* Hover effect for dropdown links */
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-    color: #0056b3;
-}
-
-/* Show dropdown content on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-    opacity: 1; /* Fully visible */
-}
-
-footer {
-    background-color: #4199A7; /* Blue background */
-    color: white;
-    font-family: Arial, sans-serif;
-    margin-left: -49px;
-    width:105%;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    
-    
-
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px;
-}
-
-.footer-section h4 {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-    color: #fff;
-    border-bottom: 1px solid #fff; /* Adding a bottom border for section titles */
-    padding-bottom: 5px;
-}
-
-.footer-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 8px;
-}
-
-.footer-section ul li a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section ul li a:hover {
-    color: #f0f0f0; /* Lighter shade on hover */
-}
-
-.footer-section.contact {
-    /* Adding specific styles for the contact section */
-}
-
-.footer-section.contact address {
-    font-style: normal;
-    color: #ddd;
-}
-
-.footer-section.contact address a {
-    color: #ddd;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section.contact address a:hover {
-    color: #fff;
-}
-
-
-.footer-section .contact address {
-    font-style: normal;
-    line-height: 1.6;
-}
-
-.footer-section .contact a {
-    color: white;
-    text-decoration: none;
-}
-
-.footer-section .contact a:hover {
-    text-decoration: underline;
-}
-
-.footer-section .branding .logo {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-}
-
-.footer-section .social-icons {
-    display: flex;
-    gap: 10px;
-}
-
-.footer-section .social-icons a {
-    color: white;
-    font-size: 1.2em;
-}
-
-.footer-bottom {
-    background-color: #000;
-    color: white;
-    text-align:center;
-    padding: 10px 0;
-    position:aboslute;
-    
-}
-
-.footer-bottom a {
-    color: #0ff;
-    text-decoration: none;
-}
-
-.footer-bottom a:hover {
-    text-decoration: underline;
-}
-
-    </style>
-</head>
-<body>
-    <div class="navbar">
-        <div class="logo">
-            <img src="TN logo.png" alt="Government Logo">
-        </div>
-        
-        <div class="dropdown">
-            <a href="home.html"><button class="dropbtn">Home</button></a>
-        </div>
-        
-        <div class="dropdown">
-            <button class="dropbtn">Govt.Service</button>
-            <div class="dropdown-content">
-                <a href="AadharandLand.html">Aadhar and Land Service</a>
-                <a href="GovernmentScheme.html">Government Schemes</a>
-                <a href="passport.html">Passport Service</a>
-                <a href="pensiondetail.html">Pensioner Service</a>
-                <a href="ration.html">Ration and VoterID Service</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Finance</button>
-            <div class="dropdown-content">
-                <a href="Finance.html">Interest Calculator</a>
-                <a href="financeapi.html">Tax-Saving Recommender</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">HealthService(Chennai)</button>
-            <div class="dropdown-content">
-                <a href="Hospitals.html">Hospitals</a>
-                <a href="DiagnosticCenters.html">Diagnostic Centre</a>
-                <a href="ElderandNurseCare.html">Nurse Care Details</a>
-                <a href="Emergency.html">Emergency Centres</a>
-                <a href="HealthInsurance.html">Health Insurance</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Transport(Chennai)</button>
-            <div class="dropdown-content">
-                <a href="BusRoutes.html">List Of Buses</a>
-                <a href="BuyOrSell.html">Second Hand Vehicle</a>
-                <a href="CostComparison.html">Cost Comparison</a>
-                <a href="NearestServiceCenters.html">Service Centre</a>
-                <a href="OnspotServiceCenter.html">Onspot Service Center</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <a href="#footer-container"><button class="dropbtn">About</button></a>
-        </div>
-        <!-- <div class="dropdown">
-            <button class="dropbtn">Login</button>
-        </div> -->
-        <div class="datetime" id="datetime"></div>
-        <script>
-            function updateDateTime() {
-                const now = new Date();
-                const options = { 
-                    year: 'numeric', 
-                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
-                    day: '2-digit' 
-                };
-                const date = now.toLocaleDateString(undefined, options);
-                const time = now.toLocaleTimeString();
-                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0b3c5d',
+                        secondary: '#C2CFD7',
+                        accent: '#0056b3'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'arial': ['Arial', 'sans-serif']
+                    }
+                }
             }
-        
-            setInterval(updateDateTime, 1000);
-            updateDateTime(); // Initial call to display date/time immediately
-        </script>
-        
-        
-    </div>
-    <div class="table-container">
-        <table>
-            <caption>Emergency Services</caption>
-            <thead>
-                <tr>
-                    <th>Service Name</th>
-                    <th>Address</th>
-                    <th>Contact Number</th>
-                    <th>Service Provided</th>
-                </tr>
-            </thead>
-            <tbody id="services-table">
-                <!-- Data will be populated here by JavaScript -->
-            </tbody>
-        </table>
-        <script>
-            const emergencyServices = [
-                {name: "F7 O2 Supplies Pvt.Ltd", address: "Shop No 29, 3rd St, Thirunagar, Tiru Nagar, Vadapalani, Chennai, Tamil Nadu 600026", phone: "094918 90123", service: "Oxygen Supply"},
-                {name: "Entrusted Medical Devices", address: "172/GF/162, Spencer Plaza Mall, 3, Anna Salai, Chennai, Tamil Nadu 600002", phone: "07397 449 991", service: "Ambulance Service"},
-                {name: "Oxymed Hospital", address: "710, 463&464, Anna Salai, CIT Nagar East, Nandanam, Chennai, Tamil Nadu 600035", phone: "098414 51611", service: "Blood Bank"},
-                {name: "Hitwin Healthcare Pvt Ltd", address: "7, 10, Velan Nagar 2nd Main Rd, Jagannatha Nagar, Arumbakkam, Chennai, Tamil Nadu 600106", phone: "091153 00300", service: "24/7 Pharmacy"},
-                {name: "Oxyplus Medical & Wellness Centre", address: "25, 4th St, behind Samco hotel, AJ Block, A J Block, Block AJ, Anna Nagar, Chennai, Tamil Nadu 600040", phone: "099622 86223", service: "Emergency Care"},
-                {name: "HIJ Oxygen Suppliers", address: "12, CP Ramaswamy Iyer Rd, Alwarpet, Chennai, Tamil Nadu 600018", phone: "044 6789 0123", service: "Oxygen Supply"},
-                {name: "Happy Zone Health Store ", address: "154, Poonamallee High Rd, Kilpauk, Chennai, Tamil Nadu 600010", phone: "044 7890 1234", service: "Ambulance Service"},
-                {name: "NOP Blood Bank", address: "562, TTK Rd, Alwarpet, Chennai, Tamil Nadu 600018", phone: "044 8901 2345", service: "Blood Bank"},
-                {name: "QRS Pharmacy", address: "52, First Main Road, Gandhi Nagar, Adyar, Chennai, Tamil Nadu 600020", phone: "044 9012 3456", service: "24/7 Pharmacy"},
-                {name: "TUV Emergency Care", address: "6th Cross St, Lake Area, Nungambakkam, Chennai, Tamil Nadu 600034", phone: "044 0123 4567", service: "Emergency Care"}
-            ];
-    
-            const servicesTable = document.getElementById('services-table');
-            emergencyServices.forEach((service) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${service.name}</td>
-                    <td>${service.address}</td>
-                    <td>${service.phone}</td>
-                    <td>${service.service}</td>
-                `;
-                servicesTable.appendChild(row);
-            });
-        </script>
-    </div>
-    <footer>
-        <div class="footer-container" id="footer-container">
-            <div class="footer-section branding">
-                <div class="logo">Integrated Services Scheme</div> <br>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a> &nbsp;
-                    <a href="https://www.google.com/search"><i class="fab fa-google"></i></a>&nbsp;
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 font-arial">
+    <!-- Navigation Bar -->
+    <nav class="bg-primary shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="home.html">
+                        <img src="TN logo.png" alt="Government Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="home.html"
+                            class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Home</a>
+                        <a href="#"
+                            class="text-white bg-white bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium">Emergency
+                            Services</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button"
+                        class="text-white hover:bg-white hover:bg-opacity-20 p-2 rounded-md">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="passport.html">Passport </a></li>
-                    <li><a href="pensiondetail.html">Pension schemes</a></li>
-                    <li><a href="ration.html">VoterID</a></li>
-                    <li><a href="Finance.html">Bank Interest-Calculator</a></li>
-                    <li><a href="HealthInsurance.html">Health Insurance</a></li>
-                    <li><a href="BuyOrSell.html">Sales Dealership</a></li>
-                    <li><a href="OnspotServiceCenter.html">Onspot Service Centers</a></li>
-                    <li><a href="#">Home</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Information</h4>
-                <ul>
-                    <li><a href="#">Website Policies</a></li>
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">Feedback</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Analytics</a></li>
-                    <li><a href="#">Visitors</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                </ul>
-            </div>
-            <div class="footer-section contact">
-                <h4>Get In Touch</h4>
-                <address>
-                    Rajalakshimi Institue of Technology<br>
-                    <a href="Ph:72002 20849">+91 72002 20849</a>
-                    <a href="Ph:87784 39525">+91 87784 39525</a>
-                    <a href="Ph:95978 09593">+91 95978 09593</a>
-                    <a href="Ph:90431 44325">+91 90431 44323</a>
-                    <a href="Ph:63826 06757">+91 63826 06757</a> 
-                    <a href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
-                    <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"></a>badri.p.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"></a>marishwaran.a.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"></a>bavadharini.s.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"></a>jinapriya.s.2022.cce@ritchennai.edu.in</a>
-                </address>
-            </div>
         </div>
-        <div class="footer-bottom">
-            © 2024 Government Services. All Rights Reserved.
-        </div>
-    </footer>
 
-    <!-- FontAwesome for icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-    <!-- FontAwesome for icons -->
-    
-    
-    <!-- JavaScript for Slideshow -->
-   
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="home.html" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#"
+                    class="text-white bg-white bg-opacity-20 block px-3 py-2 rounded-md text-base font-medium">Emergency
+                    Services</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Emergency Alert Banner -->
+    <div class="bg-red-600 text-white py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center space-x-2">
+                <i class="fas fa-exclamation-triangle text-xl"></i>
+                <span class="text-lg font-semibold">EMERGENCY HOTLINE: 108 (Ambulance) | 100 (Police) | 101
+                    (Fire)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header Section -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Emergency Services</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">24/7 emergency services including ambulance, police,
+                fire, and medical emergency contacts. Quick access to emergency numbers and services across Chennai.</p>
+        </div>
+
+        <!-- Emergency Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <!-- Ambulance Services -->
+            <div
+                class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 border-l-4 border-red-500">
+                <div class="flex items-center mb-4">
+                    <div class="bg-red-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-ambulance text-2xl text-red-600"></i>
+                    </div>
+                    <h2 class="text-lg font-bold text-gray-800">Ambulance</h2>
+                </div>
+                <p class="text-gray-600 mb-4">Emergency ambulance services with quick response times.</p>
+                <div class="space-y-2">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone text-red-500 mr-2"></i>
+                        <span class="text-gray-700 font-semibold">108</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-clock text-blue-500 mr-2"></i>
+                        <span class="text-gray-700">24/7 Available</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Police Services -->
+            <div
+                class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500">
+                <div class="flex items-center mb-4">
+                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-shield-alt text-2xl text-blue-600"></i>
+                    </div>
+                    <h2 class="text-lg font-bold text-gray-800">Police</h2>
+                </div>
+                <p class="text-gray-600 mb-4">Emergency police services and law enforcement.</p>
+                <div class="space-y-2">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone text-blue-500 mr-2"></i>
+                        <span class="text-gray-700 font-semibold">100</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-clock text-blue-500 mr-2"></i>
+                        <span class="text-gray-700">24/7 Available</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fire Services -->
+            <div
+                class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 border-l-4 border-orange-500">
+                <div class="flex items-center mb-4">
+                    <div class="bg-orange-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-fire-extinguisher text-2xl text-orange-600"></i>
+                    </div>
+                    <h2 class="text-lg font-bold text-gray-800">Fire</h2>
+                </div>
+                <p class="text-gray-600 mb-4">Fire emergency services and rescue operations.</p>
+                <div class="space-y-2">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone text-orange-500 mr-2"></i>
+                        <span class="text-gray-700 font-semibold">101</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-clock text-blue-500 mr-2"></i>
+                        <span class="text-gray-700">24/7 Available</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medical Emergency -->
+            <div
+                class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 border-l-4 border-green-500">
+                <div class="flex items-center mb-4">
+                    <div class="bg-green-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-heartbeat text-2xl text-green-600"></i>
+                    </div>
+                    <h2 class="text-lg font-bold text-gray-800">Medical</h2>
+                </div>
+                <p class="text-gray-600 mb-4">Medical emergency services and hospitals.</p>
+                <div class="space-y-2">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone text-green-500 mr-2"></i>
+                        <span class="text-gray-700 font-semibold">102</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-clock text-blue-500 mr-2"></i>
+                        <span class="text-gray-700">24/7 Available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label for="search" class="block text-sm font-medium text-gray-700 mb-2">Search Services</label>
+                    <div class="relative">
+                        <input type="text" id="search" placeholder="Search by service name, location, or type..."
+                            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <label for="service-filter" class="block text-sm font-medium text-gray-700 mb-2">Service
+                        Type</label>
+                    <select id="service-filter"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <option value="">All Services</option>
+                        <option value="Ambulance">Ambulance</option>
+                        <option value="Police">Police</option>
+                        <option value="Fire">Fire</option>
+                        <option value="Medical">Medical Emergency</option>
+                        <option value="Hospital">Hospital</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="location-filter" class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                    <select id="location-filter"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <option value="">All Locations</option>
+                        <option value="Anna Nagar">Anna Nagar</option>
+                        <option value="T Nagar">T Nagar</option>
+                        <option value="Adyar">Adyar</option>
+                        <option value="Mylapore">Mylapore</option>
+                        <option value="Egmore">Egmore</option>
+                        <option value="Kilpauk">Kilpauk</option>
+                        <option value="Vadapalani">Vadapalani</option>
+                        <option value="Porur">Porur</option>
+                        <option value="Tambaram">Tambaram</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Emergency Services Table -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-primary">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Service Name</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Type
+                            </th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Location</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Emergency Number</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Status</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200" id="emergency-services-table-body">
+                        <!-- Service data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="hidden text-center py-12">
+            <i class="fas fa-search text-6xl text-gray-400 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-600 mb-2">No services found</h3>
+            <p class="text-gray-500">Try adjusting your search criteria or filters.</p>
+        </div>
+    </div>
+
+    <!-- Service Details Modal -->
+    <div id="service-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
+            <div class="mt-3">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                    <button id="close-modal" class="text-gray-400 hover:text-gray-600 text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="modal-content" class="space-y-4">
+                    <!-- Modal content will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Emergency services data
+        const emergencyServices = [
+            {
+                name: "108 Ambulance Service",
+                type: "Ambulance",
+                location: "Chennai",
+                emergencyNumber: "108",
+                status: "24/7 Active",
+                address: "Emergency Response Center, Chennai",
+                email: "emergency@108.gov.in",
+                website: "108.gov.in",
+                description: "Government emergency ambulance service with quick response times across Chennai.",
+                services: ["Emergency Ambulance", "Medical Transport", "Emergency Response"],
+                responseTime: "8-15 minutes",
+                coverage: "Entire Chennai"
+            },
+            {
+                name: "Chennai Police Control Room",
+                type: "Police",
+                location: "Chennai",
+                emergencyNumber: "100",
+                status: "24/7 Active",
+                address: "Police Commissionerate, Chennai",
+                email: "control@chennaipolice.gov.in",
+                website: "chennaipolice.gov.in",
+                description: "Central police control room for emergency law enforcement services.",
+                services: ["Emergency Response", "Crime Reporting", "Traffic Control"],
+                responseTime: "5-10 minutes",
+                coverage: "Entire Chennai"
+            },
+            {
+                name: "Chennai Fire Station",
+                type: "Fire",
+                location: "Chennai",
+                emergencyNumber: "101",
+                status: "24/7 Active",
+                address: "Fire Station, Chennai",
+                email: "fire@chennai.gov.in",
+                website: "chennai.gov.in",
+                description: "Fire emergency services with rescue operations and firefighting capabilities.",
+                services: ["Fire Fighting", "Rescue Operations", "Emergency Response"],
+                responseTime: "5-12 minutes",
+                coverage: "Entire Chennai"
+            },
+            {
+                name: "Apollo Emergency Services",
+                type: "Medical",
+                location: "Anna Nagar",
+                emergencyNumber: "+91 44 2626 1234",
+                status: "24/7 Active",
+                address: "15, 2nd Avenue, Anna Nagar, Chennai - 600040",
+                email: "emergency@apollohospitals.com",
+                website: "www.apollohospitals.com",
+                description: "Emergency medical services with advanced trauma care and ambulance facilities.",
+                services: ["Emergency Care", "Trauma Center", "Ambulance Service"],
+                responseTime: "10-20 minutes",
+                coverage: "Anna Nagar and surrounding areas"
+            },
+            {
+                name: "Fortis Emergency Services",
+                type: "Medical",
+                location: "Adyar",
+                emergencyNumber: "+91 44 2489 0123",
+                status: "24/7 Active",
+                address: "78, LB Road, Adyar, Chennai - 600020",
+                email: "emergency@fortishealthcare.com",
+                website: "www.fortishealthcare.com",
+                description: "Emergency medical services with cardiac care and critical care facilities.",
+                services: ["Emergency Care", "Cardiac Care", "Critical Care"],
+                responseTime: "10-20 minutes",
+                coverage: "Adyar and surrounding areas"
+            },
+            {
+                name: "MIOT Emergency Services",
+                type: "Medical",
+                location: "Mylapore",
+                emergencyNumber: "+91 44 2467 8901",
+                status: "24/7 Active",
+                address: "34, Luz Church Road, Mylapore, Chennai - 600004",
+                email: "emergency@miotinternational.com",
+                website: "www.miotinternational.com",
+                description: "Emergency medical services with orthopedic and trauma care expertise.",
+                services: ["Emergency Care", "Orthopedic Care", "Trauma Care"],
+                responseTime: "10-20 minutes",
+                coverage: "Mylapore and surrounding areas"
+            },
+            {
+                name: "SIMS Emergency Services",
+                type: "Medical",
+                location: "Vadapalani",
+                emergencyNumber: "+91 44 2489 0123",
+                status: "24/7 Active",
+                address: "78, Arcot Road, Vadapalani, Chennai - 600026",
+                email: "emergency@simshospital.com",
+                website: "www.simshospital.com",
+                description: "Emergency medical services with comprehensive emergency care facilities.",
+                services: ["Emergency Care", "Pediatric Emergency", "Trauma Care"],
+                responseTime: "10-20 minutes",
+                coverage: "Vadapalani and surrounding areas"
+            },
+            {
+                name: "Kauvery Emergency Services",
+                type: "Medical",
+                location: "T Nagar",
+                emergencyNumber: "+91 44 2434 5678",
+                status: "24/7 Active",
+                address: "45, Usman Road, T Nagar, Chennai - 600017",
+                email: "emergency@kauveryhospital.com",
+                website: "www.kauveryhospital.com",
+                description: "Emergency medical services with general emergency care and ambulance facilities.",
+                services: ["Emergency Care", "General Emergency", "Ambulance Service"],
+                responseTime: "10-20 minutes",
+                coverage: "T Nagar and surrounding areas"
+            },
+            {
+                name: "Global Emergency Services",
+                type: "Medical",
+                location: "Porur",
+                emergencyNumber: "+91 44 2476 7890",
+                status: "24/7 Active",
+                address: "12, Mount Poonamallee Road, Porur, Chennai - 600116",
+                email: "emergency@globalhospitals.com",
+                website: "www.globalhospitals.com",
+                description: "Emergency medical services with advanced emergency care and trauma facilities.",
+                services: ["Emergency Care", "Trauma Care", "Critical Care"],
+                responseTime: "10-20 minutes",
+                coverage: "Porur and surrounding areas"
+            },
+            {
+                name: "Chettinad Emergency Services",
+                type: "Medical",
+                location: "Tambaram",
+                emergencyNumber: "+91 44 2226 1234",
+                status: "24/7 Active",
+                address: "56, GST Road, Tambaram, Chennai - 600045",
+                email: "emergency@chettinadhealthcity.com",
+                website: "www.chettinadhealthcity.com",
+                description: "Emergency medical services with comprehensive emergency care and ambulance facilities.",
+                services: ["Emergency Care", "General Emergency", "Ambulance Service"],
+                responseTime: "10-20 minutes",
+                coverage: "Tambaram and surrounding areas"
+            }
+        ];
+
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initialize the table
+        function initializeTable() {
+            const tableBody = document.getElementById('emergency-services-table-body');
+            tableBody.innerHTML = '';
+
+            emergencyServices.forEach((service, index) => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50 transition-colors duration-200';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">${service.name}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${service.type === 'Ambulance' ? 'bg-red-100 text-red-800' :
+                        service.type === 'Police' ? 'bg-blue-100 text-blue-800' :
+                            service.type === 'Fire' ? 'bg-orange-100 text-orange-800' :
+                                'bg-green-100 text-green-800'
+                    }">${service.type}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${service.location}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-semibold text-gray-900">${service.emergencyNumber}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            ${service.status}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="showServiceDetails(${index})" class="text-primary hover:text-blue-700 transition-colors duration-200">
+                            <i class="fas fa-info-circle mr-1"></i>Details
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Search and filter functionality
+        function filterServices() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const serviceFilter = document.getElementById('service-filter').value;
+            const locationFilter = document.getElementById('location-filter').value;
+
+            const filteredServices = emergencyServices.filter(service => {
+                const matchesSearch = service.name.toLowerCase().includes(searchTerm) ||
+                    service.type.toLowerCase().includes(searchTerm) ||
+                    service.location.toLowerCase().includes(searchTerm);
+                const matchesService = !serviceFilter || service.type === serviceFilter;
+                const matchesLocation = !locationFilter || service.location === locationFilter;
+
+                return matchesSearch && matchesService && matchesLocation;
+            });
+
+            displayFilteredServices(filteredServices);
+        }
+
+        function displayFilteredServices(filteredServices) {
+            const tableBody = document.getElementById('emergency-services-table-body');
+            const noResults = document.getElementById('no-results');
+
+            if (filteredServices.length === 0) {
+                tableBody.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+            tableBody.innerHTML = '';
+
+            filteredServices.forEach((service, index) => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50 transition-colors duration-200';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">${service.name}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${service.type === 'Ambulance' ? 'bg-red-100 text-red-800' :
+                        service.type === 'Police' ? 'bg-blue-100 text-blue-800' :
+                            service.type === 'Fire' ? 'bg-orange-100 text-orange-800' :
+                                'bg-green-100 text-green-800'
+                    }">${service.type}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${service.location}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-semibold text-gray-900">${service.emergencyNumber}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            ${service.status}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="showServiceDetails(${emergencyServices.indexOf(service)})" class="text-primary hover:text-blue-700 transition-colors duration-200">
+                            <i class="fas fa-info-circle mr-1"></i>Details
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Service details modal
+        function showServiceDetails(index) {
+            const service = emergencyServices[index];
+            const modal = document.getElementById('service-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+
+            modalTitle.textContent = service.name;
+            modalContent.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Service Information</h4>
+                            <p class="text-gray-600"><strong>Type:</strong> ${service.type}</p>
+                            <p class="text-gray-600"><strong>Location:</strong> ${service.location}</p>
+                            <p class="text-gray-600"><strong>Emergency Number:</strong> <span class="font-semibold text-red-600">${service.emergencyNumber}</span></p>
+                            <p class="text-gray-600"><strong>Status:</strong> ${service.status}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Address</h4>
+                            <p class="text-gray-600">${service.address}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Contact</h4>
+                            <p class="text-gray-600"><strong>Email:</strong> ${service.email}</p>
+                            <p class="text-gray-600"><strong>Website:</strong> <a href="https://${service.website}" target="_blank" class="text-primary hover:text-blue-700">${service.website}</a></p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Services Offered</h4>
+                            <div class="space-y-1">
+                                ${service.services.map(s =>
+                `<div class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span class="text-gray-600">${s}</span>
+                                    </div>`
+            ).join('')}
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Response Information</h4>
+                            <p class="text-gray-600"><strong>Response Time:</strong> ${service.responseTime}</p>
+                            <p class="text-gray-600"><strong>Coverage Area:</strong> ${service.coverage}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Description</h4>
+                            <p class="text-gray-600">${service.description}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+        }
+
+        // Close modal
+        document.getElementById('close-modal').addEventListener('click', function () {
+            document.getElementById('service-modal').classList.add('hidden');
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('service-modal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+
+        // Event listeners for search and filters
+        document.getElementById('search').addEventListener('input', filterServices);
+        document.getElementById('service-filter').addEventListener('change', filterServices);
+        document.getElementById('location-filter').addEventListener('change', filterServices);
+
+        // Initialize the table on page load
+        document.addEventListener('DOMContentLoaded', initializeTable);
+    </script>
 </body>
+
 </html>

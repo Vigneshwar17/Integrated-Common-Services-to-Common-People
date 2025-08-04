@@ -1,619 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="TN logo.png">
     <title>Government Scheme</title>
-    <style>
-        body {
-            background:#dbd2d2;  
-            font-family: Arial, sans-serif;
-            /*display: flex; 
-            justify-content: center;
-            align-items: center;  */ 
-            height: 100vh;
-            margin-left: 50px;
-            color: #0d0d0d;
-            overflow-x: hidden;
-        }
-
-        .table-container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 93%;
-            max-width: 1200px;
-            
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-        }
-
-        th {
-            background: #1a57da;
-            color: #ffffff;
-            text-transform: uppercase;
-        }
-        tbody tr:nth-child(even) {
-            background: #f2f2f2;
-        }
-
-        tbody tr:hover {
-            background:#6b7272;
-            color: #ffffff; 
-            transition: 1s;
-            transform: translateY(-10px);
-        
-        }
-
-        caption {
-            color: #444543;
-            font-size: 2.5em;
-            margin: 10px 0;
-        }
-
-        #LAND {
-            margin-left: 0;
-        }
-
-        #AADHAR {
-            margin-left: 0;
-            /* margin-top:1000px; */
-        }
-        .datetime {
-    font-size: 0.9em;
-    color: #ffffff;
-    margin-left: 160px;
-}
-/* Add any other necessary theme styles here */
-/* Navbar container */
-.navbar {
-    display: flex;
-    align-items: center;
-    background-color: #0b3c5d;
-    padding: 0px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 107%;
-    height: 15%;
-    margin-left:-50px;
-    margin-top: -10px;
-}
-
-/* Logo styling */
-.logo img {
-    height: 50px;
-    margin-right: 240px; /* Push the logo to the left */
-}
-
-/* Dropdown container */
-.dropdown {
-    position: relative;
-    display: inline-block;
-    margin-left: 10px;
-}
-
-/* Dropdown button styling */
-.dropbtn {
-    background-color: transparent;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Arial', sans-serif; /* Change to a professional font */
-}
-
-/* Hover effect for dropdown button */
-.dropbtn:hover, .dropbtn:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-}
-
-/* Dropdown content styling */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #C2CFD7;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-radius: 4px; /* Rounded corners */
-    overflow: hidden; /* Ensure rounded corners are respected */
-    opacity: 0; /* Initially hidden */
-    transition: 5s ease-in-out; /* Fade effect */
-}
-
-/* Dropdown link styling */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-family: 'Arial', sans-serif; /* Match the font of dropdown button */
-}
-
-/* Hover effect for dropdown links */
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-    color: #0056b3;
-}
-
-/* Show dropdown content on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-    opacity: 1; /* Fully visible */
-}
-
-footer {
-    background-color: #4199A7; /* Blue background */
-    color: white;
-    font-family: Arial, sans-serif;
-    margin-left: -49px;
-    width:105%;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    
-    
-
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px;
-}
-
-.footer-section h4 {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-    color: #fff;
-    border-bottom: 1px solid #fff; /* Adding a bottom border for section titles */
-    padding-bottom: 5px;
-}
-
-.footer-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 8px;
-}
-
-.footer-section ul li a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section ul li a:hover {
-    color: #f0f0f0; /* Lighter shade on hover */
-}
-
-.footer-section.contact {
-    /* Adding specific styles for the contact section */
-}
-
-.footer-section.contact address {
-    font-style: normal;
-    color: #ddd;
-}
-
-.footer-section.contact address a {
-    color: #ddd;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section.contact address a:hover {
-    color: #fff;
-}
-
-
-.footer-section .contact address {
-    font-style: normal;
-    line-height: 1.6;
-}
-
-.footer-section .contact a {
-    color: white;
-    text-decoration: none;
-}
-
-.footer-section .contact a:hover {
-    text-decoration: underline;
-}
-
-.footer-section .branding .logo {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-}
-
-.footer-section .social-icons {
-    display: flex;
-    gap: 10px;
-}
-
-.footer-section .social-icons a {
-    color: white;
-    font-size: 1.2em;
-}
-
-.footer-bottom {
-    background-color: #000;
-    color: white;
-    text-align:center;
-    padding: 10px 0;
-    position:aboslute;
-    
-}
-
-.footer-bottom a {
-    color: #0ff;
-    text-decoration: none;
-}
-
-.footer-bottom a:hover {
-    text-decoration: underline;
-}
-
-    </style>
-</head>
-<body>
-    <div class="navbar">
-        <div class="logo">
-            <img src="TN logo.png" alt="Government Logo">
-        </div>
-        
-        <div class="dropdown">
-            <a href="home.html"><button class="dropbtn">Home</button></a>
-        </div>
-        
-        <div class="dropdown">
-            <button class="dropbtn">Govt.Service</button>
-            <div class="dropdown-content">
-                <a href="AadharandLand.html">Aadhar and Land Service</a>
-                <a href="GovernmentScheme.html">Government Schemes</a>
-                <a href="passport.html">Passport Service</a>
-                <a href="pensiondetail.html">Pensioner Service</a>
-                <a href="ration.html">Ration and VoterID Service</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Finance</button>
-            <div class="dropdown-content">
-                <a href="Finance.html">Interest Calculator</a>
-                <a href="financeapi.html">Tax-Saving Recommender</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">HealthService(Chennai)</button>
-            <div class="dropdown-content">
-                <a href="Hospitals.html">Hospitals</a>
-                <a href="DiagnosticCenters.html">Diagnostic Centre</a>
-                <a href="ElderandNurseCare.html">Nurse Care Details</a>
-                <a href="Emergency.html">Emergency Centres</a>
-                <a href="HealthInsurance.html">Health Insurance</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Transport(Chennai)</button>
-            <div class="dropdown-content">
-                <a href="BusRoutes.html">List Of Buses</a>
-                <a href="BuyOrSell.html">Second Hand Vehicle</a>
-                <a href="CostComparison.html">Cost Comparison</a>
-                <a href="NearestServiceCenters.html">Service Centre</a>
-                <a href="OnspotServiceCenter.html">Onspot Service Center</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <a href="#footer-container"><button class="dropbtn">About</button></a>
-        </div>
-        <!-- <div class="dropdown">
-            <button class="dropbtn">Login</button>
-        </div> -->
-        <div class="datetime" id="datetime"></div>
-        <script>
-            function updateDateTime() {
-                const now = new Date();
-                const options = { 
-                    year: 'numeric', 
-                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
-                    day: '2-digit' 
-                };
-                const date = now.toLocaleDateString(undefined, options);
-                const time = now.toLocaleTimeString();
-                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
+    <link rel="icon" href="TN logo.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0b3c5d',
+                        secondary: '#C2CFD7',
+                        accent: '#0056b3'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'arial': ['Arial', 'sans-serif']
+                    }
+                }
             }
-        
-            setInterval(updateDateTime, 1000);
-            updateDateTime(); // Initial call to display date/time immediately
-        </script>
-        
-        
-    </div>
-    <div class="table-container">
-        <table>
-            <caption>Students Government Scheme</caption>
-            <thead>
-                <tr>
-                    <th>S.NO</th>
-                    <th>SCHEME</th>
-                    <th>ELIGIBILITY</th>
-                    <th>CONTACT</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>A.</td>
-                    <td>Awards to Bright Students Scheme</td>
-                    <td>Two boys and two girls in each category i.e., Adi Dravidars, Tribals and Adi Dravidars converted to Christianity who secure highest marks in X standard examination in each district are granted financial assistance for next six years for pursuing higher education. A sum of Rs.1,600/- each for the first year and Rs.2,000/- per annum for the subsequent years is paid.<br>Required documents: Community Certificate and Mark List</td>
-                    <td>Director, Department of Adi Dravidar Welfare.<br>Telephone: 28594780<br>Fax: 28419612</td>
-                </tr>
-                <tr>
-                    <td>B.</td>
-                    <td>Special Incentive Scheme for Girl Students</td>
-                    <td>(a) To reduce drop outs .Girls who are studying in the standards from III to V are given an incentive of Rs.50/- per student for 10 months in a year.<br>(b) For Continuing Secondary Education: Girl students studying in VIth standard are given Rs.100/- per month as an incentive for 10 months in a year and for girls studying in VII and VIII standards are given Rs.150/- per month as incentive for 10 months in a year.<br>The money is deposited in their Mother’s respective Post office savings A/c or in Student’s Bank A/c.<br>Required documents: Community Certificate<br>*For Girl students belonging to Adi Dravidars/ Tribals studying in Government / Government- aided schools.</td>
-                    <td>District Adi Dravidar and Tribal Welfare Officer / Project Officer (Tribal Welfare). through Headmaster of the Schools.</td>
-                </tr>
-                <tr>
-                    <td>C.</td>
-                    <td>Special fees and Examination Fees to the Post Graduate Girl students.</td>
-                    <td>All Scheduled Caste, Scheduled Tribe and Scheduled Caste converts to Christianity students studying in Government / Government aided Arts and Science Colleges are provided with Special Fees and Exam Fees.<br>No income limit<br>All Adi Dravidars, Tribals and Adi Dravidar converted to Christianity Girl students studying in Govt / Govt Aided Arts and Science Colleges.</td>
-                    <td>College Principal/ District Adi Dravidar & Tribal Welfare Officers / Project Officer (Tribal Welfare).</td>
-                </tr>
-            </tbody>
-        </table>
-        <br>
-        <table>
-            <caption>Government Scheme for Women</caption>
-            <thead>
-                <tr>
-                    <th>S.NO</th>
-                    <th>SCHEME</th>
-                    <th>ELIGIBILITY</th>
-                    <th>CONTACT</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>A.</td>
-                    <td>Land Purchase Scheme</td>
-                    <td>The aim of the scheme is to improve the land holding of Adi Dravidars and to enhance the socio-economic status of Adi Dravida women.<br>
-                        • 30% of the Project Cost or Rs.2.25 Lakh whichever is lower will be released as TAHDCO subsidy.<br>
-                        • Exemption of 100% stamp duty in this scheme.<br>
-                        • The subsidy will be Front end subsidy<br>
-                        Required documents:<br>
-                        - Community Certificate<br>
-                        - Income Certificate<br>
-                        - Family ration Card<br>
-                        - Agreement for the proposed land purchase<br>
-                        - Encumbrance Certificate and copy of each of ChittaAdangal.<br>
-                        • The applicant should be woman belonging to SC community.<br>
-                        • The applicant should be in the age group of 18-65.<br>
-                        • The occupation of the applicant should be agriculture.<br>
-                        • The annual family income should not exceed Rs.1.00 Lakh.<br>
-                        • Applicants and their family members should not have availed any subsidy so far.<br>
-                    </td>
-                    <td>Managing Director TAHDCO<br>
-                        31, Cenotaph Road, Teynampet,<br>
-                        Chennai – 18.<br>
-                        Telephone : 044- 26310021<br>
-                        Fax : 24310196
-                    </td>
-                </tr>
-                <tr>
-                    <td>B.</td>
-                    <td>Economic Assistance to Women Self-Help Groups</td>
-                    <td>Tribal women self-help groups which have been credit rated twice can avail loan. The objective of the programme is to assist the tribal women SHGs to engage themselves in income generating activities effectively.<br>
-                        • 50% of the estimated cost of the programme or Rs.3.75 lakh whichever is less is released as subsidy.<br>
-                        Required documents:<br>
-                        - Quotation with TIN No.<br>
-                        - Copy of resolution of the group.<br>
-                        - Project report of the business for which loan is required.<br>
-                        - Certificate in proof of the group having been credit rated twice.<br>
-                        - Copy of bank pass book photos of the promoter and the members of the group.<br>
-                        - SHGs should fill up the application forms properly and submit to the Districts Manager, TAHDCO directly or through the project officer, Tamil Nadu Women’s Development Corporation along with Community Certificate and certificate.<br>
-                        • The group should consist of 12 to 15 members only of the tribal women.<br>
-                        • The group should have been credit rated twice.<br>
-                        • Age limit of the members 18 – 60 years.<br>
-                        • Family annual income of each member of the group should not exceed Rs.1 lakh.<br>
-                        • Family annual income of the promoter of the group may be up to Rs.2 lakh.<br>
-                        • Priority will be given to groups getting revolving fund.
-                    </td>
-                    <td>Managing Director TAHDCO<br>
-                        31, Cenotaph Road, Teynampet,<br>
-                        Chennai – 18.<br>
-                        Telephone : 044-26310021<br>
-                        Fax : 24310196
-                    </td>
-                </tr>
-                <tr>
-                    <td>C.</td>
-                    <td>Providing training for women development</td>
-                    <td>Training such as tailoring, bamboo basket knitting, etc. for Tribal women.<br>
-                        Required documents:<br>
-                        - None specified in detail in the provided information.<br>
-                    </td>
-                    <td>District Adi Dravidar and Tribal Welfare Officer/ Project Officer (TW)</td>
-                </tr>
-                <tr>
-                    <td>D.</td>
-                    <td>Economic Assistance to SHG</td>
-                    <td>Adi Dravidar Women, Men and Transgender Self Help Groups which are graded twice are eligible for Economic Assistance. The aim of the programme is to make the Self Help Groups to implement economic development schemes efficiently.<br>
-                        • 50% of the Project Cost or Rs.2.50 Lakh whichever is lower will be released as TAHDCO subsidy.<br>
-                        • The subsidy will be a Front end subsidy<br>
-                        • The members of the Self Help Group shall belong to SC.<br>
-                        • The Annual family Income of the Self Help Group members should not exceed Rs.2.00 lakh each.<br>
-                        • The Self Help Group should have qualified in the first rating for Revolving Fund.<br>
-                        • The Self Help Group should have qualified in second rating for Economic Assistance.<br>
-                        • The members of Self Help Group and their family members should not have availed any subsidy so far from any other Government scheme for Revolving Fund and Economic Assistance.
-                    </td>
-                    <td>Managing Director TAHDCO<br>
-                        31, Cenotaph Road, Teynampet,<br>
-                        Chennai – 18.<br>
-                        Telephone : 044-26310021<br>
-                        Fax : 24310196
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <br>
-        <table>
-            <caption>Government Scheme for Farmers</caption>
-            <thead>
-                <tr>
-                    <th>S.No</th>
-                    <th>Scheme</th>
-                    <th>ELIGIBILITY</th>
-                    <th>CONTACT</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>A.</td>
-                    <td>Distribution subsidy for seeds of High yielding varieties (HYV) and Hybrid varieties</td>
-                    <td>HYV – 50% subsidy to a maximum of Rs.15/- per kg<br>
-                        Hybrid – subsidy of Rs.50/- per kg<br>
-                        Required Documents: Integrated Farmers Hand Book or ChittaAdangal<br>
-                        * 33% of the allocation to SF / MF and 30% to Women farmers.<br>
-                        * Assistance limited to 2 hectare per farmer
-                    </td>
-                    <td>Director of Agriculture, Directorate of Agriculture, Chepauk, Chennai-5<br>
-                        Ph. : 28524894<br>
-                        Fax : 28551763
-                    </td>
-                </tr>
-                <tr>
-                    <td>B.</td>
-                    <td>Front line demonstration on Integrated crop management</td>
-                    <td>Subsidy at Rs.7,000/- per Ha [Rs.6,800/- for inputs (liquid bio-fertilizers, bio-control agents, MN mixture, weedicide & Plant protection chemicals) and Rs.200/- for contingency]<br>
-                        Required Documents: Integrated Farmers Hand Book or ChittaAdangal<br>
-                        * All farmers of Cuddalore, Villupuram and Tiruvannamalai district.<br>
-                        * 33% of the allocation to SF / MF and 30% to Women farmers.
-                    </td>
-                    <td>Director of Agriculture, Directorate of Agriculture, Chepauk, Chennai-5<br>
-                        Ph. : 28524894<br>
-                        Fax : 28551763
-                    </td>
-                </tr>
-                <tr>
-                    <td>C.</td>
-                    <td>Demonstration on intercropping with pulses in Sugarcane</td>
-                    <td>Subsidy at Rs.8,000/- per Ha (Rs.7,760/- for inputs & Rs.240/- for contingency)<br>
-                        Required Documents: Integrated Farmers Hand Book or ChittaAdangal<br>
-                        * 33% of the allocation to SF / MF and 30% to Women farmers.
-                    </td>
-                    <td>Director of Agriculture, Directorate of Agriculture, Chepauk, Chennai-5<br>
-                        Ph. : 28524894<br>
-                        Fax : 28551763
-                    </td>
-                </tr>
-                <tr>
-                    <td>D.</td>
-                    <td>Training of farmers</td>
-                    <td>a) Inter-State at Rs.1,250/- per day per farmer (7 days)<br>
-                        b) Within State at Rs.1,000/- per day per farmer (3 days)<br>
-                        c) Within District at Rs.250/- per day per farmer<br>
-                        Required Documents: Integrated Farmers Hand Book or ChittaAdangal<br>
-                        * All farmers including SC, ST & Women farmers.<br>
-                        * Members of Self Help Group, Farmers Interest Group, Commodity Interest Group, Farm Women groups and Farmers organization.<br>
-                        * General – 80%, SC – 19%, ST – 1%
-                    </td>
-                    <td>Director of Agriculture, Directorate of Agriculture, Chepauk, Chennai-5<br>
-                        Ph. : 28524894<br>
-                        Fax : 28551763
-                    </td>
-                </tr>
-                <tr>
-                    <td>E.</td>
-                    <td>Mobilization of different Farmers’ groups including Farmers’ Interest Groups, Commodity Interest Groups and Farmer Co-Operatives</td>
-                    <td>i) Capacity building, Skill development and support service at Rs.5,000/- per Group per year<br>
-                        ii) Seed Money / revolving Fund at Rs.10,000/- per Farmers’ Interest Group/ Commodity Interest Group / Women Food Security Groups<br>
-                        Required Documents: Integrated Farmers Hand Book or ChittaAdangal<br>
-                        * All farmers including SC, ST & Women farmers.<br>
-                        * Members of Self Help Group, Farmers Interest Group, Commodity Interest Group, Farm Women groups and Farmers organization.<br>
-                        * General – 80%, SC – 19%, ST – 1%
-                    </td>
-                    <td>Director of Agriculture, Directorate of Agriculture, Chepauk, Chennai-5<br>
-                        Ph. : 28524894<br>
-                        Fax : 28551763
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <footer>
-        <div class="footer-container" id="footer-container">
-            <div class="footer-section branding">
-                <div class="logo">Integrated Services Scheme</div> <br>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a> &nbsp;
-                    <a href="https://www.google.com/search"><i class="fab fa-google"></i></a>&nbsp;
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 font-arial">
+    <!-- Navigation Bar -->
+    <nav class="bg-primary shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="home.html">
+                        <img src="TN logo.png" alt="Government Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="home.html"
+                            class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Home</a>
+                        <a href="#"
+                            class="text-white bg-white bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium">Government
+                            Schemes</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button"
+                        class="text-white hover:bg-white hover:bg-opacity-20 p-2 rounded-md">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="passport.html">Passport </a></li>
-                    <li><a href="pensiondetail.html">Pension schemes</a></li>
-                    <li><a href="ration.html">VoterID</a></li>
-                    <li><a href="Finance.html">Bank Interest-Calculator</a></li>
-                    <li><a href="HealthInsurance.html">Health Insurance</a></li>
-                    <li><a href="BuyOrSell.html">Sales Dealership</a></li>
-                    <li><a href="OnspotServiceCenter.html">Onspot Service Centers</a></li>
-                    <li><a href="#">Home</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Information</h4>
-                <ul>
-                    <li><a href="#">Website Policies</a></li>
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">Feedback</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Analytics</a></li>
-                    <li><a href="#">Visitors</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                </ul>
-            </div>
-            <div class="footer-section contact">
-                <h4>Get In Touch</h4>
-                <address>
-                    Rajalakshimi Institue of Technology<br>
-                    <a href="Ph:72002 20849">+91 72002 20849</a>
-                    <a href="Ph:87784 39525">+91 87784 39525</a>
-                    <a href="Ph:95978 09593">+91 95978 09593</a>
-                    <a href="Ph:90431 44325">+91 90431 44323</a>
-                    <a href="Ph:63826 06757">+91 63826 06757</a> 
-                    <a href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
-                    <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"></a>badri.p.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"></a>marishwaran.a.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"></a>bavadharini.s.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"></a>jinapriya.s.2022.cce@ritchennai.edu.in</a>
-                </address>
-            </div>
         </div>
-        <div class="footer-bottom">
-            © 2024 Government Services. All Rights Reserved.
-        </div>
-    </footer>
 
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="home.html" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#"
+                    class="text-white bg-white bg-opacity-20 block px-3 py-2 rounded-md text-base font-medium">Government
+                    Schemes</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header Section -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Government Schemes</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">Explore various government schemes designed to support
+                students, women, farmers, and other citizens. Find detailed information about eligibility, benefits, and
+                application procedures.</p>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label for="search" class="block text-sm font-medium text-gray-700 mb-2">Search Schemes</label>
+                    <div class="relative">
+                        <input type="text" id="search" placeholder="Search by scheme name, category, or target group..."
+                            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <label for="category-filter" class="block text-sm font-medium text-gray-700 mb-2">Filter by
+                        Category</label>
+                    <select id="category-filter"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <option value="">All Categories</option>
+                        <option value="Education">Education</option>
+                        <option value="Women Empowerment">Women Empowerment</option>
+                        <option value="Agriculture">Agriculture</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Financial">Financial</option>
+                        <option value="Employment">Employment</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="target-filter" class="block text-sm font-medium text-gray-700 mb-2">Filter by Target
+                        Group</label>
+                    <select id="target-filter"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <option value="">All Groups</option>
+                        <option value="Students">Students</option>
+                        <option value="Women">Women</option>
+                        <option value="Farmers">Farmers</option>
+                        <option value="Senior Citizens">Senior Citizens</option>
+                        <option value="Small Business">Small Business</option>
+                        <option value="General">General</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schemes Table -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-primary">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Scheme Name</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Category</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Target Group</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Benefits</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Status</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200" id="schemes-table-body">
+                        <!-- Scheme data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="hidden text-center py-12">
+            <i class="fas fa-search text-6xl text-gray-400 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-600 mb-2">No schemes found</h3>
+            <p class="text-gray-500">Try adjusting your search criteria or filters.</p>
+        </div>
+    </div>
+
+    <!-- Scheme Details Modal -->
+    <div id="scheme-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
+            <div class="mt-3">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                    <button id="close-modal" class="text-gray-400 hover:text-gray-600 text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="modal-content" class="space-y-4">
+                    <!-- Modal content will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Government schemes data
+        const schemes = [
+            {
+                name: "Beti Bachao Beti Padhao",
+                category: "Women Empowerment",
+                targetGroup: "Women",
+                benefits: "Education support, financial assistance",
+                status: "Active",
+                description: "A comprehensive scheme to address the declining child sex ratio and promote the education of girl children.",
+                eligibility: "Girl children from birth to 18 years",
+                applicationProcess: "Apply through local Anganwadi centers or schools",
+                contactInfo: "Ministry of Women and Child Development",
+                website: "wcd.nic.in",
+                launchedYear: "2015"
+            },
+            {
+                name: "PM-KISAN",
+                category: "Agriculture",
+                targetGroup: "Farmers",
+                benefits: "₹6,000 per year in three installments",
+                status: "Active",
+                description: "Direct income support of ₹6,000 per year to eligible farmer families, payable in three equal installments of ₹2,000 each.",
+                eligibility: "Small and marginal farmers with landholding up to 2 hectares",
+                applicationProcess: "Online application through PM-KISAN portal",
+                contactInfo: "Ministry of Agriculture and Farmers Welfare",
+                website: "pmkisan.gov.in",
+                launchedYear: "2019"
+            },
+            {
+                name: "MUDRA Yojana",
+                category: "Financial",
+                targetGroup: "Small Business",
+                benefits: "Loans up to ₹10 lakh for business",
+                status: "Active",
+                description: "Micro Units Development and Refinance Agency (MUDRA) provides loans to micro enterprises.",
+                eligibility: "Small business owners, entrepreneurs, and micro enterprises",
+                applicationProcess: "Apply through participating banks and financial institutions",
+                contactInfo: "MUDRA Bank",
+                website: "mudra.org.in",
+                launchedYear: "2015"
+            },
+            {
+                name: "Pradhan Mantri Fasal Bima Yojana",
+                category: "Agriculture",
+                targetGroup: "Farmers",
+                benefits: "Crop insurance coverage",
+                status: "Active",
+                description: "Comprehensive crop insurance scheme to protect farmers against crop losses due to natural calamities.",
+                eligibility: "All farmers growing notified crops",
+                applicationProcess: "Apply through insurance companies or banks",
+                contactInfo: "Ministry of Agriculture and Farmers Welfare",
+                website: "pmfby.gov.in",
+                launchedYear: "2016"
+            },
+            {
+                name: "National Scholarship Portal",
+                category: "Education",
+                targetGroup: "Students",
+                benefits: "Scholarships for various courses",
+                status: "Active",
+                description: "One-stop solution for all scholarship-related information and application processing.",
+                eligibility: "Students from economically weaker sections",
+                applicationProcess: "Online application through National Scholarship Portal",
+                contactInfo: "Ministry of Education",
+                website: "scholarships.gov.in",
+                launchedYear: "2015"
+            },
+            {
+                name: "PM-JAY (Ayushman Bharat)",
+                category: "Healthcare",
+                targetGroup: "General",
+                benefits: "Health insurance coverage up to ₹5 lakh",
+                status: "Active",
+                description: "World's largest health insurance scheme providing coverage for secondary and tertiary care hospitalization.",
+                eligibility: "Families identified in SECC database",
+                applicationProcess: "Automatic enrollment based on SECC data",
+                contactInfo: "Ministry of Health and Family Welfare",
+                website: "pmjay.gov.in",
+                launchedYear: "2018"
+            },
+            {
+                name: "PM-KMY (Kisan Maan Dhan Yojana)",
+                category: "Agriculture",
+                targetGroup: "Farmers",
+                benefits: "Pension of ₹3,000 per month after 60 years",
+                status: "Active",
+                description: "Voluntary pension scheme for small and marginal farmers.",
+                eligibility: "Small and marginal farmers aged 18-40 years",
+                applicationProcess: "Apply through Common Service Centers or banks",
+                contactInfo: "Ministry of Agriculture and Farmers Welfare",
+                website: "pmkmy.gov.in",
+                launchedYear: "2019"
+            },
+            {
+                name: "Stand-Up India",
+                category: "Financial",
+                targetGroup: "Women",
+                benefits: "Loans from ₹10 lakh to ₹1 crore",
+                status: "Active",
+                description: "Facilitate bank loans between ₹10 lakh and ₹1 crore to at least one SC/ST borrower and one woman borrower per bank branch.",
+                eligibility: "Women entrepreneurs, SC/ST entrepreneurs",
+                applicationProcess: "Apply through participating banks",
+                contactInfo: "Ministry of Finance",
+                website: "standupmitra.in",
+                launchedYear: "2016"
+            },
+            {
+                name: "PM-SYM (Pradhan Mantri Shram Yogi Maan-dhan)",
+                category: "Employment",
+                targetGroup: "General",
+                benefits: "Pension of ₹3,000 per month after 60 years",
+                status: "Active",
+                description: "Pension scheme for unorganized workers.",
+                eligibility: "Unorganized workers aged 18-40 years",
+                applicationProcess: "Apply through Common Service Centers",
+                contactInfo: "Ministry of Labour and Employment",
+                website: "labour.gov.in",
+                launchedYear: "2019"
+            },
+            {
+                name: "PM-Kisan Samman Nidhi",
+                category: "Agriculture",
+                targetGroup: "Farmers",
+                benefits: "₹6,000 per year in three installments",
+                status: "Active",
+                description: "Direct income support to eligible farmer families.",
+                eligibility: "Small and marginal farmers",
+                applicationProcess: "Online application through PM-KISAN portal",
+                contactInfo: "Ministry of Agriculture and Farmers Welfare",
+                website: "pmkisan.gov.in",
+                launchedYear: "2019"
+            }
+        ];
+
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initialize the table
+        function initializeTable() {
+            const tableBody = document.getElementById('schemes-table-body');
+            tableBody.innerHTML = '';
+
+            schemes.forEach((scheme, index) => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50 transition-colors duration-200';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">${scheme.name}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">${scheme.category}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${scheme.targetGroup}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${scheme.benefits}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            ${scheme.status}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="showSchemeDetails(${index})" class="text-primary hover:text-blue-700 transition-colors duration-200">
+                            <i class="fas fa-info-circle mr-1"></i>Details
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Search and filter functionality
+        function filterSchemes() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const categoryFilter = document.getElementById('category-filter').value;
+            const targetFilter = document.getElementById('target-filter').value;
+
+            const filteredSchemes = schemes.filter(scheme => {
+                const matchesSearch = scheme.name.toLowerCase().includes(searchTerm) ||
+                    scheme.category.toLowerCase().includes(searchTerm) ||
+                    scheme.targetGroup.toLowerCase().includes(searchTerm) ||
+                    scheme.benefits.toLowerCase().includes(searchTerm);
+                const matchesCategory = !categoryFilter || scheme.category === categoryFilter;
+                const matchesTarget = !targetFilter || scheme.targetGroup === targetFilter;
+
+                return matchesSearch && matchesCategory && matchesTarget;
+            });
+
+            displayFilteredSchemes(filteredSchemes);
+        }
+
+        function displayFilteredSchemes(filteredSchemes) {
+            const tableBody = document.getElementById('schemes-table-body');
+            const noResults = document.getElementById('no-results');
+
+            if (filteredSchemes.length === 0) {
+                tableBody.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+            tableBody.innerHTML = '';
+
+            filteredSchemes.forEach((scheme, index) => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50 transition-colors duration-200';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">${scheme.name}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">${scheme.category}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${scheme.targetGroup}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${scheme.benefits}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            ${scheme.status}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="showSchemeDetails(${schemes.indexOf(scheme)})" class="text-primary hover:text-blue-700 transition-colors duration-200">
+                            <i class="fas fa-info-circle mr-1"></i>Details
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Scheme details modal
+        function showSchemeDetails(index) {
+            const scheme = schemes[index];
+            const modal = document.getElementById('scheme-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+
+            modalTitle.textContent = scheme.name;
+            modalContent.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Scheme Information</h4>
+                            <p class="text-gray-600"><strong>Category:</strong> ${scheme.category}</p>
+                            <p class="text-gray-600"><strong>Target Group:</strong> ${scheme.targetGroup}</p>
+                            <p class="text-gray-600"><strong>Benefits:</strong> ${scheme.benefits}</p>
+                            <p class="text-gray-600"><strong>Status:</strong> ${scheme.status}</p>
+                            <p class="text-gray-600"><strong>Launched:</strong> ${scheme.launchedYear}</p>
+    </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Contact Information</h4>
+                            <p class="text-gray-600"><strong>Contact:</strong> ${scheme.contactInfo}</p>
+                            <p class="text-gray-600"><strong>Website:</strong> <a href="https://${scheme.website}" target="_blank" class="text-primary hover:text-blue-700">${scheme.website}</a></p>
+                </div>
+            </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Description</h4>
+                            <p class="text-gray-600">${scheme.description}</p>
+            </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Eligibility</h4>
+                            <p class="text-gray-600">${scheme.eligibility}</p>
+            </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Application Process</h4>
+                            <p class="text-gray-600">${scheme.applicationProcess}</p>
+            </div>
+        </div>
+        </div>
+            `;
+
+            modal.classList.remove('hidden');
+        }
+
+        // Close modal
+        document.getElementById('close-modal').addEventListener('click', function () {
+            document.getElementById('scheme-modal').classList.add('hidden');
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('scheme-modal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+
+        // Event listeners for search and filters
+        document.getElementById('search').addEventListener('input', filterSchemes);
+        document.getElementById('category-filter').addEventListener('change', filterSchemes);
+        document.getElementById('target-filter').addEventListener('change', filterSchemes);
+
+        // Initialize the table on page load
+        document.addEventListener('DOMContentLoaded', initializeTable);
+    </script>
 </body>
+
 </html>

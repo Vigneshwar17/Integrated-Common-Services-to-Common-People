@@ -1,329 +1,689 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Integrated Service Webpage</title>
-    <link rel="stylesheet" href="homeSTYLE.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="TN logo.png">
-</head>
-<body>
-    <div class="navbar">
-        <div class="logo">
-            <img src="TN logo.png" alt="Government Logo">
-        </div>
-        &nbsp;&nbsp;
-        &nbsp;&nbsp;
-        &nbsp;&nbsp;
-        &nbsp;&nbsp;
-        &nbsp;&nbsp;
-        &nbsp;&nbsp;
-        &nbsp;&nbsp;
-        &nbsp;&nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        <div class="dropdown">
-            <button class="dropbtn">Home</button>
-        </div>
-        
-        <div class="dropdown">
-            <button class="dropbtn">Govt.Service</button>
-            <div class="dropdown-content">
-                <a href="AadharandLand.html">Aadhar and Land Service</a>
-                <a href="GovernmentScheme.html">Government Schemes</a>
-                <a href="passport.html">Passport Service</a>
-                <a href="pensiondetail.html">Pensioner Service</a>
-                <a href="ration.html">Ration and VoterID Service</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Finance</button>
-            <div class="dropdown-content">
-                <a href="Finance.html">Interest Calculator</a>
-                <a href="financeapi.html">Tax-Saving Recommender</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Health Service(Chennai)</button>
-            <div class="dropdown-content">
-                <a href="Hospitals.html">Hospitals</a>
-                <a href="DiagnosticCenters.html">Diagnostic Centre</a>
-                <a href="ElderandNurseCare.html">Nurse Care Details</a>
-                <a href="Emergency.html">Emergency Centres</a>
-                <a href="HealthInsurance.html">Health Insurance</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Transport(Chennai)</button>
-            <div class="dropdown-content">
-                <a href="BusRoutes.html">List Of Buses</a>
-                <a href="BuyOrSell.html">Second Hand Vehicle</a>
-                <a href="CostComparison.html">Cost Comparison</a>
-                <a href="NearestServiceCenters.html">Service Centre</a>
-                <a href="OnspotServiceCenter.html">Onspot Service Center</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <a href="#footer-container"><button class="dropbtn">About</button></a>
-        </div>
-        <!-- <div class="dropdown">
-            <button class="dropbtn">Login</button>
-        </div> -->
-        <div class="datetime" id="datetime"></div>
-        <script>
-            function updateDateTime() {
-                const now = new Date();
-                const options = { 
-                    year: 'numeric', 
-                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
-                    day: '2-digit' 
-                };
-                const date = now.toLocaleDateString(undefined, options);
-                const time = now.toLocaleTimeString();
-                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
-            }
-        
-            setInterval(updateDateTime, 1000);
-            updateDateTime(); // Initial call to display date/time immediately
-        </script>
-        
-        
-    </div>
-
-    <div class="container">
-        <h1>Welcome to the Integrated Services</h1>
-        <p>Select a service from the navigation bar above to learn more.</p>
-    </div>    
-
-    <!-- Slideshow Container -->
-    <div class="slideshow-container">
-        <div class="mySlides fade">
-            <img src="img15.jpg">
-        </div>
-        <div class="mySlides fade">
-            <img src="img5.jpg">
-        </div>
-        <div class="mySlides fade">
-            <img src="img4.jpg">
-        </div>
-        <div class="mySlides fade">
-            <img src="img2.jpg">
-        </div>
-        <div class="mySlides fade">
-            <img src="img3.jpg">
-        </div>
-        <div class="mySlides fade">
-            <img src="img14.webp">
-        </div>
-        
-        <!-- Add more slides as needed -->
-    
-        <!-- Previous and Next buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    
-    <!-- Dots/bullets -->
-     <br>
-     <br>
-    <div style="text-align:center; margin-top: 10px;">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-        <span class="dot" onclick="currentSlide(4)"></span>
-        <span class="dot" onclick="currentSlide(5)"></span>
-        <span class="dot" onclick="currentSlide(6)"></span>
-        <span class="dot" onclick="currentSlide(7)"></span>
-        <!-- Add more dots as needed -->
-    </div>
-    
+    <!-- Custom Tailwind Config -->
     <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0b3c5d',
+                        secondary: '#C2CFD7',
+                        accent: '#0056b3'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'arial': ['Arial', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 font-poppins">
+    <!-- Navigation Bar -->
+    <nav class="bg-primary shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <img src="TN logo.png" alt="Government Logo" class="h-12 w-auto">
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <!-- Home -->
+                        <a href="#"
+                            class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Home</a>
+
+                        <!-- Govt Services Dropdown -->
+                        <div class="relative group">
+                            <button
+                                class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300 flex items-center">
+                                Govt.Service
+                                <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <div
+                                class="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <div class="py-1">
+                                    <a href="AadharandLand.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Aadhar and Land
+                                        Service</a>
+                                    <a href="GovernmentScheme.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Government
+                                        Schemes</a>
+                                    <a href="passport.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Passport
+                                        Service</a>
+                                    <a href="pensiondetail.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pensioner
+                                        Service</a>
+                                    <a href="ration.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Ration and
+                                        VoterID Service</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Finance Dropdown -->
+                        <div class="relative group">
+                            <button
+                                class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300 flex items-center">
+                                Finance
+                                <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <div
+                                class="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <div class="py-1">
+                                    <a href="Finance.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Interest
+                                        Calculator</a>
+                                    <a href="financeapi.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Tax-Saving
+                                        Recommender</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Health Services Dropdown -->
+                        <div class="relative group">
+                            <button
+                                class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300 flex items-center">
+                                Health Service(Chennai)
+                                <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <div
+                                class="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <div class="py-1">
+                                    <a href="Hospitals.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Hospitals</a>
+                                    <a href="DiagnosticCenters.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Diagnostic
+                                        Centre</a>
+                                    <a href="ElderandNurseCare.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Nurse Care
+                                        Details</a>
+                                    <a href="Emergency.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Emergency
+                                        Centres</a>
+                                    <a href="HealthInsurance.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Health
+                                        Insurance</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Transport Dropdown -->
+                        <div class="relative group">
+                            <button
+                                class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300 flex items-center">
+                                Transport(Chennai)
+                                <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <div
+                                class="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <div class="py-1">
+                                    <a href="BusRoutes.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">List Of
+                                        Buses</a>
+                                    <a href="BuyOrSell.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Second Hand
+                                        Vehicle</a>
+                                    <a href="CostComparison.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cost
+                                        Comparison</a>
+                                    <a href="NearestServiceCenters.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Service
+                                        Centre</a>
+                                    <a href="OnspotServiceCenter.html"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Onspot Service
+                                        Center</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- About -->
+                        <a href="#footer-container"
+                            class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">About</a>
+                    </div>
+                </div>
+
+                <!-- DateTime Display -->
+                <div class="hidden md:block">
+                    <div id="datetime" class="text-white text-sm"></div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button"
+                        class="text-white hover:bg-white hover:bg-opacity-20 p-2 rounded-md">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+
+                <!-- Mobile Dropdowns -->
+                <div class="space-y-1">
+                    <button
+                        class="mobile-dropdown-btn text-white w-full text-left px-3 py-2 rounded-md text-base font-medium flex justify-between items-center">
+                        Govt.Service
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="mobile-dropdown-content hidden pl-4 space-y-1">
+                        <a href="AadharandLand.html" class="text-white block px-3 py-2 rounded-md text-sm">Aadhar and
+                            Land Service</a>
+                        <a href="GovernmentScheme.html" class="text-white block px-3 py-2 rounded-md text-sm">Government
+                            Schemes</a>
+                        <a href="passport.html" class="text-white block px-3 py-2 rounded-md text-sm">Passport
+                            Service</a>
+                        <a href="pensiondetail.html" class="text-white block px-3 py-2 rounded-md text-sm">Pensioner
+                            Service</a>
+                        <a href="ration.html" class="text-white block px-3 py-2 rounded-md text-sm">Ration and VoterID
+                            Service</a>
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <button
+                        class="mobile-dropdown-btn text-white w-full text-left px-3 py-2 rounded-md text-base font-medium flex justify-between items-center">
+                        Finance
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="mobile-dropdown-content hidden pl-4 space-y-1">
+                        <a href="Finance.html" class="text-white block px-3 py-2 rounded-md text-sm">Interest
+                            Calculator</a>
+                        <a href="financeapi.html" class="text-white block px-3 py-2 rounded-md text-sm">Tax-Saving
+                            Recommender</a>
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <button
+                        class="mobile-dropdown-btn text-white w-full text-left px-3 py-2 rounded-md text-base font-medium flex justify-between items-center">
+                        Health Service(Chennai)
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="mobile-dropdown-content hidden pl-4 space-y-1">
+                        <a href="Hospitals.html" class="text-white block px-3 py-2 rounded-md text-sm">Hospitals</a>
+                        <a href="DiagnosticCenters.html"
+                            class="text-white block px-3 py-2 rounded-md text-sm">Diagnostic Centre</a>
+                        <a href="ElderandNurseCare.html" class="text-white block px-3 py-2 rounded-md text-sm">Nurse
+                            Care Details</a>
+                        <a href="Emergency.html" class="text-white block px-3 py-2 rounded-md text-sm">Emergency
+                            Centres</a>
+                        <a href="HealthInsurance.html" class="text-white block px-3 py-2 rounded-md text-sm">Health
+                            Insurance</a>
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <button
+                        class="mobile-dropdown-btn text-white w-full text-left px-3 py-2 rounded-md text-base font-medium flex justify-between items-center">
+                        Transport(Chennai)
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="mobile-dropdown-content hidden pl-4 space-y-1">
+                        <a href="BusRoutes.html" class="text-white block px-3 py-2 rounded-md text-sm">List Of Buses</a>
+                        <a href="BuyOrSell.html" class="text-white block px-3 py-2 rounded-md text-sm">Second Hand
+                            Vehicle</a>
+                        <a href="CostComparison.html" class="text-white block px-3 py-2 rounded-md text-sm">Cost
+                            Comparison</a>
+                        <a href="NearestServiceCenters.html"
+                            class="text-white block px-3 py-2 rounded-md text-sm">Service Centre</a>
+                        <a href="OnspotServiceCenter.html" class="text-white block px-3 py-2 rounded-md text-sm">Onspot
+                            Service Center</a>
+                    </div>
+                </div>
+
+                <a href="#footer-container"
+                    class="text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+
+                <!-- Mobile DateTime -->
+                <div class="px-3 py-2">
+                    <div id="mobile-datetime" class="text-white text-sm"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <div class="bg-gradient-to-r from-primary to-blue-800 text-white py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to the Integrated Services</h1>
+                <p class="text-xl md:text-2xl opacity-90">Select a service from the navigation bar above to learn more.
+                </p>
+            </div>
+        </div>
+
+        <!-- Slideshow Container -->
+        <div class="relative max-w-6xl mx-auto mt-8 px-4">
+            <div class="slideshow-container relative overflow-hidden rounded-lg shadow-2xl">
+                <div class="mySlides fade">
+                    <img src="img15.jpg" class="w-full h-64 md:h-96 object-cover">
+                </div>
+                <div class="mySlides fade">
+                    <img src="img5.jpg" class="w-full h-64 md:h-96 object-cover">
+                </div>
+                <div class="mySlides fade">
+                    <img src="img4.jpg" class="w-full h-64 md:h-96 object-cover">
+                </div>
+                <div class="mySlides fade">
+                    <img src="img2.jpg" class="w-full h-64 md:h-96 object-cover">
+                </div>
+                <div class="mySlides fade">
+                    <img src="img3.jpg" class="w-full h-64 md:h-96 object-cover">
+                </div>
+                <div class="mySlides fade">
+                    <img src="img14.webp" class="w-full h-64 md:h-96 object-cover">
+                </div>
+
+                <!-- Previous and Next buttons -->
+                <a class="prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition-all duration-300 cursor-pointer text-xl"
+                    onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition-all duration-300 cursor-pointer text-xl"
+                    onclick="plusSlides(1)">&#10095;</a>
+            </div>
+
+            <!-- Dots/bullets -->
+            <div class="text-center mt-4">
+                <span
+                    class="dot inline-block w-3 h-3 mx-1 rounded-full bg-gray-400 cursor-pointer hover:bg-gray-600 transition-all duration-300"
+                    onclick="currentSlide(1)"></span>
+                <span
+                    class="dot inline-block w-3 h-3 mx-1 rounded-full bg-gray-400 cursor-pointer hover:bg-gray-600 transition-all duration-300"
+                    onclick="currentSlide(2)"></span>
+                <span
+                    class="dot inline-block w-3 h-3 mx-1 rounded-full bg-gray-400 cursor-pointer hover:bg-gray-600 transition-all duration-300"
+                    onclick="currentSlide(3)"></span>
+                <span
+                    class="dot inline-block w-3 h-3 mx-1 rounded-full bg-gray-400 cursor-pointer hover:bg-gray-600 transition-all duration-300"
+                    onclick="currentSlide(4)"></span>
+                <span
+                    class="dot inline-block w-3 h-3 mx-1 rounded-full bg-gray-400 cursor-pointer hover:bg-gray-600 transition-all duration-300"
+                    onclick="currentSlide(5)"></span>
+                <span
+                    class="dot inline-block w-3 h-3 mx-1 rounded-full bg-gray-400 cursor-pointer hover:bg-gray-600 transition-all duration-300"
+                    onclick="currentSlide(6)"></span>
+            </div>
+        </div>
+
+        <!-- Marquee Section -->
+        <div class="bg-primary text-white py-4 mt-8 overflow-hidden">
+            <div class="marquee-text whitespace-nowrap animate-marquee">
+                Welcome to our Integrated Service! Check out our latest updates and services below.
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Our Services</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Aadhar and Land Services Card -->
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="img1.jpeg" alt="Aadhar and Land Services" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Aadhar and Land Services</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">Aadhaar Seva Kendras (ASKs) provide streamlined
+                            Aadhaar enrollment and update services. Land Service Providing offices, or Tehsil/Taluk
+                            offices, manage land records and facilitate property transactions. They ensure accurate land
+                            ownership records, transparency in dealings, and efficient land administration, empowering
+                            citizens with secure land tenure and essential land-related services.</p>
+                        <a href="AadharandLand.html"
+                            class="inline-block bg-primary text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300">More
+                            Details</a>
+                    </div>
+                </div>
+
+                <!-- Government Schemes Card -->
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="img5.jpg" alt="Government Schemes" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Government Schemes</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">The Indian government offers diverse schemes to
+                            support students, women, and farmers. Educational scholarships empower students, while Beti
+                            Bachao Beti Padhao and MUDRA Yojana foster female education and entrepreneurship. Farmers
+                            benefit from financial stability and crop insurance through PM-KISAN and Pradhan Mantri
+                            Fasal Bima Yojana, ensuring sustainable agricultural development and security.</p>
+                        <a href="GovernmentScheme.html"
+                            class="inline-block bg-primary text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300">More
+                            Details</a>
+                    </div>
+                </div>
+
+                <!-- Financial Advisor Card -->
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="img9.jpeg" alt="Finance Service" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Financial Advisor</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">Explore our Finance Service featuring a Bank
+                            Interest Calculator and Finance Suggestion Recommender. Plan your savings with precision
+                            using our Bank Interest Calculator, and receive personalized financial advice through our
+                            Finance Suggestion Recommender to optimize your financial strategy and achieve your goals
+                            efficiently.</p>
+                        <a href="financeapi.html"
+                            class="inline-block bg-primary text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300">More
+                            Details</a>
+                    </div>
+                </div>
+
+                <!-- Health Services Card -->
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="img10.jpeg" alt="Health Services" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Health Services</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">Discover comprehensive Hospital Services in
+                            Chennai featuring a curated list of top hospitals, emergency care centers, health insurance
+                            options, and state-of-the-art diagnostic centers. Whether you need urgent medical attention,
+                            reliable health insurance coverage, or advanced diagnostic services, our platform ensures
+                            access to trusted healthcare facilities for your peace of mind and well-being.</p>
+                        <a href="Hospitals.html"
+                            class="inline-block bg-primary text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300">More
+                            Details</a>
+                    </div>
+                </div>
+
+                <!-- Nurse Care Service Card -->
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="img11.jpg" alt="Nursing Details" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Nurse Care Service</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">Ensuring compassionate care from qualified
+                            professionals. We connect you with experienced nurses who provide personalized healthcare in
+                            Chennai's top hospitals and home settings. Whether you require post-operative care, elderly
+                            assistance, or medical support at home, our dedicated nurses ensure comfort and recovery
+                            with expertise and empathy.</p>
+                        <a href="ElderandNurseCare.html"
+                            class="inline-block bg-primary text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300">More
+                            Details</a>
+                    </div>
+                </div>
+
+                <!-- Transport & Sales Service Card -->
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <img src="img12.jpg" alt="Transport" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Transport & Sales Service</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">Offering detailed information on routes, cost
+                            comparisons, and service centers in Chennai. Whether you're commuting locally or planning a
+                            journey, our platform provides insights into transportation options, including fares and
+                            schedules. Explore efficient routes, service centers for maintenance, and reliable cost
+                            comparisons to streamline your travel planning with ease and confidence.</p>
+                        <a href="BusRoutes.html"
+                            class="inline-block bg-primary text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300">More
+                            Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Us Section -->
+        <div class="bg-gray-50 py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">About Us</h2>
+                        <p class="text-lg text-gray-600 leading-relaxed">We are committed to provide integrated and
+                            accessible services to the community. Our mission is to enhance the quality of life of
+                            people well-being through comprehensive support and services in health, finance, transport,
+                            and various government schemes. Our dedicated team works tirelessly to ensure that every
+                            citizen has access to the resources they need.</p>
+                    </div>
+                    <div class="relative">
+                        <img src="img8.jpg" alt="About Us"
+                            class="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white" id="footer-container">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Branding Section -->
+                <div class="space-y-4">
+                    <div class="text-xl font-bold">Integrated Services Scheme</div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="https://www.google.com/search"
+                            class="text-white hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-google text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="passport.html"
+                                class="hover:text-blue-400 transition-colors duration-300">Passport</a></li>
+                        <li><a href="pensiondetail.html"
+                                class="hover:text-blue-400 transition-colors duration-300">Pension schemes</a></li>
+                        <li><a href="ration.html" class="hover:text-blue-400 transition-colors duration-300">VoterID</a>
+                        </li>
+                        <li><a href="Finance.html" class="hover:text-blue-400 transition-colors duration-300">Bank
+                                Interest-Calculator</a></li>
+                        <li><a href="HealthInsurance.html"
+                                class="hover:text-blue-400 transition-colors duration-300">Health Insurance</a></li>
+                        <li><a href="BuyOrSell.html" class="hover:text-blue-400 transition-colors duration-300">Sales
+                                Dealership</a></li>
+                        <li><a href="OnspotServiceCenter.html"
+                                class="hover:text-blue-400 transition-colors duration-300">Onspot Service Centers</a>
+                        </li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors duration-300">Home</a></li>
+                    </ul>
+                </div>
+
+                <!-- Information -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold">Information</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-400 transition-colors duration-300">Website Policies</a>
+                        </li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors duration-300">Help</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors duration-300">Feedback</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors duration-300">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors duration-300">Analytics</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors duration-300">Visitors</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors duration-300">Terms &
+                                Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold">Get In Touch</h4>
+                    <address class="not-italic space-y-2">
+                        <div>Rajalakshimi Institue of Technology</div>
+                        <a href="tel:+917200220849" class="block hover:text-blue-400 transition-colors duration-300">+91
+                            72002 20849</a>
+                        <a href="tel:+918778439525" class="block hover:text-blue-400 transition-colors duration-300">+91
+                            87784 39525</a>
+                        <a href="tel:+919597809593" class="block hover:text-blue-400 transition-colors duration-300">+91
+                            95978 09593</a>
+                        <a href="tel:+919043144325" class="block hover:text-blue-400 transition-colors duration-300">+91
+                            90431 44323</a>
+                        <a href="tel:+916382606757" class="block hover:text-blue-400 transition-colors duration-300">+91
+                            63826 06757</a>
+                        <a href="mailto:vigneshwar.s.2022.cce@ritchennai.edu.in"
+                            class="block hover:text-blue-400 transition-colors duration-300">vigneshwar.s.2022.cce@ritchennai.edu.in</a>
+                        <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"
+                            class="block hover:text-blue-400 transition-colors duration-300">badri.p.2022.cce@ritchennai.edu.in</a>
+                        <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"
+                            class="block hover:text-blue-400 transition-colors duration-300">marishwaran.a.2022.cce@ritchennai.edu.in</a>
+                        <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"
+                            class="block hover:text-blue-400 transition-colors duration-300">bavadharini.s.2022.cce@ritchennai.edu.in</a>
+                        <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"
+                            class="block hover:text-blue-400 transition-colors duration-300">jinapriya.s.2022.cce@ritchennai.edu.in</a>
+                    </address>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="bg-gray-900 py-4">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p>© 2024 Government Services. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom CSS for slideshow and animations -->
+    <style>
+        .mySlides {
+            display: none;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .active {
+            background-color: #0b3c5d !important;
+        }
+
+        .animate-marquee {
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+
+    <!-- JavaScript -->
+    <script>
+        // DateTime functionality
+        function updateDateTime() {
+            const now = new Date();
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: '2-digit'
+            };
+            const date = now.toLocaleDateString(undefined, options);
+            const time = now.toLocaleTimeString();
+            const dateTimeString = `${date}, ${time}`;
+
+            document.getElementById('datetime').innerHTML = dateTimeString;
+            document.getElementById('mobile-datetime').innerHTML = dateTimeString;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // Slideshow functionality
         let slideIndex = 0;
         showSlides();
-    
+
         function showSlides() {
             let i;
             let slides = document.getElementsByClassName("mySlides");
             let dots = document.getElementsByClassName("dot");
-            
-            // Hide all slides
+
             for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
-            
-            // Increment slideIndex and reset if necessary
+
             slideIndex++;
             if (slideIndex > slides.length) {
                 slideIndex = 1;
             }
-            
-            // Hide all dots
+
             for (i = 0; i < dots.length; i++) {
                 dots[i].className = dots[i].className.replace(" active", "");
             }
-            
-            // Display current slide and dot
+
             slides[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " active";
-            
-            // Change slide every 2 seconds
+
             setTimeout(showSlides, 3000);
         }
-    
+
         function plusSlides(n) {
             slideIndex += n;
             showSlides();
         }
-    
+
         function currentSlide(n) {
             slideIndex = n;
             showSlides();
         }
+
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mobile dropdown functionality
+        document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const dropdownContent = this.nextElementSibling;
+                const icon = this.querySelector('i');
+
+                dropdownContent.classList.toggle('hidden');
+
+                if (dropdownContent.classList.contains('hidden')) {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                } else {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        });
     </script>
-    <br><br><br><br>
-
-    <div class="marquee-container">
-        <div class="marquee-text">
-            Welcome to our Integrated Service! Check out our latest updates and services below.
-        </div>
-    </div>
-    <div class="container">
-        <h1>Our Services</h1>
-    </div>  
-    <div class="card-container">
-        
-        <div class="card">
-            <img src="img1.jpeg" alt="Aadhar and Land Services">
-            <h3>Aadhar and Land Services</h3>
-            <p>Aadhaar Seva Kendras (ASKs) provide streamlined Aadhaar enrollment and update services. Land Service Providing offices, or Tehsil/Taluk offices, manage land records and facilitate property transactions. They ensure accurate land ownership records, transparency in dealings, and efficient land administration, empowering citizens with secure land tenure and essential land-related services..</p>
-            <a href="AadharandLand.html"><button class="details-button">More Details</button></a>
-            <!-- <div class="card-footer">
-                <div class="footer-icon">
-                    <img src="ghost.jpg" alt="Anganwadi Icon">
-                </div> 
-                <div class="footer-text">
-                    <p>Anganwadi Service</p>
-                    <p>Started in 1975</p>
-                </div>
-            </div> -->
-        </div>
-        <div class="card">
-            <img src="img5.jpg" alt="Government Schemes">
-            <h3>Government Schemes</h3>
-            <p>The Indian government offers diverse schemes to support students, women, and farmers. Educational scholarships empower students, while Beti Bachao Beti Padhao and MUDRA Yojana foster female education and entrepreneurship. Farmers benefit from financial stability and crop insurance through PM-KISAN and Pradhan Mantri Fasal Bima Yojana, ensuring sustainable agricultural development and security.</p>
-            <a href="GovernmentScheme.html"><button class="details-button">More Details</button></a>
-            
-        </div>
-        <div class="card">
-            <img src="img9.jpeg" alt="Finance Service">
-            <h3>Financial Advisor</h3>
-            <p>Explore our Finance Service featuring a Bank Interest Calculator and Finance Suggestion Recommender. Plan your savings with precision using our Bank Interest Calculator, and receive personalized financial advice through our Finance Suggestion Recommender to optimize your financial strategy and achieve your goals efficiently.</p>
-            <a href="financeapi.html"><button class="details-button">More Details</button></a>
-           
-        </div>
-
-        <div class="card">
-            <img src="img10.jpeg" alt="Health Services">
-            <h3>Health Services</h3>
-            <p>Discover comprehensive Hospital Services in Chennai featuring a curated list of top hospitals, emergency care centers, health insurance options, and state-of-the-art diagnostic centers. Whether you need urgent medical attention, reliable health insurance coverage, or advanced diagnostic services, our platform ensures access to trusted healthcare facilities for your peace of mind and well-being.</p>
-            <a href="Hospitals.html"><button class="details-button">More Details</button></a>
-        </div>
-        <div class="card">
-            <img src="img11.jpg" alt="Nursing Details">
-            <h3>Nurse Care Service</h3>
-            <p> Ensuring compassionate care from qualified professionals. We connect you with experienced nurses who provide personalized healthcare in Chennai's top hospitals and home settings. Whether you require post-operative care, elderly assistance, or medical support at home, our dedicated nurses ensure comfort and recovery with expertise and empathy.</p>
-            <a href="ElderandNurseCare.html"><button class="details-button">More Details</button></a>
-            
-        </div>
-        <div class="card">
-            <img src="img12.jpg" alt="Transport">
-            <h3>Transport & Sales Service</h3>
-            <p>Offering detailed information on routes, cost comparisons, and service centers in Chennai. Whether you're commuting locally or planning a journey, our platform provides insights into transportation options, including fares and schedules. Explore efficient routes, service centers for maintenance, and reliable cost comparisons to streamline your travel planning with ease and confidence.</p>
-            <a href="BusRoutes.html"><button class="details-button">More Details</button></a>
-           
-        </div>
-        <!-- Add more cards as needed -->
-    </div>
-<br><br><br>
-<div class="about-us">
-    <div class="text">
-        <h2>About Us</h2>
-        <p>We are committed to provide integrated and accessible services to the community. Our mission is to enhance the quality of life of people well-being through comprehensive support and services in health, finance, transport, and various government schemes. Our dedicated team works tirelessly to ensure that every citizen has access to the resources they need.</p>
-    </div>
-    <div class="image">
-        <img src="img8.jpg" alt="About Us">
-    </div>
-</div>
-
-    <footer>
-        <div class="footer-container" id="footer-container">
-            <div class="footer-section branding">
-                <div class="logo">Integrated Services Scheme</div> <br>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a> &nbsp;
-                    <a href="https://www.google.com/search"><i class="fab fa-google"></i></a>&nbsp;
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="passport.html">Passport </a></li>
-                    <li><a href="pensiondetail.html">Pension schemes</a></li>
-                    <li><a href="ration.html">VoterID</a></li>
-                    <li><a href="Finance.html">Bank Interest-Calculator</a></li>
-                    <li><a href="HealthInsurance.html">Health Insurance</a></li>
-                    <li><a href="BuyOrSell.html">Sales Dealership</a></li>
-                    <li><a href="OnspotServiceCenter.html">Onspot Service Centers</a></li>
-                    <li><a href="#">Home</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Information</h4>
-                <ul>
-                    <li><a href="#">Website Policies</a></li>
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">Feedback</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Analytics</a></li>
-                    <li><a href="#">Visitors</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                </ul>
-            </div>
-            <div class="footer-section contact">
-                <h4>Get In Touch</h4>
-                <address>
-                    Rajalakshimi Institue of Technology<br>
-                    <a href="Ph:72002 20849">+91 72002 20849</a>
-                    <a href="Ph:87784 39525">+91 87784 39525</a>
-                    <a href="Ph:95978 09593">+91 95978 09593</a>
-                    <a href="Ph:90431 44325">+91 90431 44323</a>
-                    <a href="Ph:63826 06757">+91 63826 06757</a> 
-                    <a href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
-                    <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"></a>badri.p.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"></a>marishwaran.a.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"></a>bavadharini.s.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"></a>jinapriya.s.2022.cce@ritchennai.edu.in</a>
-                </address>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            © 2024 Government Services. All Rights Reserved.
-        </div>
-    </footer>
-
-    <!-- FontAwesome for icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-    <!-- FontAwesome for icons -->
-    
-    
-    <!-- JavaScript for Slideshow -->
-   
 </body>
+
 </html>

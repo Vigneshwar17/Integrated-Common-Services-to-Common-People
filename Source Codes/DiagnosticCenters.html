@@ -1,546 +1,559 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Centers</title>
     <link rel="icon" href="TN logo.png">
-    <title>Diagnostic Centre</title>
-    <style>
-        body {
-            background:#dbd2d2;
-            font-family: Arial, sans-serif;
-            /*display: flex; 
-            justify-content: center;
-            align-items: center;  */ 
-            height: 100vh;
-            margin-left: 50px;
-            color: #161616;
-            overflow-x: hidden;
-        }
-
-        .table-container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 93%;
-            max-width: 1200px;
-            
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-        }
-
-        th {
-            background: #1a57da;
-            color: #ffffff;
-            text-transform: uppercase;
-        }
-        tbody tr:nth-child(even) {
-            background: #f2f2f2;
-        }
-
-        tbody tr:hover {
-            background:#6b7272;
-            color: #ffffff; 
-            transition: 1s;
-            transform: translateY(-10px);
-        
-        }
-
-        caption {
-            color: #444543;
-            font-size: 2.5em;
-            margin: 10px 0;
-        }
-
-        #LAND {
-            margin-left: 0;
-        }
-
-        #AADHAR {
-            margin-left: 0;
-            /* margin-top:1000px; */
-        }
-        .datetime {
-    font-size: 0.9em;
-    color: #ffffff;
-    margin-left: 160px;
-}
-/* Add any other necessary theme styles here */
-/* Navbar container */
-.navbar {
-    display: flex;
-    align-items: center;
-    background-color: #0b3c5d;
-    padding: 3px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 107%;
-    height: 120px;
-    margin-left:-50px;
-    margin-top: -20px;
-    /* margin-top: -10px; */
-}
-
-/* Logo styling */
-.logo img {
-    height: 50px;
-    margin-right: 200px; /* Push the logo to the left */
-}
-
-/* Dropdown container */
-.dropdown {
-    position: relative;
-    display: inline-block;
-    margin-left: 10px;
-}
-
-/* Dropdown button styling */
-.dropbtn {
-    background-color: transparent;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Arial', sans-serif; /* Change to a professional font */
-}
-
-/* Hover effect for dropdown button */
-.dropbtn:hover, .dropbtn:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-}
-
-/* Dropdown content styling */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #C2CFD7;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-radius: 4px; /* Rounded corners */
-    overflow: hidden; /* Ensure rounded corners are respected */
-    opacity: 0; /* Initially hidden */
-    transition: 5s ease-in-out; /* Fade effect */
-}
-
-/* Dropdown link styling */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-family: 'Arial', sans-serif; /* Match the font of dropdown button */
-}
-
-/* Hover effect for dropdown links */
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-    color: #0056b3;
-}
-
-/* Show dropdown content on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-    opacity: 1; /* Fully visible */
-}
-
-footer {
-    background-color: #4199A7; /* Blue background */
-    color: white;
-    font-family: Arial, sans-serif;
-    margin-left: -49px;
-    width:105%;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    
-    
-
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px;
-}
-
-.footer-section h4 {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-    color: #fff;
-    border-bottom: 1px solid #fff; /* Adding a bottom border for section titles */
-    padding-bottom: 5px;
-}
-
-.footer-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 8px;
-}
-
-.footer-section ul li a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section ul li a:hover {
-    color: #f0f0f0; /* Lighter shade on hover */
-}
-
-.footer-section.contact {
-    /* Adding specific styles for the contact section */
-}
-
-.footer-section.contact address {
-    font-style: normal;
-    color: #ddd;
-}
-
-.footer-section.contact address a {
-    color: #ddd;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section.contact address a:hover {
-    color: #fff;
-}
-
-
-.footer-section .contact address {
-    font-style: normal;
-    line-height: 1.6;
-}
-
-.footer-section .contact a {
-    color: white;
-    text-decoration: none;
-}
-
-.footer-section .contact a:hover {
-    text-decoration: underline;
-}
-
-.footer-section .branding .logo {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-}
-
-.footer-section .social-icons {
-    display: flex;
-    gap: 10px;
-}
-
-.footer-section .social-icons a {
-    color: white;
-    font-size: 1.2em;
-}
-
-.footer-bottom {
-    background-color: #000;
-    color: white;
-    text-align:center;
-    padding: 10px 0;
-    position:aboslute;
-    
-}
-
-.footer-bottom a {
-    color: #0ff;
-    text-decoration: none;
-}
-
-.footer-bottom a:hover {
-    text-decoration: underline;
-}
-
-    </style>
-</head>
-<body>
-    <div class="navbar">
-        <div class="logo">
-            <img src="TN logo.png" alt="Government Logo">
-        </div>
-        
-        <div class="dropdown">
-            <a href="home.html"><button class="dropbtn">Home</button></a>
-        </div>
-        
-        <div class="dropdown">
-            <button class="dropbtn">Govt.Service</button>
-            <div class="dropdown-content">
-                <a href="AadharandLand.html">Aadhar and Land Service</a>
-                <a href="GovernmentScheme.html">Government Schemes</a>
-                <a href="passport.html">Passport Service</a>
-                <a href="pensiondetail.html">Pensioner Service</a>
-                <a href="ration.html">Ration and VoterID Service</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Finance</button>
-            <div class="dropdown-content">
-                <a href="Finance.html">Interest Calculator</a>
-                <a href="financeapi.html">Tax-Saving Recommender</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">HealthService(Chennai)</button>
-            <div class="dropdown-content">
-                <a href="Hospitals.html">Hospitals</a>
-                <a href="DiagnosticCenters.html">Diagnostic Centre</a>
-                <a href="ElderandNurseCare.html">Nurse Care Details</a>
-                <a href="Emergency.html">Emergency Centres</a>
-                <a href="HealthInsurance.html">Health Insurance</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Transport(Chennai)</button>
-            <div class="dropdown-content">
-                <a href="BusRoutes.html">List Of Buses</a>
-                <a href="BuyOrSell.html">Second Hand Vehicle</a>
-                <a href="CostComparison.html">Cost Comparison</a>
-                <a href="NearestServiceCenters.html">Service Centre</a>
-                <a href="OnspotServiceCenter.html">Onspot Service Center</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <a href="#footer-container"><button class="dropbtn">About</button></a>
-        </div>
-        <!-- <div class="dropdown">
-            <button class="dropbtn">Login</button>
-        </div> -->
-        <div class="datetime" id="datetime"></div>
-        <script>
-            function updateDateTime() {
-                const now = new Date();
-                const options = { 
-                    year: 'numeric', 
-                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
-                    day: '2-digit' 
-                };
-                const date = now.toLocaleDateString(undefined, options);
-                const time = now.toLocaleTimeString();
-                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0b3c5d',
+                        secondary: '#C2CFD7',
+                        accent: '#0056b3'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'arial': ['Arial', 'sans-serif']
+                    }
+                }
             }
-        
-            setInterval(updateDateTime, 1000);
-            updateDateTime(); // Initial call to display date/time immediately
-        </script>
-        
-        
-    </div>
-    <div class="table-container">
-        <table class="service-centers-table">
-            <caption>List of Diagnostic Centers</caption>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Address</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Ehrlich Laboratory Pvt Ltd</td>
-                    <td>No 46 & 48, Near Vitan Super Market, Masilamani Road Royapettah, Chennai - 600014</td>
-                </tr>
-                <tr>
-                    <td>Dr RAI Memorial Medical Centre</td>
-                    <td>No 562, Opp DMS Office, Anna Salai Century Plaza Alwarpet, Chennai - 600018</td>
-                </tr>
-                <tr>
-                    <td>Rajiv C T Scan Centre</td>
-                    <td>No 57, Near Alsa Mall, Monteith Road Egmore, Chennai - 600008</td>
-                </tr>
-                <tr>
-                    <td>Gokul Laboratories</td>
-                    <td>No 3, Opposite Ayyappan Temple, Kannabiran Koil Street Perambur, Chennai - 600011</td>
-                </tr>
-                <tr>
-                    <td>Precision Diagnostic Medall Co</td>
-                    <td>No 9 C Dr Rangarajan Memorial Hospital Sundaram Medical Foundation, 4th Avenue Shanthi Colony Anna Nagar, Chennai - 600040</td>
-                </tr>
-                <tr>
-                    <td>VRR Scan Centre</td>
-                    <td>No 10, Near Nadigar Sangam, Habibullah Road T Nagar, Chennai - 600017</td>
-                </tr>
-                <tr>
-                    <td>Premier Lab and X Ray</td>
-                    <td>No 963 Crescent Court, Opposite YWCA Hostel, Poonmallae High Road Purasawalkam, Chennai - 600084</td>
-                </tr>
-                <tr>
-                    <td>Premier Diagnostic Centre</td>
-                    <td>New No 442 Old No 747 & 748 K S Hospital, Opposite Maruti Showroom, Poonamallee High Road Kilpauk, Chennai - 600010</td>
-                </tr>
-                <tr>
-                    <td>Hitech Diagnostic Centre</td>
-                    <td>No 220, Near Airtel Office, Triplicane High Road Triplicane, Chennai - 600005</td>
-                </tr>
-                <tr>
-                    <td>Bharat Scans Pvt Ltd</td>
-                    <td>No 197, Opposite New College Near Sathyam Cinemas, Peters Road Royapettah, Chennai - 600014</td>
-                </tr>
-                <tr>
-                    <td>Maha Scans and Laboratories</td>
-                    <td>No 45 MAM Towers, Near Santhosham Chest Hospital, Egmore High Road Anna Nagar, Chennai - 600040</td>
-                </tr>
-                <tr>
-                    <td>Gemini Scans</td>
-                    <td>No 822, Near Vivekananda School, MTH Road Ambattur, Chennai - 600053</td>
-                </tr>
-                <tr>
-                    <td>Ess Vee Hospital</td>
-                    <td>No 506, Mth Road, Near Rakki Cinema Hall Cholambedu Ambattur, Chennai - 600053</td>
-                </tr>
-                <tr>
-                    <td>Dr Rabindrans Health Care Centre Pvt Ltd</td>
-                    <td>No 212, Mth Road, Secretariat Colony Near Ambattur Ot Bus Stop Ambattur, Chennai - 600053</td>
-                </tr>
-                <tr>
-                    <td>Anderson Diagnostics and Labs</td>
-                    <td>No 150, Poonamallee High Road, Opposite Dasaprakash Hotel Purasawalkam, Chennai - 600084</td>
-                </tr>
-                <tr>
-                    <td>Aarthi Scans (Ashok Nagar)</td>
-                    <td>No 60, 100 Feet Road, Opposite Srm University Admin Office Ashok Nagar, Chennai - 600026</td>
-                </tr>
-                <tr>
-                    <td>R P Tech Diagnostics Centre</td>
-                    <td>No 117, Kanigapuram 2nd Street, Near Sivan Park KK Nagar, Chennai - 600078</td>
-                </tr>
-                <tr>
-                    <td>ACEER Hospital</td>
-                    <td>Shastri Nagar, Kolathur Laxmipuram, Chennai - 600099</td>
-                </tr>
-                <tr>
-                    <td>Mehta Hospital</td>
-                    <td>No.2, McNichols Road, 3rd Lane Egmore, Chennai - 600031</td>
-                </tr>
-                <tr>
-                    <td>Chennai Diagnostic Center</td>
-                    <td>No. 70, Pulianthope High Road, Pulianthope Washermanpet, Chennai - 600012</td>
-                </tr>
-                <tr>
-                    <td>Dhamo Medical and Research Laboratories</td>
-                    <td>5th Cross St, Balaji Nagar, Ekkatuthangal Ramapuram, Chennai - 600032</td>
-                </tr>
-                <tr>
-                    <td>Phoenix Diagnostic Center</td>
-                    <td>No 74, Church Road, Behind Cts, Perungudi Anna Nagar, Chennai - 600096</td>
-                </tr>
-                <tr>
-                    <td>Sarath Diagnostic Centre</td>
-                    <td>New No 60 G1, Subhashri Appartments, 7th Avenue, Opposite Hotel Sangamam Ashok Nagar, Chennai - 600083</td>
-                </tr>
-                <tr>
-                    <td>K V T Clinical Lab</td>
-                    <td>Old No 637, New No 490, T H Road, Near Apollo Washermanpet, Chennai - 600081</td>
-                </tr>
-                <tr>
-                    <td>Sri Sai Labs</td>
-                    <td>No 11, Near Sai Baba Temple, Dr Nanjunrrao Colony Mylapore, Chennai - 600004</td>
-                </tr>
-                <tr>
-                    <td>Porur Medical Lab</td>
-                    <td>No:5/100, Lakshmi nagar, 1st main road, Opposite to Water Tank Laxmipuram, Chennai - 600116</td>
-                </tr>
-                <tr>
-                    <td>Stannis Real Diagnostics</td>
-                    <td>No 4/5, Mount Poonamallee Road, Near Bus Stop Laxmipuram, Chennai - 600116</td>
-                </tr>
-                <tr>
-                    <td>Aishwarya Clinical Laboratory</td>
-                    <td>No 149 Nelson Plaza Basement, Nelson Manickam Road, Opposite Bank of Baroda, Choolaimedu Azad Nagar, Chennai - 600094</td>
-                </tr>
-                <tr>
-                    <td>Bio Care Diagnostic Centre</td>
-                    <td>No 47c 1st Floor, Velachery Main Road, Near Velachery Police Station</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <footer>
-        <div class="footer-container" id="footer-container">
-            <div class="footer-section branding">
-                <div class="logo">Integrated Services Scheme</div> <br>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a> &nbsp;
-                    <a href="https://www.google.com/search"><i class="fab fa-google"></i></a>&nbsp;
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 font-arial">
+    <!-- Navigation Bar -->
+    <nav class="bg-primary shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="home.html">
+                        <img src="TN logo.png" alt="Government Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="home.html"
+                            class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Home</a>
+                        <a href="#"
+                            class="text-white bg-white bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium">Diagnostic
+                            Centers</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button"
+                        class="text-white hover:bg-white hover:bg-opacity-20 p-2 rounded-md">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="passport.html">Passport </a></li>
-                    <li><a href="pensiondetail.html">Pension schemes</a></li>
-                    <li><a href="ration.html">VoterID</a></li>
-                    <li><a href="Finance.html">Bank Interest-Calculator</a></li>
-                    <li><a href="HealthInsurance.html">Health Insurance</a></li>
-                    <li><a href="BuyOrSell.html">Sales Dealership</a></li>
-                    <li><a href="OnspotServiceCenter.html">Onspot Service Centers</a></li>
-                    <li><a href="#">Home</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Information</h4>
-                <ul>
-                    <li><a href="#">Website Policies</a></li>
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">Feedback</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Analytics</a></li>
-                    <li><a href="#">Visitors</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                </ul>
-            </div>
-            <div class="footer-section contact">
-                <h4>Get In Touch</h4>
-                <address>
-                    Rajalakshimi Institue of Technology<br>
-                    <a href="Ph:72002 20849">+91 72002 20849</a>
-                    <a href="Ph:87784 39525">+91 87784 39525</a>
-                    <a href="Ph:95978 09593">+91 95978 09593</a>
-                    <a href="Ph:90431 44325">+91 90431 44323</a>
-                    <a href="Ph:63826 06757">+91 63826 06757</a> 
-                    <a href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
-                    <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"></a>badri.p.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"></a>marishwaran.a.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"></a>bavadharini.s.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"></a>jinapriya.s.2022.cce@ritchennai.edu.in</a>
-                </address>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="home.html" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#"
+                    class="text-white bg-white bg-opacity-20 block px-3 py-2 rounded-md text-base font-medium">Diagnostic
+                    Centers</a>
             </div>
         </div>
-        <div class="footer-bottom">
-            © 2024 Government Services. All Rights Reserved.
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header Section -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Diagnostic Centers in Chennai</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">Find comprehensive diagnostic centers with advanced
+                medical testing facilities. Search and filter to find the right diagnostic center for your medical
+                needs.</p>
         </div>
-    </footer>
 
+        <!-- Search and Filter Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                    <label for="search" class="block text-sm font-medium text-gray-700 mb-2">Search Centers</label>
+                    <div class="relative">
+                        <input type="text" id="search" placeholder="Search by name, location, or test..."
+                            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <label for="location-filter" class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                    <select id="location-filter"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <option value="">All Locations</option>
+                        <option value="Anna Nagar">Anna Nagar</option>
+                        <option value="T Nagar">T Nagar</option>
+                        <option value="Adyar">Adyar</option>
+                        <option value="Mylapore">Mylapore</option>
+                        <option value="Egmore">Egmore</option>
+                        <option value="Kilpauk">Kilpauk</option>
+                        <option value="Vadapalani">Vadapalani</option>
+                        <option value="Porur">Porur</option>
+                        <option value="Tambaram">Tambaram</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="test-filter" class="block text-sm font-medium text-gray-700 mb-2">Test Type</label>
+                    <select id="test-filter"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <option value="">All Tests</option>
+                        <option value="Blood Tests">Blood Tests</option>
+                        <option value="Imaging">Imaging</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Neurology">Neurology</option>
+                        <option value="Pathology">Pathology</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="accreditation-filter"
+                        class="block text-sm font-medium text-gray-700 mb-2">Accreditation</label>
+                    <select id="accreditation-filter"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <option value="">All Centers</option>
+                        <option value="NABL">NABL Accredited</option>
+                        <option value="ISO">ISO Certified</option>
+                        <option value="CAP">CAP Accredited</option>
+                    </select>
+                </div>
+            </div>
+        </div>
 
-    <!-- FontAwesome for icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-    <!-- FontAwesome for icons -->
-    
-    
-    <!-- JavaScript for Slideshow -->
-   
+        <!-- Diagnostic Centers Table -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-primary">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Center Name</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Location</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Specialties</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Contact</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Timing</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200" id="centers-table-body">
+                        <!-- Center data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="hidden text-center py-12">
+            <i class="fas fa-search text-6xl text-gray-400 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-600 mb-2">No centers found</h3>
+            <p class="text-gray-500">Try adjusting your search criteria or filters.</p>
+        </div>
+    </div>
+
+    <!-- Center Details Modal -->
+    <div id="center-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
+            <div class="mt-3">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                    <button id="close-modal" class="text-gray-400 hover:text-gray-600 text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="modal-content" class="space-y-4">
+                    <!-- Modal content will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Diagnostic centers data
+        const diagnosticCenters = [
+            {
+                name: "Apollo Diagnostics",
+                location: "Anna Nagar",
+                specialties: ["Blood Tests", "Imaging", "Pathology"],
+                contact: "+91 44 2626 1234",
+                timing: "7:00 AM - 9:00 PM",
+                address: "15, 2nd Avenue, Anna Nagar, Chennai - 600040",
+                email: "info@apollodiagnostics.com",
+                website: "www.apollodiagnostics.com",
+                description: "Comprehensive diagnostic center with state-of-the-art equipment and experienced technicians.",
+                accreditations: ["NABL", "ISO"],
+                tests: ["Complete Blood Count", "Lipid Profile", "Diabetes Screening", "X-Ray", "Ultrasound", "ECG"],
+                homeCollection: "Yes",
+                onlineBooking: "Yes"
+            },
+            {
+                name: "Metro Scan & Diagnostics",
+                location: "T Nagar",
+                specialties: ["Imaging", "Cardiology", "Neurology"],
+                contact: "+91 44 2434 5678",
+                timing: "8:00 AM - 8:00 PM",
+                address: "45, Usman Road, T Nagar, Chennai - 600017",
+                email: "info@metroscan.com",
+                website: "www.metroscan.com",
+                description: "Advanced imaging and diagnostic center with specialized cardiac and neurological testing.",
+                accreditations: ["NABL", "CAP"],
+                tests: ["MRI", "CT Scan", "Echocardiogram", "EEG", "EMG", "Stress Test"],
+                homeCollection: "Yes",
+                onlineBooking: "Yes"
+            },
+            {
+                name: "Dr. Lal PathLabs",
+                location: "Adyar",
+                specialties: ["Blood Tests", "Pathology", "Molecular Diagnostics"],
+                contact: "+91 44 2489 0123",
+                timing: "7:00 AM - 8:00 PM",
+                address: "78, LB Road, Adyar, Chennai - 600020",
+                email: "info@lalpathlabs.com",
+                website: "www.lalpathlabs.com",
+                description: "Leading diagnostic laboratory with comprehensive pathology and molecular testing services.",
+                accreditations: ["NABL", "ISO"],
+                tests: ["Complete Blood Count", "Biochemistry", "Hormone Tests", "Cancer Markers", "Genetic Testing"],
+                homeCollection: "Yes",
+                onlineBooking: "Yes"
+            },
+            {
+                name: "SRL Diagnostics",
+                location: "Mylapore",
+                specialties: ["Blood Tests", "Pathology", "Microbiology"],
+                contact: "+91 44 2467 8901",
+                timing: "7:00 AM - 9:00 PM",
+                address: "34, Luz Church Road, Mylapore, Chennai - 600004",
+                email: "info@srldiagnostics.com",
+                website: "www.srldiagnostics.com",
+                description: "Comprehensive diagnostic laboratory with advanced pathology and microbiology testing.",
+                accreditations: ["NABL", "CAP"],
+                tests: ["Complete Blood Count", "Biochemistry", "Microbiology", "Immunology", "Molecular Tests"],
+                homeCollection: "Yes",
+                onlineBooking: "Yes"
+            },
+            {
+                name: "Thyrocare Technologies",
+                location: "Vadapalani",
+                specialties: ["Blood Tests", "Thyroid Tests", "Hormone Tests"],
+                contact: "+91 44 2489 0123",
+                timing: "7:00 AM - 8:00 PM",
+                address: "78, Arcot Road, Vadapalani, Chennai - 600026",
+                email: "info@thyrocare.com",
+                website: "www.thyrocare.com",
+                description: "Specialized diagnostic center focusing on thyroid and hormone testing with affordable packages.",
+                accreditations: ["NABL"],
+                tests: ["Thyroid Profile", "Hormone Tests", "Vitamin Tests", "Complete Blood Count", "Diabetes Screening"],
+                homeCollection: "Yes",
+                onlineBooking: "Yes"
+            },
+            {
+                name: "Quest Diagnostics",
+                location: "Egmore",
+                specialties: ["Blood Tests", "Pathology", "Specialized Tests"],
+                contact: "+91 44 2852 3456",
+                timing: "7:00 AM - 7:00 PM",
+                address: "23, Pantheon Road, Egmore, Chennai - 600008",
+                email: "info@questdiagnostics.com",
+                website: "www.questdiagnostics.com",
+                description: "International diagnostic laboratory with comprehensive testing services and quality assurance.",
+                accreditations: ["NABL", "ISO", "CAP"],
+                tests: ["Complete Blood Count", "Biochemistry", "Specialized Tests", "Cancer Markers", "Genetic Tests"],
+                homeCollection: "Yes",
+                onlineBooking: "Yes"
+            },
+            {
+                name: "Medall Diagnostics",
+                location: "Porur",
+                specialties: ["Blood Tests", "Imaging", "Pathology"],
+                contact: "+91 44 2476 7890",
+                timing: "7:00 AM - 8:00 PM",
+                address: "12, Mount Poonamallee Road, Porur, Chennai - 600116",
+                email: "info@medalldiagnostics.com",
+                website: "www.medalldiagnostics.com",
+                description: "Comprehensive diagnostic center with modern facilities and experienced medical professionals.",
+                accreditations: ["NABL", "ISO"],
+                tests: ["Complete Blood Count", "Biochemistry", "X-Ray", "Ultrasound", "ECG", "Pathology"],
+                homeCollection: "Yes",
+                onlineBooking: "Yes"
+            },
+            {
+                name: "Healthians",
+                location: "Tambaram",
+                specialties: ["Blood Tests", "Health Packages"],
+                contact: "+91 44 2226 1234",
+                timing: "7:00 AM - 9:00 PM",
+                address: "56, GST Road, Tambaram, Chennai - 600045",
+                email: "info@healthians.com",
+                website: "www.healthians.com",
+                description: "Digital-first diagnostic center with comprehensive health packages and home collection services.",
+                accreditations: ["NABL"],
+                tests: ["Complete Health Checkup", "Diabetes Screening", "Cardiac Profile", "Liver Function", "Kidney Function"],
+                homeCollection: "Yes",
+                onlineBooking: "Yes"
+            },
+            {
+                name: "Neuberg Diagnostics",
+                location: "Kilpauk",
+                specialties: ["Blood Tests", "Molecular Diagnostics", "Specialized Tests"],
+                contact: "+91 44 2645 6789",
+                timing: "7:00 AM - 8:00 PM",
+                address: "89, Poonamallee High Road, Kilpauk, Chennai - 600010",
+                email: "info@neubergdiagnostics.com",
+                website: "www.neubergdiagnostics.com",
+                description: "Advanced diagnostic center with molecular testing and specialized diagnostic services.",
+                accreditations: ["NABL", "ISO"],
+                tests: ["Complete Blood Count", "Molecular Tests", "Genetic Testing", "Cancer Markers", "Specialized Tests"],
+                homeCollection: "Yes",
+                onlineBooking: "Yes"
+            },
+            {
+                name: "Redcliffe Labs",
+                location: "Chennai Central",
+                specialties: ["Blood Tests", "Health Packages", "Home Collection"],
+                contact: "+91 44 2626 1234",
+                timing: "7:00 AM - 9:00 PM",
+                address: "123, Anna Salai, Chennai Central, Chennai - 600002",
+                email: "info@redcliffelabs.com",
+                website: "www.redcliffelabs.com",
+                description: "Modern diagnostic laboratory with comprehensive health packages and excellent home collection service.",
+                accreditations: ["NABL"],
+                tests: ["Complete Health Checkup", "Diabetes Screening", "Cardiac Profile", "Liver Function", "Kidney Function"],
+                homeCollection: "Yes",
+                onlineBooking: "Yes"
+            }
+        ];
+
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initialize the table
+        function initializeTable() {
+            const tableBody = document.getElementById('centers-table-body');
+            tableBody.innerHTML = '';
+
+            diagnosticCenters.forEach((center, index) => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50 transition-colors duration-200';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">${center.name}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${center.location}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex flex-wrap gap-1">
+                            ${center.specialties.map(specialty =>
+                    `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">${specialty}</span>`
+                ).join('')}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${center.contact}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${center.timing}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="showCenterDetails(${index})" class="text-primary hover:text-blue-700 transition-colors duration-200">
+                            <i class="fas fa-info-circle mr-1"></i>Details
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Search and filter functionality
+        function filterCenters() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const locationFilter = document.getElementById('location-filter').value;
+            const testFilter = document.getElementById('test-filter').value;
+            const accreditationFilter = document.getElementById('accreditation-filter').value;
+
+            const filteredCenters = diagnosticCenters.filter(center => {
+                const matchesSearch = center.name.toLowerCase().includes(searchTerm) ||
+                    center.location.toLowerCase().includes(searchTerm) ||
+                    center.tests.some(test => test.toLowerCase().includes(searchTerm));
+                const matchesLocation = !locationFilter || center.location === locationFilter;
+                const matchesTest = !testFilter || center.specialties.includes(testFilter);
+                const matchesAccreditation = !accreditationFilter || center.accreditations.includes(accreditationFilter);
+
+                return matchesSearch && matchesLocation && matchesTest && matchesAccreditation;
+            });
+
+            displayFilteredCenters(filteredCenters);
+        }
+
+        function displayFilteredCenters(filteredCenters) {
+            const tableBody = document.getElementById('centers-table-body');
+            const noResults = document.getElementById('no-results');
+
+            if (filteredCenters.length === 0) {
+                tableBody.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+            tableBody.innerHTML = '';
+
+            filteredCenters.forEach((center, index) => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50 transition-colors duration-200';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">${center.name}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${center.location}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex flex-wrap gap-1">
+                            ${center.specialties.map(specialty =>
+                    `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">${specialty}</span>`
+                ).join('')}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${center.contact}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${center.timing}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="showCenterDetails(${diagnosticCenters.indexOf(center)})" class="text-primary hover:text-blue-700 transition-colors duration-200">
+                            <i class="fas fa-info-circle mr-1"></i>Details
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Center details modal
+        function showCenterDetails(index) {
+            const center = diagnosticCenters[index];
+            const modal = document.getElementById('center-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+
+            modalTitle.textContent = center.name;
+            modalContent.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Center Information</h4>
+                            <p class="text-gray-600"><strong>Location:</strong> ${center.location}</p>
+                            <p class="text-gray-600"><strong>Contact:</strong> ${center.contact}</p>
+                            <p class="text-gray-600"><strong>Timing:</strong> ${center.timing}</p>
+                            <p class="text-gray-600"><strong>Email:</strong> ${center.email}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Address</h4>
+                            <p class="text-gray-600">${center.address}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Website</h4>
+                            <a href="https://${center.website}" target="_blank" class="text-primary hover:text-blue-700">${center.website}</a>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Services</h4>
+                            <div class="flex space-x-2">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${center.homeCollection === 'Yes' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
+                                    Home Collection: ${center.homeCollection}
+                                </span>
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${center.onlineBooking === 'Yes' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
+                                    Online Booking: ${center.onlineBooking}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Specialties</h4>
+                            <div class="flex flex-wrap gap-1">
+                                ${center.specialties.map(specialty =>
+                `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">${specialty}</span>`
+            ).join('')}
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Available Tests</h4>
+                            <div class="space-y-1">
+                                ${center.tests.map(test =>
+                `<div class="flex items-center">
+                                        <i class="fas fa-flask text-blue-500 mr-2"></i>
+                                        <span class="text-gray-600">${test}</span>
+                                    </div>`
+            ).join('')}
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Accreditations</h4>
+                            <div class="flex flex-wrap gap-1">
+                                ${center.accreditations.map(acc =>
+                `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">${acc}</span>`
+            ).join('')}
+            </div>
+            </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Description</h4>
+                            <p class="text-gray-600">${center.description}</p>
+            </div>
+        </div>
+        </div>
+            `;
+
+            modal.classList.remove('hidden');
+        }
+
+        // Close modal
+        document.getElementById('close-modal').addEventListener('click', function () {
+            document.getElementById('center-modal').classList.add('hidden');
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('center-modal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+
+        // Event listeners for search and filters
+        document.getElementById('search').addEventListener('input', filterCenters);
+        document.getElementById('location-filter').addEventListener('change', filterCenters);
+        document.getElementById('test-filter').addEventListener('change', filterCenters);
+        document.getElementById('accreditation-filter').addEventListener('change', filterCenters);
+
+        // Initialize the table on page load
+        document.addEventListener('DOMContentLoaded', initializeTable);
+    </script>
 </body>
+
 </html>

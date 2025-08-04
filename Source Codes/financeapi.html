@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tax Saving Recommendations</title>
     <style>
-     body {
+        body {
             font-family: 'Arial', sans-serif;
             background: url('Fbg.jpeg') no-repeat center center fixed;
             background-size: cover;
@@ -16,8 +17,10 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             position: relative;
+            padding-top: 80px;
+            /* Add padding for navbar */
         }
 
         body::before {
@@ -27,11 +30,15 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5);  /* Dark overlay with 50% opacity */
+            background: rgba(0, 0, 0, 0.5);
+            /* Dark overlay with 50% opacity */
             z-index: 1;
         }
 
-        h1, input[type="text"], button, #results {
+        h1,
+        input[type="text"],
+        button,
+        #results {
             position: relative;
             z-index: 2;
         }
@@ -41,6 +48,7 @@
             margin-bottom: 20px;
             font-size: 2.5em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
         }
 
         input[type="text"] {
@@ -109,7 +117,7 @@
             background-color: #0b3c5d;
             padding: 10px 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: absolute;
+            position: fixed;
             top: 0;
             width: 100%;
             z-index: 3;
@@ -137,7 +145,8 @@
             font-family: 'Arial', sans-serif;
         }
 
-        .dropbtn:hover, .dropbtn:focus {
+        .dropbtn:hover,
+        .dropbtn:focus {
             background-color: rgba(255, 255, 255, 0.2);
             color: #ffffff;
         }
@@ -178,6 +187,7 @@
             color: white;
             font-family: Arial, sans-serif;
             width: 100%;
+            margin-top: auto;
         }
 
         .footer-container {
@@ -264,15 +274,156 @@
         .footer-bottom a:hover {
             text-decoration: underline;
         }
-        .title{
+
+        .title {
             color: #000;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+                margin-bottom: 15px;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                max-width: 300px;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            button {
+                width: 100%;
+                max-width: 300px;
+                margin-top: 10px;
+            }
+
+            #results {
+                width: 95%;
+                padding: 15px;
+                margin-top: 15px;
+            }
+
+            .result-item {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .navbar {
+                padding: 5px 15px;
+            }
+
+            .logo img {
+                height: 50px;
+                margin-right: 15px;
+            }
+
+            .dropbtn {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .footer-section {
+                min-width: auto;
+                margin: 5px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 60px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                margin-bottom: 10px;
+            }
+
+            input[type="text"] {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            #results {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .result-item {
+                font-size: 13px;
+                padding: 6px;
+            }
+
+            .navbar {
+                padding: 3px 10px;
+            }
+
+            .logo img {
+                height: 40px;
+                margin-right: 10px;
+            }
+
+            .dropbtn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .dropdown-content {
+                min-width: 140px;
+            }
+
+            .dropdown-content a {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+        }
+
+        /* Ensure the search form is centered and responsive */
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        @media (max-width: 768px) {
+            .search-container {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
+
 <body>
-   <div class="title"> <h1>Tax Saving Recommendations</h1> </div>
-    <input type="text" id="search-input" placeholder="Search for tax saving tips...">
-    <button onclick="search()">Search</button>
+    <div class="title">
+        <h1>Tax Saving Recommendations</h1>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search for tax saving tips...">
+        <button onclick="search()">Search</button>
+    </div>
+
     <div id="results"></div>
 
     <script>
@@ -322,6 +473,7 @@
             resultsContainer.appendChild(summaryParagraph);
         }
     </script>
-    
+
 </body>
+
 </html>

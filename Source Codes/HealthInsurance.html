@@ -5,371 +5,274 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="TN logo.png">
     <title>Health Insurance</title>
-    <style>
-        body {
-            background:#dbd2d2;  
-            font-family: Arial, sans-serif;
-            /*display: flex; 
-            justify-content: center;
-            align-items: center;  */ 
-            height: 100vh;
-            margin-left: 50px;
-            margin-right: 50px;
-            color: #0f0f0f;
-            overflow-x: hidden;
-        }
-
-        .table-container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 93%;
-            max-width: 1200px;
-            
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-        }
-
-        th {
-            background: #1a57da;
-            color: #ffffff;
-            text-transform: uppercase;
-        }
-        tbody tr:nth-child(even) {
-            background: #e2e1e1;
-        }
-
-        tbody tr:hover {
-            background:#6b7272;
-            color: #ffffff; 
-            transition: 1s;
-            transform: translateY(-10px);
-        
-        }
-
-        caption {
-            color: #444543;
-            font-size: 2.5em;
-            margin: 10px 0;
-        }
-
-        #LAND {
-            margin-left: 0;
-        }
-
-        #AADHAR {
-            margin-left: 0;
-            /* margin-top:1000px; */
-        }
-        .datetime {
-    font-size: 0.9em;
-    color: #ffffff;
-    margin-left: 160px;
-}
-/* Add any other necessary theme styles here */
-/* Navbar container */
-.navbar {
-    display: flex;
-    align-items: center;
-    background-color: #0b3c5d;
-    padding: 0px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 107%;
-    height: 15%;
-    margin-left:-50px;
-    margin-top: -10px;
-}
-
-/* Logo styling */
-.logo img {
-    height: 50px;
-    margin-right: 240px; /* Push the logo to the left */
-}
-
-/* Dropdown container */
-.dropdown {
-    position: relative;
-    display: inline-block;
-    margin-left: 10px;
-}
-
-/* Dropdown button styling */
-.dropbtn {
-    background-color: transparent;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Arial', sans-serif; /* Change to a professional font */
-}
-
-/* Hover effect for dropdown button */
-.dropbtn:hover, .dropbtn:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-}
-
-/* Dropdown content styling */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #C2CFD7;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-radius: 4px; /* Rounded corners */
-    overflow: hidden; /* Ensure rounded corners are respected */
-    opacity: 0; /* Initially hidden */
-    transition: 5s ease-in-out; /* Fade effect */
-}
-
-/* Dropdown link styling */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-family: 'Arial', sans-serif; /* Match the font of dropdown button */
-}
-
-/* Hover effect for dropdown links */
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-    color: #0056b3;
-}
-
-/* Show dropdown content on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-    opacity: 1; /* Fully visible */
-}
-
-footer {
-    background-color: #4199A7; /* Blue background */
-    color: white;
-    font-family: Arial, sans-serif;
-    margin-left: -49px;
-    width:109%;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    
-    
-
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px;
-}
-
-.footer-section h4 {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-    color: #fff;
-    border-bottom: 1px solid #fff; /* Adding a bottom border for section titles */
-    padding-bottom: 5px;
-}
-
-.footer-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 8px;
-}
-
-.footer-section ul li a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section ul li a:hover {
-    color: #f0f0f0; /* Lighter shade on hover */
-}
-
-.footer-section.contact {
-    /* Adding specific styles for the contact section */
-}
-
-.footer-section.contact address {
-    font-style: normal;
-    color: #ddd;
-}
-
-.footer-section.contact address a {
-    color: #ddd;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section.contact address a:hover {
-    color: #fff;
-}
-
-
-.footer-section .contact address {
-    font-style: normal;
-    line-height: 1.6;
-}
-
-.footer-section .contact a {
-    color: white;
-    text-decoration: none;
-}
-
-.footer-section .contact a:hover {
-    text-decoration: underline;
-}
-
-.footer-section .branding .logo {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-}
-
-.footer-section .social-icons {
-    display: flex;
-    gap: 10px;
-}
-
-.footer-section .social-icons a {
-    color: white;
-    font-size: 1.2em;
-}
-
-.footer-bottom {
-    background-color: #000;
-    color: white;
-    text-align:center;
-    padding: 10px 0;
-    position:aboslute;
-    
-}
-
-.footer-bottom a {
-    color: #0ff;
-    text-decoration: none;
-}
-
-.footer-bottom a:hover {
-    text-decoration: underline;
-}
-
-    </style>
-</head>
-<body>
-    <div class="navbar">
-        <div class="logo">
-            <img src="TN logo.png" alt="Government Logo">
-        </div>
-        
-        <div class="dropdown">
-            <a href="home.html"><button class="dropbtn">Home</button></a>
-        </div>
-        
-        <div class="dropdown">
-            <button class="dropbtn">Govt.Service</button>
-            <div class="dropdown-content">
-                <a href="AadharandLand.html">Aadhar and Land Service</a>
-                <a href="GovernmentScheme.html">Government Schemes</a>
-                <a href="passport.html">Passport Service</a>
-                <a href="pensiondetail.html">Pensioner Service</a>
-                <a href="ration.html">Ration and VoterID Service</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Finance</button>
-            <div class="dropdown-content">
-                <a href="Finance.html">Interest Calculator</a>
-                <a href="financeapi.html">Tax-Saving Recommender</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">HealthService(Chennai)</button>
-            <div class="dropdown-content">
-                <a href="Hospitals.html">Hospitals</a>
-                <a href="DiagnosticCenters.html">Diagnostic Centre</a>
-                <a href="ElderandNurseCare.html">Nurse Care Details</a>
-                <a href="Emergency.html">Emergency Centres</a>
-                <a href="HealthInsurance.html">Health Insurance</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Transport(Chennai)</button>
-            <div class="dropdown-content">
-                <a href="BusRoutes.html">List Of Buses</a>
-                <a href="BuyOrSell.html">Second Hand Vehicle</a>
-                <a href="CostComparison.html">Cost Comparison</a>
-                <a href="NearestServiceCenters.html">Service Centre</a>
-                <a href="OnspotServiceCenter.html">Onspot Service Center</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <a href="#footer-container"><button class="dropbtn">About</button></a>
-        </div>
-        <!-- <div class="dropdown">
-            <button class="dropbtn">Login</button>
-        </div> -->
-        <div class="datetime" id="datetime"></div>
-        <script>
-            function updateDateTime() {
-                const now = new Date();
-                const options = { 
-                    year: 'numeric', 
-                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
-                    day: '2-digit' 
-                };
-                const date = now.toLocaleDateString(undefined, options);
-                const time = now.toLocaleTimeString();
-                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
-            }
-        
-            setInterval(updateDateTime, 1000);
-            updateDateTime(); // Initial call to display date/time immediately
-        </script>
-        
-        
-    </div>
-    <!-- <h1>Health Insurance Policies and Cost Details</h1> -->
-    <table>
-        <caption>Types of Health Insurance Policies</caption>
-        <thead>
-            <tr>
-                <th>S.no</th>
-                <th>Types of Health Insurance Policies</th>
-                <th>Suitable for</th>
-                <th>Cost</th>
-            </tr>
-        </thead>
-        <tbody id="insurance-table">
-            <!-- Data will be populated here by JavaScript -->
-        </tbody>
-        </table>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom Tailwind Config -->
     <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0b3c5d',
+                        secondary: '#C2CFD7',
+                        accent: '#0056b3'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'arial': ['Arial', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-arial">
+    <!-- Navigation Bar -->
+    <nav class="bg-primary shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="home.html">
+                        <img src="TN logo.png" alt="Government Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="home.html" class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Home</a>
+                        
+                        <!-- Govt.Service Dropdown -->
+                        <div class="relative group">
+                            <button class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Govt.Service</button>
+                            <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <a href="AadharandLand.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Aadhar and Land Service</a>
+                                <a href="GovernmentScheme.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Government Schemes</a>
+                                <a href="passport.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Passport Service</a>
+                                <a href="pensiondetail.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pensioner Service</a>
+                                <a href="ration.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Ration and VoterID Service</a>
+                            </div>
+                        </div>
+
+                        <!-- Finance Dropdown -->
+                        <div class="relative group">
+                            <button class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Finance</button>
+                            <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <a href="Finance.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Interest Calculator</a>
+                                <a href="financeapi.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Tax-Saving Recommender</a>
+                            </div>
+                        </div>
+
+                        <!-- HealthService Dropdown -->
+                        <div class="relative group">
+                            <button class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">HealthService(Chennai)</button>
+                            <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <a href="Hospitals.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Hospitals</a>
+                                <a href="DiagnosticCenters.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Diagnostic Centre</a>
+                                <a href="ElderandNurseCare.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Nurse Care Details</a>
+                                <a href="Emergency.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Emergency Centres</a>
+                                <a href="HealthInsurance.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 bg-gray-100">Health Insurance</a>
+                            </div>
+                        </div>
+
+                        <!-- Transport Dropdown -->
+                        <div class="relative group">
+                            <button class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Transport(Chennai)</button>
+                            <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <a href="BusRoutes.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">List Of Buses</a>
+                                <a href="BuyOrSell.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Second Hand Vehicle</a>
+                                <a href="CostComparison.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cost Comparison</a>
+                                <a href="NearestServiceCenters.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Service Centre</a>
+                                <a href="OnspotServiceCenter.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Onspot Service Center</a>
+                            </div>
+                        </div>
+
+                        <a href="#footer-container" class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">About</a>
+                    </div>
+                </div>
+
+                <!-- DateTime Display -->
+                <div class="text-white text-sm font-medium" id="datetime"></div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:bg-white hover:bg-opacity-20 p-2 rounded-md">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="home.html" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="HealthInsurance.html" class="text-white bg-white bg-opacity-20 block px-3 py-2 rounded-md text-base font-medium">Health Insurance</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header Section -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Health Insurance</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">Comprehensive health insurance policies and cost details for individuals and families.</p>
+        </div>
+
+        <!-- Insurance Table Section -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
+            <div class="px-6 py-4 bg-primary">
+                <h2 class="text-2xl font-bold text-white">Types of Health Insurance Policies</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-primary">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">S.no</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Types of Health Insurance Policies</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Suitable for</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody id="insurance-table" class="bg-white divide-y divide-gray-200">
+                        <!-- Data will be populated here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Required Documents Section -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Required Documents for Health Insurance</h2>
+            <div class="space-y-3">
+                <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                    <li>Proof of Identity (Aadhar Card, PAN Card, Passport, etc.)</li>
+                    <li>Proof of Address (Aadhar Card, Passport, Utility Bills, etc.)</li>
+                    <li>Age Proof (Birth Certificate, School Certificate, Passport, etc.)</li>
+                    <li>Passport-sized Photographs</li>
+                    <li>Medical Reports (if any)</li>
+                    <li>Proof of Income (Salary Slip, IT Returns, etc.)</li>
+                    <li>Bank Statement or Passbook Copy</li>
+                    <li>Proposal Form (filled and signed)</li>
+                    <li>Employer's Certificate (for group insurance plans)</li>
+                    <li>Marriage Certificate (for family floater plans)</li>
+                    <li>Child's Birth Certificate (for family floater plans)</li>
+                    <li>Previous Policy Documents (for renewal or portability)</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="footer-container">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="space-y-4">
+                    <div class="text-xl font-bold">Integrated Services Scheme</div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="https://www.google.com/search" class="text-white hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-google text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold border-b border-white pb-2">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="passport.html" class="text-white hover:text-blue-400 transition-colors duration-300">Passport</a></li>
+                        <li><a href="pensiondetail.html" class="text-white hover:text-blue-400 transition-colors duration-300">Pension schemes</a></li>
+                        <li><a href="ration.html" class="text-white hover:text-blue-400 transition-colors duration-300">VoterID</a></li>
+                        <li><a href="Finance.html" class="text-white hover:text-blue-400 transition-colors duration-300">Bank Interest-Calculator</a></li>
+                        <li><a href="HealthInsurance.html" class="text-white hover:text-blue-400 transition-colors duration-300">Health Insurance</a></li>
+                        <li><a href="BuyOrSell.html" class="text-white hover:text-blue-400 transition-colors duration-300">Sales Dealership</a></li>
+                        <li><a href="OnspotServiceCenter.html" class="text-white hover:text-blue-400 transition-colors duration-300">Onspot Service Centers</a></li>
+                        <li><a href="home.html" class="text-white hover:text-blue-400 transition-colors duration-300">Home</a></li>
+                    </ul>
+                </div>
+                
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold border-b border-white pb-2">Information</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-white hover:text-blue-400 transition-colors duration-300">Website Policies</a></li>
+                        <li><a href="#" class="text-white hover:text-blue-400 transition-colors duration-300">Help</a></li>
+                        <li><a href="#" class="text-white hover:text-blue-400 transition-colors duration-300">Feedback</a></li>
+                        <li><a href="#" class="text-white hover:text-blue-400 transition-colors duration-300">Contact Us</a></li>
+                        <li><a href="#" class="text-white hover:text-blue-400 transition-colors duration-300">Analytics</a></li>
+                        <li><a href="#" class="text-white hover:text-blue-400 transition-colors duration-300">Visitors</a></li>
+                        <li><a href="#" class="text-white hover:text-blue-400 transition-colors duration-300">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold border-b border-white pb-2">Get In Touch</h4>
+                    <address class="not-italic space-y-2">
+                        <div class="text-gray-300">Rajalakshimi Institue of Technology</div>
+                        <div class="space-y-1">
+                            <a href="tel:+917200220849" class="text-white hover:text-blue-400 transition-colors duration-300 block">+91 72002 20849</a>
+                            <a href="tel:+918778439525" class="text-white hover:text-blue-400 transition-colors duration-300 block">+91 87784 39525</a>
+                            <a href="tel:+919597809593" class="text-white hover:text-blue-400 transition-colors duration-300 block">+91 95978 09593</a>
+                            <a href="tel:+919043144325" class="text-white hover:text-blue-400 transition-colors duration-300 block">+91 90431 44323</a>
+                            <a href="tel:+916382606757" class="text-white hover:text-blue-400 transition-colors duration-300 block">+91 63826 06757</a>
+                        </div>
+                        <div class="space-y-1">
+                            <a href="mailto:vigneshwar.s.2022.cce@ritchennai.edu.in" class="text-white hover:text-blue-400 transition-colors duration-300 block">vigneshwar.s.2022.cce@ritchennai.edu.in</a>
+                            <a href="mailto:badri.p.2022.cce@ritchennai.edu.in" class="text-white hover:text-blue-400 transition-colors duration-300 block">badri.p.2022.cce@ritchennai.edu.in</a>
+                            <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in" class="text-white hover:text-blue-400 transition-colors duration-300 block">marishwaran.a.2022.cce@ritchennai.edu.in</a>
+                            <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in" class="text-white hover:text-blue-400 transition-colors duration-300 block">bavadharini.s.2022.cce@ritchennai.edu.in</a>
+                            <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in" class="text-white hover:text-blue-400 transition-colors duration-300 block">jinapriya.s.2022.cce@ritchennai.edu.in</a>
+                        </div>
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-900 py-4">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p>© 2024 Government Services. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // DateTime functionality
+        function updateDateTime() {
+            const now = new Date();
+            const options = { 
+                year: 'numeric', 
+                month: 'long',
+                day: '2-digit' 
+            };
+            const date = now.toLocaleDateString(undefined, options);
+            const time = now.toLocaleTimeString();
+            document.getElementById('datetime').innerHTML = `${date}, ${time}`;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Insurance data and table population
         const insuranceData = [
             {sno: 1, type: "Individual Health Insurance Plan", suitable: "Single/individual person"},
             {sno: 2, type: "Family Floater Health Insurance Plan", suitable: "Family, including spouse, children, and parents"},
             {sno: 3, type: "Senior Citizen Health Insurance Plan", suitable: "People above 65 years of age"},
             {sno: 4, type: "Critical Illness Insurance Plan", suitable: "Financial protection against expensive treatment for critical illness"},
-            {sno: 5, type: "Group Health Insurance Plan", suitable: "Group of people, such as a company’s employees"},
+            {sno: 5, type: "Group Health Insurance Plan", suitable: "Group of people, such as a company's employees"},
             {sno: 6, type: "Top-up Health Insurance Plan", suitable: "Those looking for additional medical coverage up to a certain amount"},
             {sno: 7, type: "Personal Accident Cover", suitable: "Those looking to insure partial/total disability and death due to an accident"},
             {sno: 8, type: "Maternity Health Insurance Plan", suitable: "Covering expenses incurred in the prenatal stage, delivery and post-natal stage"},
@@ -386,91 +289,23 @@ footer {
         const insuranceTable = document.getElementById('insurance-table');
         insuranceData.forEach((insurance) => {
             const row = document.createElement('tr');
+            row.className = 'hover:bg-gray-50 transition-colors duration-200';
             row.innerHTML = `
-                <td>${insurance.sno}</td>
-                <td>${insurance.type}</td>
-                <td>${insurance.suitable}</td>
-                <td>${getRandomCost()}</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900">${insurance.sno}</div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="text-sm text-gray-900">${insurance.type}</div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="text-sm text-gray-900">${insurance.suitable}</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-green-600">${getRandomCost()}</div>
+                </td>
             `;
             insuranceTable.appendChild(row);
         });
     </script>
-<br>
-<body>
-    <h1>Required Documents for Health Insurance</h1>
-    <div class="document-list">
-        <ol>
-            <li>Proof of Identity (Aadhar Card, PAN Card, Passport, etc.)</li>
-            <li>Proof of Address (Aadhar Card, Passport, Utility Bills, etc.)</li>
-            <li>Age Proof (Birth Certificate, School Certificate, Passport, etc.)</li>
-            <li>Passport-sized Photographs</li>
-            <li>Medical Reports (if any)</li>
-            <li>Proof of Income (Salary Slip, IT Returns, etc.)</li>
-            <li>Bank Statement or Passbook Copy</li>
-            <li>Proposal Form (filled and signed)</li>
-            <li>Employer's Certificate (for group insurance plans)</li>
-            <li>Marriage Certificate (for family floater plans)</li>
-            <li>Child's Birth Certificate (for family floater plans)</li>
-            <li>Previous Policy Documents (for renewal or portability)</li>
-        </ol>
-    </div>
-    </div>
-    <footer>
-        <div class="footer-container" id="footer-container">
-            <div class="footer-section branding">
-                <div class="logo">Integrated Services Scheme</div> <br>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a> &nbsp;
-                    <a href="https://www.google.com/search"><i class="fab fa-google"></i></a>&nbsp;
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="passport.html">Passport </a></li>
-                    <li><a href="pensiondetail.html">Pension schemes</a></li>
-                    <li><a href="ration.html">VoterID</a></li>
-                    <li><a href="Finance.html">Bank Interest-Calculator</a></li>
-                    <li><a href="HealthInsurance.html">Health Insurance</a></li>
-                    <li><a href="BuyOrSell.html">Sales Dealership</a></li>
-                    <li><a href="OnspotServiceCenter.html">Onspot Service Centers</a></li>
-                    <li><a href="#">Home</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Information</h4>
-                <ul>
-                    <li><a href="#">Website Policies</a></li>
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">Feedback</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Analytics</a></li>
-                    <li><a href="#">Visitors</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                </ul>
-            </div>
-            <div class="footer-section contact">
-                <h4>Get In Touch</h4>
-                <address>
-                    Rajalakshimi Institue of Technology<br>
-                    <a href="Ph:72002 20849">+91 72002 20849</a>
-                    <a href="Ph:87784 39525">+91 87784 39525</a>
-                    <a href="Ph:95978 09593">+91 95978 09593</a>
-                    <a href="Ph:90431 44325">+91 90431 44323</a>
-                    <a href="Ph:63826 06757">+91 63826 06757</a> 
-                    <a href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
-                    <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"></a>badri.p.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"></a>marishwaran.a.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"></a>bavadharini.s.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"></a>jinapriya.s.2022.cce@ritchennai.edu.in</a>
-                </address>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            © 2024 Government Services. All Rights Reserved.
-        </div>
-    </footer>
-
 </body>
 </html>

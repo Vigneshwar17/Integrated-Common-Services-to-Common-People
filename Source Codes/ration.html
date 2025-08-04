@@ -1,731 +1,587 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ration and Voter ID Services</title>
     <link rel="icon" href="TN logo.png">
-    <title>Ration and VoterID Service</title>
-    <style>
-        body {
-            background: #dbd2d2;  
-            font-family: Arial, sans-serif;
-            /*display: flex; 
-            justify-content: center;
-            align-items: center;  */ 
-            height: 100vh;
-            margin-left: 50px;
-            color: #050505;
-            overflow-x: hidden;
-        }
-
-        .table-container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 93%;
-            max-width: 1200px;
-            
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-        }
-
-        th {
-            background: #1a57da;
-            color: #ffffff;
-            text-transform: uppercase;
-        }
-        tbody tr:nth-child(even) {
-            background: #f2f2f2;
-        }
-
-        tbody tr:hover {
-            background:#6b7272;
-            color: #ffffff; 
-            transition: 1s;
-            transform: translateY(-10px);
-        
-        }
-
-        caption {
-            color: #444543;
-            font-size: 2.5em;
-            margin: 10px 0;
-        }
-
-        #LAND {
-            margin-left: 0;
-        }
-
-        #AADHAR {
-            margin-left: 0;
-            /* margin-top:1000px; */
-        }
-        .datetime {
-    font-size: 0.9em;
-    color: #ffffff;
-    margin-left: 160px;
-}
-/* Add any other necessary theme styles here */
-/* Navbar container */
-.navbar {
-    display: flex;
-    align-items: center;
-    background-color: #0b3c5d;
-    padding: 0px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 107%;
-    height: 15%;
-    margin-left:-50px;
-    margin-top: -10px;
-}
-
-/* Logo styling */
-.logo img {
-    height: 50px;
-    margin-right: 240px; /* Push the logo to the left */
-}
-
-/* Dropdown container */
-.dropdown {
-    position: relative;
-    display: inline-block;
-    margin-left: 10px;
-}
-
-/* Dropdown button styling */
-.dropbtn {
-    background-color: transparent;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Arial', sans-serif; /* Change to a professional font */
-}
-
-/* Hover effect for dropdown button */
-.dropbtn:hover, .dropbtn:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-}
-
-/* Dropdown content styling */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #C2CFD7;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-radius: 4px; /* Rounded corners */
-    overflow: hidden; /* Ensure rounded corners are respected */
-    opacity: 0; /* Initially hidden */
-    transition: 5s ease-in-out; /* Fade effect */
-}
-
-/* Dropdown link styling */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-family: 'Arial', sans-serif; /* Match the font of dropdown button */
-}
-
-/* Hover effect for dropdown links */
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-    color: #0056b3;
-}
-
-/* Show dropdown content on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-    opacity: 1; /* Fully visible */
-}
-
-footer {
-    background-color: #4199A7; /* Blue background */
-    color: white;
-    font-family: Arial, sans-serif;
-    margin-left: -49px;
-    width:105%;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    
-    
-
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px;
-}
-
-.footer-section h4 {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-    color: #fff;
-    border-bottom: 1px solid #fff; /* Adding a bottom border for section titles */
-    padding-bottom: 5px;
-}
-
-.footer-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 8px;
-}
-
-.footer-section ul li a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section ul li a:hover {
-    color: #f0f0f0; /* Lighter shade on hover */
-}
-
-.footer-section.contact {
-    /* Adding specific styles for the contact section */
-}
-
-.footer-section.contact address {
-    font-style: normal;
-    color: #ddd;
-}
-
-.footer-section.contact address a {
-    color: #ddd;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section.contact address a:hover {
-    color: #fff;
-}
-
-
-.footer-section .contact address {
-    font-style: normal;
-    line-height: 1.6;
-}
-
-.footer-section .contact a {
-    color: white;
-    text-decoration: none;
-}
-
-.footer-section .contact a:hover {
-    text-decoration: underline;
-}
-
-.footer-section .branding .logo {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-}
-
-.footer-section .social-icons {
-    display: flex;
-    gap: 10px;
-}
-
-.footer-section .social-icons a {
-    color: white;
-    font-size: 1.2em;
-}
-
-.footer-bottom {
-    background-color: #000;
-    color: white;
-    text-align:center;
-    padding: 10px 0;
-    position:aboslute;
-    
-}
-
-.footer-bottom a {
-    color: #0ff;
-    text-decoration: none;
-}
-
-.footer-bottom a:hover {
-    text-decoration: underline;
-}
-
-    </style>
-</head>
-<body>
-    <div class="navbar">
-        <div class="logo">
-            <img src="TN logo.png" alt="Government Logo">
-        </div>
-        
-        <div class="dropdown">
-            <a href="home.html"><button class="dropbtn">Home</button></a>
-        </div>
-        
-        <div class="dropdown">
-            <button class="dropbtn">Govt.Service</button>
-            <div class="dropdown-content">
-                <a href="AadharandLand.html">Aadhar and Land Service</a>
-                <a href="GovernmentScheme.html">Government Schemes</a>
-                <a href="passport.html">Passport Service</a>
-                <a href="pensiondetail.html">Pensioner Service</a>
-                <a href="ration.html">Ration and VoterID Service</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Finance</button>
-            <div class="dropdown-content">
-                <a href="Finance.html">Interest Calculator</a>
-                <a href="financeapi.html">Tax-Saving Recommender</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">HealthService(Chennai)</button>
-            <div class="dropdown-content">
-                <a href="Hospitals.html">Hospitals</a>
-                <a href="DiagnosticCenters.html">Diagnostic Centre</a>
-                <a href="ElderandNurseCare.html">Nurse Care Details</a>
-                <a href="Emergency.html">Emergency Centres</a>
-                <a href="HealthInsurance.html">Health Insurance</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Transport(Chennai)</button>
-            <div class="dropdown-content">
-                <a href="BusRoutes.html">List Of Buses</a>
-                <a href="BuyOrSell.html">Second Hand Vehicle</a>
-                <a href="CostComparison.html">Cost Comparison</a>
-                <a href="NearestServiceCenters.html">Service Centre</a>
-                <a href="OnspotServiceCenter.html">Onspot Service Center</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <a href="#footer-container"><button class="dropbtn">About</button></a>
-        </div>
-        <!-- <div class="dropdown">
-            <button class="dropbtn">Login</button>
-        </div> -->
-        <div class="datetime" id="datetime"></div>
-        <script>
-            function updateDateTime() {
-                const now = new Date();
-                const options = { 
-                    year: 'numeric', 
-                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
-                    day: '2-digit' 
-                };
-                const date = now.toLocaleDateString(undefined, options);
-                const time = now.toLocaleTimeString();
-                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0b3c5d',
+                        secondary: '#C2CFD7',
+                        accent: '#0056b3'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'arial': ['Arial', 'sans-serif']
+                    }
+                }
             }
-        
-            setInterval(updateDateTime, 1000);
-            updateDateTime(); // Initial call to display date/time immediately
-        </script>
-        
-        
-    </div>
+        }
+    </script>
+</head>
 
-    <div class="table-container">
-        <table class="consultants-table">
-        <caption>LIST OF E-SERVICES PROVIDED</caption>
-        <thead>
-            <tr>
-                <th>Service Code</th>
-                <th>Service Name</th>
-                <th>Category</th>
-                <th>Fee (Rs)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>REV-101</td>
-                <td>Community Certificate</td>
-                <td>Revenue</td>
-                <td>60</td>
-            </tr>
-            <tr>
-                <td>REV-102</td>
-                <td>Nativity Certificate</td>
-                <td>Revenue</td>
-                <td>60</td>
-            </tr>
-            <tr>
-                <td>REV-103</td>
-                <td>Income Certificate</td>
-                <td>Revenue</td>
-                <td>60</td>
-            </tr>
-            <tr>
-                <td>REV-104</td>
-                <td>No Graduate Certificate</td>
-                <td>Revenue</td>
-                <td>60</td>
-            </tr>
-            <tr>
-                <td>REV-105</td>
-                <td>Deserted Woman Certificate</td>
-                <td>Revenue</td>
-                <td>60</td>
-            </tr>
-            <tr>
-                <td>REV-106</td>
-                <td>Agricultural Income Certificate</td>
-                <td>Revenue</td>
-                <td>60</td>
-            </tr>
-            <tr>
-                <td>REV-107</td>
-                <td>Family Migration Certificate</td>
-                <td>Revenue</td>
-                <td>60</td>
-            </tr>
-            <tr>
-                <td>REV-108</td>
-                <td>Unemployment Certificate</td>
-                <td>Revenue</td>
-                <td>60</td>
-            </tr>
-            <tr>
-                <td>REV-109</td>
-                <td>Widow Certificate</td>
-                <td>Revenue</td>
-                <td>60</td>
-            </tr>
-            <tr>
-                <td>REV-110</td>
-                <td>Print out of Birth Certificate for Revenue Villages</td>
-                <td>Revenue</td>
-                <td>20</td>
-            </tr>
-            <tr>
-                <td>REV-112</td>
-                <td>Print out of Death Certificate for Revenue Villages</td>
-                <td>Revenue</td>
-                <td>20</td>
-            </tr>
-            <tr>
-                <td>REV-501</td>
-                <td>Tamil Nilam – Full Field Patta Transfer</td>
-                <td>Revenue (Land)</td>
-                <td>60</td>
-            </tr>
-            <tr>
-                <td>REV-502</td>
-                <td>Tamil Nilam – Joint Patta Transfer</td>
-                <td>Revenue (Land)</td>
-                <td>60</td>
-            </tr>
-            <tr>
-                <td>REV-503</td>
-                <td>Tamil Nilam – Subdivision</td>
-                <td>Revenue (Land)</td>
-                <td>60</td>
-            </tr>
-            <tr>
-                <td>REV-701</td>
-                <td>Grievance Day Petition</td>
-                <td>Revenue</td>
-                <td>20</td>
-            </tr>
-            <tr>
-                <td>TNE-501</td>
-                <td>Tamil Nadu Engineering Admission 2016 B.E. / B.Tech Online Registration</td>
-                <td>NEA</td>
-                <td>General Rs.500, OBC/SC/ST Rs.250</td>
-            </tr>
-        </tbody>
-    </table>
-    <br>
-    <table class="consultants-table">
-        <caption>LIST OF E-SERVICES CENTRE</caption>
-        <thead>
-            <tr>
-                <th>City</th>
-                <th>Location</th>
-                <th>Post Office</th>
-                <th>Address</th>
-                <th>Pincode</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Chennai</td>
-                <td>Nungambakkam High Road</td>
-                <td>NUNGAMBAKKAM HIGH ROAD SO</td>
-                <td>INCOME TAX OFFICE COMPLEX, AYAKKAR BHAWAN, 121 MG ROAD, NUNGAMBAKKAM</td>
-                <td>600034</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Thiyagaraya Nagar</td>
-                <td>T NAGAR NORTH</td>
-                <td>T NAGAR</td>
-                <td>600017</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Ethiraj Salai</td>
-                <td>ETHIRAJ SALAI</td>
-                <td>ETHIRAJ SALAI</td>
-                <td>600008</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Ayanavaram</td>
-                <td>AYANAVARAM</td>
-                <td>AYANAVARAM, CHENNAI 23</td>
-                <td>600023</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Vadapalani</td>
-                <td>Vadapalani</td>
-                <td>Vadapalani</td>
-                <td>600026</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Chintadripet</td>
-                <td>chintadripet</td>
-                <td>chintadripet</td>
-                <td>600002</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Anna Nagar East</td>
-                <td>ANNA NAGAR EAST SO</td>
-                <td>A BLOCK ANNANAGAR</td>
-                <td>600102</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Perambur</td>
-                <td>perambur</td>
-                <td>selva vinayagar koil street, perambur</td>
-                <td>600011</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Parthasarathy Koil</td>
-                <td>post office</td>
-                <td>ps koil</td>
-                <td>600005</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Vyasarpadi</td>
-                <td>VYASARPADI</td>
-                <td>MKB NAGAR CENTRAL AVENUE</td>
-                <td>600039</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Anna Nagar</td>
-                <td>ANNA NAGAR SO</td>
-                <td>ANNA NAGAR POST OFFICE</td>
-                <td>600040</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Ripon Buildings</td>
-                <td>Ripon Buildings PO</td>
-                <td>Raja Muthaih Salai</td>
-                <td>600003</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Besant Nagar</td>
-                <td>Besant Nagar</td>
-                <td>Post Office</td>
-                <td>600090</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Pr. Accountant General</td>
-                <td>praccountantgeneral</td>
-                <td>annaroad</td>
-                <td>600018</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Teynampet West</td>
-                <td>Teynampet West</td>
-                <td>Teynampet West</td>
-                <td>600006</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Flowers Road</td>
-                <td>Flowers Road Post Office</td>
-                <td>116 PH Road</td>
-                <td>600084</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Vepery</td>
-                <td>Vepery Post Office</td>
-                <td>69 Kalathiappa Street Vepery</td>
-                <td>600007</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Alagirinagar</td>
-                <td>VADAPAALANI</td>
-                <td>VADAPALANI</td>
-                <td>600026</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Chintadripet</td>
-                <td>Chintadripet SO</td>
-                <td>CHINTADRIPET, CH2</td>
-                <td>600002</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Chennai</td>
-                <td>FLR BR</td>
-                <td>EVENING BZR ROAD</td>
-                <td>600001</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Greams Road</td>
-                <td>GREAMS ROAD</td>
-                <td>GREAMS ROAD PO CHENNAI</td>
-                <td>600006</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Dpi</td>
-                <td>dpi</td>
-                <td>dpi post office</td>
-                <td>600006</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Choolaimedu</td>
-                <td>CHOOLAIMEDU POST OFFICE</td>
-                <td>CHOOLAIMEDU</td>
-                <td>600094</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Indian Institute Of Technology</td>
-                <td>IIT POST OFFICE</td>
-                <td>IIT CAMPUS</td>
-                <td>600036</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Mannady</td>
-                <td>MANNADY</td>
-                <td>41 MANNADY STREET</td>
-                <td>600001</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Washermenpet</td>
-                <td>WASHERMANPET</td>
-                <td>NO 555 TH ROAD OLDWASHERMANPET</td>
-                <td>600021</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Tondiarpet</td>
-                <td>Tondiarpet Post Office</td>
-                <td>No 5, TH Road, Tondiarpet</td>
-                <td>600081</td>
-            </tr>
-            <tr>
-                <td>Chennai</td>
-                <td>Mandaveli</td>
-                <td>MANDAVELI SO</td>
-                <td>MANDAVELI POSTOFFICE</td>
-                <td>600004</td>
-            </tr>
-        </tbody>
-    </table>
-    </div>
-    <footer>
-        <div class="footer-container" id="footer-container">
-            <div class="footer-section branding">
-                <div class="logo">Integrated Services Scheme</div> <br>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a> &nbsp;
-                    <a href="https://www.google.com/search"><i class="fab fa-google"></i></a>&nbsp;
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+<body class="bg-gray-100 font-arial">
+    <!-- Navigation Bar -->
+    <nav class="bg-primary shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="home.html">
+                        <img src="TN logo.png" alt="Government Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="home.html"
+                            class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Home</a>
+                        <a href="#"
+                            class="text-white bg-white bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium">Ration &
+                            Voter ID</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button"
+                        class="text-white hover:bg-white hover:bg-opacity-20 p-2 rounded-md">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="passport.html">Passport </a></li>
-                    <li><a href="pensiondetail.html">Pension schemes</a></li>
-                    <li><a href="ration.html">VoterID</a></li>
-                    <li><a href="Finance.html">Bank Interest-Calculator</a></li>
-                    <li><a href="HealthInsurance.html">Health Insurance</a></li>
-                    <li><a href="BuyOrSell.html">Sales Dealership</a></li>
-                    <li><a href="OnspotServiceCenter.html">Onspot Service Centers</a></li>
-                    <li><a href="#">Home</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Information</h4>
-                <ul>
-                    <li><a href="#">Website Policies</a></li>
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">Feedback</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Analytics</a></li>
-                    <li><a href="#">Visitors</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                </ul>
-            </div>
-            <div class="footer-section contact">
-                <h4>Get In Touch</h4>
-                <address>
-                    Rajalakshimi Institue of Technology<br>
-                    <a href="Ph:72002 20849">+91 72002 20849</a>
-                    <a href="Ph:87784 39525">+91 87784 39525</a>
-                    <a href="Ph:95978 09593">+91 95978 09593</a>
-                    <a href="Ph:90431 44325">+91 90431 44323</a>
-                    <a href="Ph:63826 06757">+91 63826 06757</a> 
-                    <a href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
-                    <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"></a>badri.p.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"></a>marishwaran.a.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"></a>bavadharini.s.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"></a>jinapriya.s.2022.cce@ritchennai.edu.in</a>
-                </address>
-            </div>
         </div>
-        <div class="footer-bottom">
-            © 2024 Government Services. All Rights Reserved.
-        </div>
-    </footer>
 
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="home.html" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#"
+                    class="text-white bg-white bg-opacity-20 block px-3 py-2 rounded-md text-base font-medium">Ration &
+                    Voter ID</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header Section -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Ration and Voter ID Services</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">Comprehensive services for ration cards, voter ID cards,
+                and related government documents. Find information about application procedures, updates, and
+                verification services.</p>
+        </div>
+
+        <!-- Service Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <!-- Ration Card Services -->
+            <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="bg-orange-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-credit-card text-2xl text-orange-600"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">Ration Card Services</h2>
+                </div>
+                <p class="text-gray-600 mb-4">Comprehensive ration card services including new applications, updates,
+                    and verification.</p>
+                <div class="space-y-2">
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">New ration card application</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">Family member addition/removal</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">Address updates</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">Duplicate card issuance</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voter ID Services -->
+            <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-vote-yea text-2xl text-blue-600"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800">Voter ID Services</h2>
+                </div>
+                <p class="text-gray-600 mb-4">Voter ID card services including new applications, corrections, and
+                    updates.</p>
+                <div class="space-y-2">
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">New voter ID application</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">Voter ID corrections</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">Address updates</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">Duplicate card issuance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label for="search" class="block text-sm font-medium text-gray-700 mb-2">Search Services</label>
+                    <div class="relative">
+                        <input type="text" id="search" placeholder="Search by service name, location, or type..."
+                            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <label for="service-filter" class="block text-sm font-medium text-gray-700 mb-2">Service
+                        Type</label>
+                    <select id="service-filter"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <option value="">All Services</option>
+                        <option value="Ration Card">Ration Card</option>
+                        <option value="Voter ID">Voter ID</option>
+                        <option value="Document Verification">Document Verification</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="location-filter" class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                    <select id="location-filter"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <option value="">All Locations</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Coimbatore">Coimbatore</option>
+                        <option value="Madurai">Madurai</option>
+                        <option value="Salem">Salem</option>
+                        <option value="Tiruchirappalli">Tiruchirappalli</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Table -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-primary">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Service Name</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Type
+                            </th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Location</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Contact</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Timing</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200" id="services-table-body">
+                        <!-- Service data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="hidden text-center py-12">
+            <i class="fas fa-search text-6xl text-gray-400 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-600 mb-2">No services found</h3>
+            <p class="text-gray-500">Try adjusting your search criteria or filters.</p>
+        </div>
+    </div>
+
+    <!-- Service Details Modal -->
+    <div id="service-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
+            <div class="mt-3">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                    <button id="close-modal" class="text-gray-400 hover:text-gray-600 text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="modal-content" class="space-y-4">
+                    <!-- Modal content will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Services data
+        const services = [
+            {
+                name: "Ration Card Office - Anna Nagar",
+                type: "Ration Card",
+                location: "Chennai",
+                contact: "+91 44 2626 1234",
+                timing: "9:00 AM - 5:00 PM",
+                address: "15, 2nd Avenue, Anna Nagar, Chennai - 600040",
+                email: "ration.annanagar@tn.gov.in",
+                website: "tn.gov.in",
+                description: "Comprehensive ration card services including new applications, updates, and verification.",
+                services: ["New Application", "Family Updates", "Address Changes", "Duplicate Cards"],
+                documents: ["Aadhaar Card", "Address Proof", "Income Certificate", "Family Photo"],
+                fees: {
+                    "New Application": "₹50",
+                    "Family Updates": "₹25",
+                    "Address Changes": "₹25",
+                    "Duplicate Cards": "₹100"
+                }
+            },
+            {
+                name: "Voter ID Office - T Nagar",
+                type: "Voter ID",
+                location: "Chennai",
+                contact: "+91 44 2434 5678",
+                timing: "9:00 AM - 5:00 PM",
+                address: "45, Usman Road, T Nagar, Chennai - 600017",
+                email: "voterid.tnagar@tn.gov.in",
+                website: "tn.gov.in",
+                description: "Voter ID card services including new applications, corrections, and updates.",
+                services: ["New Application", "Corrections", "Address Updates", "Duplicate Cards"],
+                documents: ["Aadhaar Card", "Address Proof", "Age Certificate", "Photo"],
+                fees: {
+                    "New Application": "Free",
+                    "Corrections": "₹25",
+                    "Address Updates": "₹25",
+                    "Duplicate Cards": "₹50"
+                }
+            },
+            {
+                name: "Ration Card Office - Vadapalani",
+                type: "Ration Card",
+                location: "Chennai",
+                contact: "+91 44 2489 0123",
+                timing: "9:00 AM - 5:00 PM",
+                address: "78, Arcot Road, Vadapalani, Chennai - 600026",
+                email: "ration.vadapalani@tn.gov.in",
+                website: "tn.gov.in",
+                description: "Full-service ration card office with digital facilities.",
+                services: ["New Application", "Family Updates", "Address Changes", "Duplicate Cards"],
+                documents: ["Aadhaar Card", "Address Proof", "Income Certificate", "Family Photo"],
+                fees: {
+                    "New Application": "₹50",
+                    "Family Updates": "₹25",
+                    "Address Changes": "₹25",
+                    "Duplicate Cards": "₹100"
+                }
+            },
+            {
+                name: "Voter ID Office - Mylapore",
+                type: "Voter ID",
+                location: "Chennai",
+                contact: "+91 44 2467 8901",
+                timing: "9:00 AM - 5:00 PM",
+                address: "34, Luz Church Road, Mylapore, Chennai - 600004",
+                email: "voterid.mylapore@tn.gov.in",
+                website: "tn.gov.in",
+                description: "Voter ID services with online application support.",
+                services: ["New Application", "Corrections", "Address Updates", "Duplicate Cards"],
+                documents: ["Aadhaar Card", "Address Proof", "Age Certificate", "Photo"],
+                fees: {
+                    "New Application": "Free",
+                    "Corrections": "₹25",
+                    "Address Updates": "₹25",
+                    "Duplicate Cards": "₹50"
+                }
+            },
+            {
+                name: "Ration Card Office - Coimbatore",
+                type: "Ration Card",
+                location: "Coimbatore",
+                contact: "+91 422 2345 678",
+                timing: "9:00 AM - 5:00 PM",
+                address: "123, Cross Cut Road, Coimbatore - 641012",
+                email: "ration.coimbatore@tn.gov.in",
+                website: "tn.gov.in",
+                description: "Ration card services for Coimbatore region.",
+                services: ["New Application", "Family Updates", "Address Changes", "Duplicate Cards"],
+                documents: ["Aadhaar Card", "Address Proof", "Income Certificate", "Family Photo"],
+                fees: {
+                    "New Application": "₹50",
+                    "Family Updates": "₹25",
+                    "Address Changes": "₹25",
+                    "Duplicate Cards": "₹100"
+                }
+            },
+            {
+                name: "Voter ID Office - Madurai",
+                type: "Voter ID",
+                location: "Madurai",
+                contact: "+91 452 2345 678",
+                timing: "9:00 AM - 5:00 PM",
+                address: "456, Anna Nagar, Madurai - 625020",
+                email: "voterid.madurai@tn.gov.in",
+                website: "tn.gov.in",
+                description: "Voter ID services for Madurai region.",
+                services: ["New Application", "Corrections", "Address Updates", "Duplicate Cards"],
+                documents: ["Aadhaar Card", "Address Proof", "Age Certificate", "Photo"],
+                fees: {
+                    "New Application": "Free",
+                    "Corrections": "₹25",
+                    "Address Updates": "₹25",
+                    "Duplicate Cards": "₹50"
+                }
+            },
+            {
+                name: "Document Verification Center - Salem",
+                type: "Document Verification",
+                location: "Salem",
+                contact: "+91 427 2345 678",
+                timing: "9:00 AM - 5:00 PM",
+                address: "789, Fort Road, Salem - 636001",
+                email: "verification.salem@tn.gov.in",
+                website: "tn.gov.in",
+                description: "Document verification services for ration cards and voter IDs.",
+                services: ["Document Verification", "Authentication", "Status Updates"],
+                documents: ["Original Documents", "Photocopies", "Aadhaar Card"],
+                fees: {
+                    "Document Verification": "₹25",
+                    "Authentication": "₹50",
+                    "Status Updates": "Free"
+                }
+            },
+            {
+                name: "Ration Card Office - Tiruchirappalli",
+                type: "Ration Card",
+                location: "Tiruchirappalli",
+                contact: "+91 431 2345 678",
+                timing: "9:00 AM - 5:00 PM",
+                address: "321, Rockfort Road, Tiruchirappalli - 620001",
+                email: "ration.trichy@tn.gov.in",
+                website: "tn.gov.in",
+                description: "Ration card services for Tiruchirappalli region.",
+                services: ["New Application", "Family Updates", "Address Changes", "Duplicate Cards"],
+                documents: ["Aadhaar Card", "Address Proof", "Income Certificate", "Family Photo"],
+                fees: {
+                    "New Application": "₹50",
+                    "Family Updates": "₹25",
+                    "Address Changes": "₹25",
+                    "Duplicate Cards": "₹100"
+                }
+            }
+        ];
+
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initialize the table
+        function initializeTable() {
+            const tableBody = document.getElementById('services-table-body');
+            tableBody.innerHTML = '';
+
+            services.forEach((service, index) => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50 transition-colors duration-200';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">${service.name}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${service.type === 'Ration Card' ? 'bg-orange-100 text-orange-800' :
+                        service.type === 'Voter ID' ? 'bg-blue-100 text-blue-800' :
+                            'bg-green-100 text-green-800'
+                    }">${service.type}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${service.location}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${service.contact}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${service.timing}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="showServiceDetails(${index})" class="text-primary hover:text-blue-700 transition-colors duration-200">
+                            <i class="fas fa-info-circle mr-1"></i>Details
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Search and filter functionality
+        function filterServices() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const serviceFilter = document.getElementById('service-filter').value;
+            const locationFilter = document.getElementById('location-filter').value;
+
+            const filteredServices = services.filter(service => {
+                const matchesSearch = service.name.toLowerCase().includes(searchTerm) ||
+                    service.type.toLowerCase().includes(searchTerm) ||
+                    service.location.toLowerCase().includes(searchTerm);
+                const matchesService = !serviceFilter || service.type === serviceFilter;
+                const matchesLocation = !locationFilter || service.location === locationFilter;
+
+                return matchesSearch && matchesService && matchesLocation;
+            });
+
+            displayFilteredServices(filteredServices);
+        }
+
+        function displayFilteredServices(filteredServices) {
+            const tableBody = document.getElementById('services-table-body');
+            const noResults = document.getElementById('no-results');
+
+            if (filteredServices.length === 0) {
+                tableBody.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+            tableBody.innerHTML = '';
+
+            filteredServices.forEach((service, index) => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50 transition-colors duration-200';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">${service.name}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${service.type === 'Ration Card' ? 'bg-orange-100 text-orange-800' :
+                        service.type === 'Voter ID' ? 'bg-blue-100 text-blue-800' :
+                            'bg-green-100 text-green-800'
+                    }">${service.type}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${service.location}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${service.contact}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${service.timing}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="showServiceDetails(${services.indexOf(service)})" class="text-primary hover:text-blue-700 transition-colors duration-200">
+                            <i class="fas fa-info-circle mr-1"></i>Details
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Service details modal
+        function showServiceDetails(index) {
+            const service = services[index];
+            const modal = document.getElementById('service-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+
+            modalTitle.textContent = service.name;
+            modalContent.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Service Information</h4>
+                            <p class="text-gray-600"><strong>Type:</strong> ${service.type}</p>
+                            <p class="text-gray-600"><strong>Location:</strong> ${service.location}</p>
+                            <p class="text-gray-600"><strong>Contact:</strong> ${service.contact}</p>
+                            <p class="text-gray-600"><strong>Timing:</strong> ${service.timing}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Address</h4>
+                            <p class="text-gray-600">${service.address}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Contact</h4>
+                            <p class="text-gray-600"><strong>Email:</strong> ${service.email}</p>
+                            <p class="text-gray-600"><strong>Website:</strong> <a href="https://${service.website}" target="_blank" class="text-primary hover:text-blue-700">${service.website}</a></p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Services Offered</h4>
+                            <div class="space-y-1">
+                                ${service.services.map(s =>
+                `<div class="flex items-center justify-between">
+                                        <span class="text-gray-600">${s}</span>
+                                        <span class="text-sm font-semibold text-gray-800">${service.fees[s]}</span>
+                                    </div>`
+            ).join('')}
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Required Documents</h4>
+                            <div class="space-y-1">
+                                ${service.documents.map(doc =>
+                `<div class="flex items-center">
+                                        <i class="fas fa-file-alt text-blue-500 mr-2"></i>
+                                        <span class="text-gray-600">${doc}</span>
+                                    </div>`
+            ).join('')}
+            </div>
+            </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Description</h4>
+                            <p class="text-gray-600">${service.description}</p>
+            </div>
+        </div>
+        </div>
+            `;
+
+            modal.classList.remove('hidden');
+        }
+
+        // Close modal
+        document.getElementById('close-modal').addEventListener('click', function () {
+            document.getElementById('service-modal').classList.add('hidden');
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('service-modal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+
+        // Event listeners for search and filters
+        document.getElementById('search').addEventListener('input', filterServices);
+        document.getElementById('service-filter').addEventListener('change', filterServices);
+        document.getElementById('location-filter').addEventListener('change', filterServices);
+
+        // Initialize the table on page load
+        document.addEventListener('DOMContentLoaded', initializeTable);
+    </script>
 </body>
+
 </html>

@@ -1,527 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Services</title>
     <link rel="icon" href="TN logo.png">
-    <title>Passport Service</title>
-    <style>
-        body {
-            background:#dbd2d2;  
-            font-family: Arial, sans-serif;
-            /*display: flex; 
-            justify-content: center;
-            align-items: center;  */ 
-            height: 100vh;
-            margin-left: 50px;
-            color: #252424;
-            overflow-x: hidden;
-        }
-
-        .table-container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 93%;
-            max-width: 1200px;
-            
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-        }
-
-        th {
-            background: #1a57da;
-            color: #ffffff;
-            text-transform: uppercase;
-        }
-        tbody tr:nth-child(even) {
-            background: #f2f2f2;
-        }
-
-        tbody tr:hover {
-            background:#6b7272;
-            color: #ffffff; 
-            transition: 1s;
-            transform: translateY(-10px);
-        
-        }
-
-        caption {
-            color: #444543;
-            font-size: 2.5em;
-            margin: 10px 0;
-        }
-
-        #LAND {
-            margin-left: 0;
-        }
-
-        #AADHAR {
-            margin-left: 0;
-            /* margin-top:1000px; */
-        }
-        .datetime {
-    font-size: 0.9em;
-    color: #ffffff;
-    margin-left: 160px;
-}
-/* Add any other necessary theme styles here */
-/* Navbar container */
-.navbar {
-    display: flex;
-    align-items: center;
-    background-color: #0b3c5d;
-    padding: 0px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 107%;
-    height: 15%;
-    margin-left:-50px;
-    margin-top: -10px;
-}
-
-/* Logo styling */
-.logo img {
-    height: 50px;
-    margin-right: 240px; /* Push the logo to the left */
-}
-
-/* Dropdown container */
-.dropdown {
-    position: relative;
-    display: inline-block;
-    margin-left: 10px;
-}
-
-/* Dropdown button styling */
-.dropbtn {
-    background-color: transparent;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Arial', sans-serif; /* Change to a professional font */
-}
-
-/* Hover effect for dropdown button */
-.dropbtn:hover, .dropbtn:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-}
-
-/* Dropdown content styling */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #C2CFD7;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-radius: 4px; /* Rounded corners */
-    overflow: hidden; /* Ensure rounded corners are respected */
-    opacity: 0; /* Initially hidden */
-    transition: 5s ease-in-out; /* Fade effect */
-}
-
-/* Dropdown link styling */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-family: 'Arial', sans-serif; /* Match the font of dropdown button */
-}
-
-/* Hover effect for dropdown links */
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-    color: #0056b3;
-}
-
-/* Show dropdown content on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-    opacity: 1; /* Fully visible */
-}
-
-footer {
-    background-color: #4199A7; /* Blue background */
-    color: white;
-    font-family: Arial, sans-serif;
-    margin-left: -49px;
-    width:105%;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    
-    
-
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px;
-}
-
-.footer-section h4 {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-    color: #fff;
-    border-bottom: 1px solid #fff; /* Adding a bottom border for section titles */
-    padding-bottom: 5px;
-}
-
-.footer-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 8px;
-}
-
-.footer-section ul li a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section ul li a:hover {
-    color: #f0f0f0; /* Lighter shade on hover */
-}
-
-.footer-section.contact {
-    /* Adding specific styles for the contact section */
-}
-
-.footer-section.contact address {
-    font-style: normal;
-    color: #ddd;
-}
-
-.footer-section.contact address a {
-    color: #ddd;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section.contact address a:hover {
-    color: #fff;
-}
-
-
-.footer-section .contact address {
-    font-style: normal;
-    line-height: 1.6;
-}
-
-.footer-section .contact a {
-    color: white;
-    text-decoration: none;
-}
-
-.footer-section .contact a:hover {
-    text-decoration: underline;
-}
-
-.footer-section .branding .logo {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-}
-
-.footer-section .social-icons {
-    display: flex;
-    gap: 10px;
-}
-
-.footer-section .social-icons a {
-    color: white;
-    font-size: 1.2em;
-}
-
-.footer-bottom {
-    background-color: #000;
-    color: white;
-    text-align:center;
-    padding: 10px 0;
-    position:aboslute;
-    
-}
-
-.footer-bottom a {
-    color: #0ff;
-    text-decoration: none;
-}
-
-.footer-bottom a:hover {
-    text-decoration: underline;
-}
-
-    </style>
-</head>
-<body>
-    <div class="navbar">
-        <div class="logo">
-            <img src="TN logo.png" alt="Government Logo">
-        </div>
-        
-        <div class="dropdown">
-            <a href="home.html"><button class="dropbtn">Home</button></a>
-        </div>
-        
-        <div class="dropdown">
-            <button class="dropbtn">Govt.Service</button>
-            <div class="dropdown-content">
-                <a href="AadharandLand.html">Aadhar and Land Service</a>
-                <a href="GovernmentScheme.html">Government Schemes</a>
-                <a href="passport.html">Passport Service</a>
-                <a href="pensiondetail.html">Pensioner Service</a>
-                <a href="ration.html">Ration and VoterID Service</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Finance</button>
-            <div class="dropdown-content">
-                <a href="Finance.html">Interest Calculator</a>
-                <a href="financeapi.html">Tax-Saving Recommender</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">HealthService(Chennai)</button>
-            <div class="dropdown-content">
-                <a href="Hospitals.html">Hospitals</a>
-                <a href="DiagnosticCenters.html">Diagnostic Centre</a>
-                <a href="ElderandNurseCare.html">Nurse Care Details</a>
-                <a href="Emergency.html">Emergency Centres</a>
-                <a href="HealthInsurance.html">Health Insurance</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Transport(Chennai)</button>
-            <div class="dropdown-content">
-                <a href="BusRoutes.html">List Of Buses</a>
-                <a href="BuyOrSell.html">Second Hand Vehicle</a>
-                <a href="CostComparison.html">Cost Comparison</a>
-                <a href="NearestServiceCenters.html">Service Centre</a>
-                <a href="OnspotServiceCenter.html">Onspot Service Center</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <a href="#footer-container"><button class="dropbtn">About</button></a>
-        </div>
-        <!-- <div class="dropdown">
-            <button class="dropbtn">Login</button>
-        </div> -->
-        <div class="datetime" id="datetime"></div>
-        <script>
-            function updateDateTime() {
-                const now = new Date();
-                const options = { 
-                    year: 'numeric', 
-                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
-                    day: '2-digit' 
-                };
-                const date = now.toLocaleDateString(undefined, options);
-                const time = now.toLocaleTimeString();
-                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0b3c5d',
+                        secondary: '#C2CFD7',
+                        accent: '#0056b3'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'arial': ['Arial', 'sans-serif']
+                    }
+                }
             }
-        
-            setInterval(updateDateTime, 1000);
-            updateDateTime(); // Initial call to display date/time immediately
-        </script>
-        
-        
-    </div>
-    <div class="table-container">
-        <h1>Passport Application Information</h1>
+        }
+    </script>
+</head>
 
-    <h2>Personal Information</h2>
-    <ol>
-        <li><strong>Full Name</strong>: As per your official records.</li>
-        <li><strong>Date of Birth</strong>: As per your birth certificate or other official documents.</li>
-        <li><strong>Place of Birth</strong>: City, state, and country.</li>
-        <li><strong>Gender</strong></li>
-        <li><strong>Marital Status</strong></li>
-        <li><strong>Educational Qualification</strong></li>
-        <li><strong>Employment Details</strong>: If applicable.</li>
-        <li><strong>Address</strong>: Present and permanent address with proof.</li>
-    </ol>
+<body class="bg-gray-100 font-arial">
+    <!-- Navigation Bar -->
+    <nav class="bg-primary shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="home.html">
+                        <img src="TN logo.png" alt="Government Logo" class="h-12 w-auto">
+                    </a>
+                </div>
 
-    <h2>Documents Required</h2>
-    <ol>
-        <li><strong>Proof of Date of Birth</strong>:
-            <ol>
-                <li>Birth Certificate</li>
-                <li>School leaving certificate</li>
-                <li>Matriculation Certificate</li>
-                <li>PAN card (if issued before a certain date)</li>
-                <li>Aadhaar card/E-Aadhaar</li>
-            </ol>
-        </li>
-        <li><strong>Proof of Address</strong> (any one of the following):
-            <ol>
-                <li>Aadhaar card/E-Aadhaar</li>
-                <li>Voter ID card</li>
-                <li>Electricity bill</li>
-                <li>Telephone bill</li>
-                <li>Bank account statement</li>
-                <li>Rent agreement</li>
-            </ol>
-        </li>
-        <li><strong>Identity Proof</strong> (any one of the following):
-            <ol>
-                <li>Aadhaar card/E-Aadhaar</li>
-                <li>Voter ID card</li>
-                <li>Driving license</li>
-                <li>PAN card</li>
-            </ol>
-        </li>
-        <li><strong>Passport-Sized Photographs</strong>: As per the specifications provided by the passport office.</li>
-    </ol>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="home.html"
+                            class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Home</a>
+                        <a href="#"
+                            class="text-white bg-white bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium">Passport
+                            Services</a>
+                    </div>
+                </div>
 
-    <h2>Additional Documents for Specific Cases</h2>
-    <ol>
-        <li><strong>For Minors</strong>:
-            <ol>
-                <li>Birth certificate</li>
-                <li>Parents' passport copies</li>
-            </ol>
-        </li>
-        <li><strong>For Government Employees</strong>:
-            <ol>
-                <li>No Objection Certificate (NOC) from the employer</li>
-            </ol>
-        </li>
-        <li><strong>For Married Individuals</strong>:
-            <ol>
-                <li>Marriage certificate (if you want your spouse’s name to be endorsed in your passport)</li>
-            </ol>
-        </li>
-    </ol>
-
-    <h2>Online Application Process</h2>
-    <ol>
-        <li><strong>Register on the Passport Seva website</strong>: <a href="https://portal2.passportindia.gov.in/">Passport Seva</a></li>
-        <li><strong>Fill the Application Form</strong>: Complete the form with all required details.</li>
-        <li><strong>Schedule an Appointment</strong>: Select a Passport Seva Kendra (PSK) and book an appointment.</li>
-        <li><strong>Pay the Fees</strong>: Pay the applicable fees online.</li>
-        <li><strong>Visit the PSK/Regional Passport Office (RPO)</strong>: Carry the original documents and a printout of the application receipt.</li>
-    </ol>
-
-    <h2>Offline Application Process</h2>
-    <ol>
-        <li><strong>Collect the Application Form</strong>: Obtain it from the nearest Passport Office or download it from the Passport Seva website.</li>
-        <li><strong>Fill the Application Form</strong>: Manually fill in all the required details.</li>
-        <li><strong>Attach the Required Documents</strong>: Attach photocopies of all necessary documents.</li>
-        <li><strong>Submit the Application Form</strong>: Submit it at the nearest Passport Office or Passport Seva Kendra.</li>
-        <li><strong>Pay the Fees</strong>: Pay the applicable fees at the submission center.</li>
-        <li><strong>Verification</strong>: Attend the appointment for document verification and biometric data collection.</li>
-    </ol>
-
-    <h2>Passport Seva Kendra Centre Details</h2>
-    <table class="consultants-table">
-        <thead>
-            <tr>
-                <th>PSK Name</th>
-                <th>Location</th>
-                <th>Contact</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>PSK Aminjikarai</td>
-                <td>Navins Presidium, No. 103, Nelson Manickam Road, Aminjikarai, Chennai</td>
-                <td>044-12345678</td>
-            </tr>
-            <tr>
-                <td>PSK Saligramam</td>
-                <td>No. 1, Bhanumathi Ramakrishna Road, Saligramam, Chennai</td>
-                <td>044-23456789</td>
-            </tr>
-            <tr>
-                <td>PSK Tambaram</td>
-                <td>Claret Complex, Duraisamy Reddy Street, Tambaram, Chennai</td>
-                <td>044-34567890</td>
-            </tr>
-            <tr>
-                <td>Post Office PSK Chennai GPO</td>
-                <td>1/10, Rajaji Salai, Chennai 600001</td>
-                <td>044-45678901</td>
-            </tr>
-        </tbody>
-    </table>
-    </div>
-    <footer>
-        <div class="footer-container" id="footer-container">
-            <div class="footer-section branding">
-                <div class="logo">Integrated Services Scheme</div> <br>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a> &nbsp;
-                    <a href="https://www.google.com/search"><i class="fab fa-google"></i></a>&nbsp;
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button"
+                        class="text-white hover:bg-white hover:bg-opacity-20 p-2 rounded-md">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="passport.html">Passport </a></li>
-                    <li><a href="pensiondetail.html">Pension schemes</a></li>
-                    <li><a href="ration.html">VoterID</a></li>
-                    <li><a href="Finance.html">Bank Interest-Calculator</a></li>
-                    <li><a href="HealthInsurance.html">Health Insurance</a></li>
-                    <li><a href="BuyOrSell.html">Sales Dealership</a></li>
-                    <li><a href="OnspotServiceCenter.html">Onspot Service Centers</a></li>
-                    <li><a href="#">Home</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Information</h4>
-                <ul>
-                    <li><a href="#">Website Policies</a></li>
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">Feedback</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Analytics</a></li>
-                    <li><a href="#">Visitors</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                </ul>
-            </div>
-            <div class="footer-section contact">
-                <h4>Get In Touch</h4>
-                <address>
-                    Rajalakshimi Institue of Technology<br>
-                    <a href="Ph:72002 20849">+91 72002 20849</a>
-                    <a href="Ph:87784 39525">+91 87784 39525</a>
-                    <a href="Ph:95978 09593">+91 95978 09593</a>
-                    <a href="Ph:90431 44325">+91 90431 44323</a>
-                    <a href="Ph:63826 06757">+91 63826 06757</a> 
-                    <a href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
-                    <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"></a>badri.p.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"></a>marishwaran.a.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"></a>bavadharini.s.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"></a>jinapriya.s.2022.cce@ritchennai.edu.in</a>
-                </address>
-            </div>
         </div>
-        <div class="footer-bottom">
-            © 2024 Government Services. All Rights Reserved.
-        </div>
-    </footer>
 
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="home.html" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#"
+                    class="text-white bg-white bg-opacity-20 block px-3 py-2 rounded-md text-base font-medium">Passport
+                    Services</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header Section -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Passport Services</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">Comprehensive passport services including new
+                applications, renewals, and status tracking. Find information about passport offices, required
+                documents, and application procedures.</p>
+        </div>
+
+        <!-- Service Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <!-- New Passport -->
+            <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-passport text-2xl text-blue-600"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-gray-800">New Passport</h2>
+                </div>
+                <p class="text-gray-600 mb-4">Apply for a new passport with all required documents and verification.</p>
+                <div class="space-y-2">
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">Online application</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">Document verification</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">Biometric enrollment</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Passport Renewal -->
+            <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="bg-green-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-sync-alt text-2xl text-green-600"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-gray-800">Passport Renewal</h2>
+                </div>
+                <p class="text-gray-600 mb-4">Renew your existing passport before expiry with simplified process.</p>
+                <div class="space-y-2">
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">Fast track renewal</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">Minimal documents</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">Online tracking</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Tracking -->
+            <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="bg-purple-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-search text-2xl text-purple-600"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-gray-800">Status Tracking</h2>
+                </div>
+                <p class="text-gray-600 mb-4">Track your passport application status and processing updates.</p>
+                <div class="space-y-2">
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">Real-time updates</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">SMS notifications</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span class="text-gray-700">Email alerts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label for="search" class="block text-sm font-medium text-gray-700 mb-2">Search Services</label>
+                    <div class="relative">
+                        <input type="text" id="search" placeholder="Search by service name, location, or type..."
+                            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <label for="service-filter" class="block text-sm font-medium text-gray-700 mb-2">Service
+                        Type</label>
+                    <select id="service-filter"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <option value="">All Services</option>
+                        <option value="New Passport">New Passport</option>
+                        <option value="Renewal">Passport Renewal</option>
+                        <option value="Reissue">Passport Reissue</option>
+                        <option value="Status">Status Tracking</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="location-filter" class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                    <select id="location-filter"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <option value="">All Locations</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Coimbatore">Coimbatore</option>
+                        <option value="Madurai">Madurai</option>
+                        <option value="Salem">Salem</option>
+                        <option value="Tiruchirappalli">Tiruchirappalli</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Passport Offices Table -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-primary">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Office Name</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Services</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Location</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Contact</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Timing</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200" id="passport-offices-table-body">
+                        <!-- Office data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="hidden text-center py-12">
+            <i class="fas fa-search text-6xl text-gray-400 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-600 mb-2">No offices found</h3>
+            <p class="text-gray-500">Try adjusting your search criteria or filters.</p>
+        </div>
+    </div>
+
+    <!-- Office Details Modal -->
+    <div id="office-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
+            <div class="mt-3">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                    <button id="close-modal" class="text-gray-400 hover:text-gray-600 text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="modal-content" class="space-y-4">
+                    <!-- Modal content will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Passport offices data
+        const passportOffices = [
+            {
+                name: "Passport Seva Kendra - Anna Nagar",
+                services: ["New Passport", "Renewal", "Reissue"],
+                location: "Chennai",
+                contact: "+91 44 2626 1234",
+                timing: "9:00 AM - 5:00 PM",
+                address: "15, 2nd Avenue, Anna Nagar, Chennai - 600040",
+                email: "psk.annanagar@passportindia.gov.in",
+                website: "passportindia.gov.in",
+                description: "Full-service passport office providing all passport-related services including new applications, renewals, and reissues.",
+                documents: ["Birth Certificate", "Address Proof", "Photo ID", "PAN Card"],
+                fees: {
+                    "New Passport": "₹1,500",
+                    "Renewal": "₹1,500",
+                    "Reissue": "₹1,500"
+                }
+            },
+            {
+                name: "Passport Seva Kendra - T Nagar",
+                services: ["New Passport", "Renewal", "Status"],
+                location: "Chennai",
+                contact: "+91 44 2434 5678",
+                timing: "9:00 AM - 5:00 PM",
+                address: "45, Usman Road, T Nagar, Chennai - 600017",
+                email: "psk.tnagar@passportindia.gov.in",
+                website: "passportindia.gov.in",
+                description: "Comprehensive passport services with online application support and status tracking.",
+                documents: ["Birth Certificate", "Address Proof", "Photo ID", "PAN Card"],
+                fees: {
+                    "New Passport": "₹1,500",
+                    "Renewal": "₹1,500",
+                    "Status": "Free"
+                }
+            },
+            {
+                name: "Passport Seva Kendra - Vadapalani",
+                services: ["New Passport", "Renewal", "Reissue", "Status"],
+                location: "Chennai",
+                contact: "+91 44 2489 0123",
+                timing: "9:00 AM - 5:00 PM",
+                address: "78, Arcot Road, Vadapalani, Chennai - 600026",
+                email: "psk.vadapalani@passportindia.gov.in",
+                website: "passportindia.gov.in",
+                description: "Modern passport office with digital facilities and biometric enrollment.",
+                documents: ["Birth Certificate", "Address Proof", "Photo ID", "PAN Card"],
+                fees: {
+                    "New Passport": "₹1,500",
+                    "Renewal": "₹1,500",
+                    "Reissue": "₹1,500",
+                    "Status": "Free"
+                }
+            },
+            {
+                name: "Passport Seva Kendra - Coimbatore",
+                services: ["New Passport", "Renewal"],
+                location: "Coimbatore",
+                contact: "+91 422 2345 678",
+                timing: "9:00 AM - 5:00 PM",
+                address: "123, Cross Cut Road, Coimbatore - 641012",
+                email: "psk.coimbatore@passportindia.gov.in",
+                website: "passportindia.gov.in",
+                description: "Passport services for Coimbatore region with efficient processing.",
+                documents: ["Birth Certificate", "Address Proof", "Photo ID", "PAN Card"],
+                fees: {
+                    "New Passport": "₹1,500",
+                    "Renewal": "₹1,500"
+                }
+            },
+            {
+                name: "Passport Seva Kendra - Madurai",
+                services: ["New Passport", "Renewal", "Status"],
+                location: "Madurai",
+                contact: "+91 452 2345 678",
+                timing: "9:00 AM - 5:00 PM",
+                address: "456, Anna Nagar, Madurai - 625020",
+                email: "psk.madurai@passportindia.gov.in",
+                website: "passportindia.gov.in",
+                description: "Passport services for Madurai region with online tracking facilities.",
+                documents: ["Birth Certificate", "Address Proof", "Photo ID", "PAN Card"],
+                fees: {
+                    "New Passport": "₹1,500",
+                    "Renewal": "₹1,500",
+                    "Status": "Free"
+                }
+            },
+            {
+                name: "Passport Seva Kendra - Salem",
+                services: ["New Passport", "Renewal"],
+                location: "Salem",
+                contact: "+91 427 2345 678",
+                timing: "9:00 AM - 5:00 PM",
+                address: "789, Fort Road, Salem - 636001",
+                email: "psk.salem@passportindia.gov.in",
+                website: "passportindia.gov.in",
+                description: "Passport services for Salem region with streamlined processes.",
+                documents: ["Birth Certificate", "Address Proof", "Photo ID", "PAN Card"],
+                fees: {
+                    "New Passport": "₹1,500",
+                    "Renewal": "₹1,500"
+                }
+            }
+        ];
+
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initialize the table
+        function initializeTable() {
+            const tableBody = document.getElementById('passport-offices-table-body');
+            tableBody.innerHTML = '';
+
+            passportOffices.forEach((office, index) => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50 transition-colors duration-200';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">${office.name}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex flex-wrap gap-1">
+                            ${office.services.map(service =>
+                    `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">${service}</span>`
+                ).join('')}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${office.location}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${office.contact}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${office.timing}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="showOfficeDetails(${index})" class="text-primary hover:text-blue-700 transition-colors duration-200">
+                            <i class="fas fa-info-circle mr-1"></i>Details
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Search and filter functionality
+        function filterOffices() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const serviceFilter = document.getElementById('service-filter').value;
+            const locationFilter = document.getElementById('location-filter').value;
+
+            const filteredOffices = passportOffices.filter(office => {
+                const matchesSearch = office.name.toLowerCase().includes(searchTerm) ||
+                    office.location.toLowerCase().includes(searchTerm) ||
+                    office.services.some(s => s.toLowerCase().includes(searchTerm));
+                const matchesService = !serviceFilter || office.services.includes(serviceFilter);
+                const matchesLocation = !locationFilter || office.location === locationFilter;
+
+                return matchesSearch && matchesService && matchesLocation;
+            });
+
+            displayFilteredOffices(filteredOffices);
+        }
+
+        function displayFilteredOffices(filteredOffices) {
+            const tableBody = document.getElementById('passport-offices-table-body');
+            const noResults = document.getElementById('no-results');
+
+            if (filteredOffices.length === 0) {
+                tableBody.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+            tableBody.innerHTML = '';
+
+            filteredOffices.forEach((office, index) => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50 transition-colors duration-200';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">${office.name}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex flex-wrap gap-1">
+                            ${office.services.map(service =>
+                    `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">${service}</span>`
+                ).join('')}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${office.location}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${office.contact}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900">${office.timing}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="showOfficeDetails(${passportOffices.indexOf(office)})" class="text-primary hover:text-blue-700 transition-colors duration-200">
+                            <i class="fas fa-info-circle mr-1"></i>Details
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Office details modal
+        function showOfficeDetails(index) {
+            const office = passportOffices[index];
+            const modal = document.getElementById('office-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+
+            modalTitle.textContent = office.name;
+            modalContent.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Office Information</h4>
+                            <p class="text-gray-600"><strong>Location:</strong> ${office.location}</p>
+                            <p class="text-gray-600"><strong>Contact:</strong> ${office.contact}</p>
+                            <p class="text-gray-600"><strong>Timing:</strong> ${office.timing}</p>
+                            <p class="text-gray-600"><strong>Email:</strong> ${office.email}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Address</h4>
+                            <p class="text-gray-600">${office.address}</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Website</h4>
+                            <a href="https://${office.website}" target="_blank" class="text-primary hover:text-blue-700">${office.website}</a>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Services Offered</h4>
+                            <div class="space-y-1">
+                                ${office.services.map(service =>
+                `<div class="flex items-center justify-between">
+                                        <span class="text-gray-600">${service}</span>
+                                        <span class="text-sm font-semibold text-gray-800">${office.fees[service]}</span>
+                                    </div>`
+            ).join('')}
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Required Documents</h4>
+                            <div class="space-y-1">
+                                ${office.documents.map(doc =>
+                `<div class="flex items-center">
+                                        <i class="fas fa-file-alt text-blue-500 mr-2"></i>
+                                        <span class="text-gray-600">${doc}</span>
+                                    </div>`
+            ).join('')}
+            </div>
+            </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Description</h4>
+                            <p class="text-gray-600">${office.description}</p>
+            </div>
+        </div>
+        </div>
+            `;
+
+            modal.classList.remove('hidden');
+        }
+
+        // Close modal
+        document.getElementById('close-modal').addEventListener('click', function () {
+            document.getElementById('office-modal').classList.add('hidden');
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('office-modal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+
+        // Event listeners for search and filters
+        document.getElementById('search').addEventListener('input', filterOffices);
+        document.getElementById('service-filter').addEventListener('change', filterOffices);
+        document.getElementById('location-filter').addEventListener('change', filterOffices);
+
+        // Initialize the table on page load
+        document.addEventListener('DOMContentLoaded', initializeTable);
+    </script>
 </body>
+
 </html>

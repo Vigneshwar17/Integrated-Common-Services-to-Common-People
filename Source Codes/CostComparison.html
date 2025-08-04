@@ -1,642 +1,628 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="TN logo.png">
     <title>Cost Comparison</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0b3c5d',
+                        secondary: '#C2CFD7',
+                        accent: '#0056b3'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'arial': ['Arial', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body {
-            background: #dbd2d2;  
-            font-family: Arial, sans-serif;
-            height: 100vh;
-            margin-left: 50px;
-            margin-right: 50px;
-            color: #1a1919;
-            overflow-x: hidden;
-        }
-
-        .table-container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 93%;
-            max-width: 1200px;
-        }
-
-        table {
+        /* Responsive table styles */
+        .car-model-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-        }
-
-        th {
-            background: #1a57da;
-            color: #ffffff;
-            text-transform: uppercase;
-        }
-        tbody tr:nth-child(even) {
-            background: #e2e1e1;
-        } 
-
-        tbody tr:hover {
-            background: #6b7272;
-            color: #ffffff; 
-            transition: 1s;
-            transform: translateY(-10px);
-        }
-
-        caption {
-            color: #444543;
-            font-size: 2.5em;
-            margin: 10px 0;
-        }
-
-        #LAND {
-            margin-left: 0;
-        }
-
-        #AADHAR {
-            margin-left: 0;
-        }
-
-        .datetime {
-            font-size: 0.9em;
-            color: #ffffff;
-            margin-left: 250px;
-        }
-
-        .navbar {
-            display: flex;
-            align-items: center;
-            margin-left: -80px;
-            background-color: #0b3c5d;
-            padding: 0px 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            margin-top: -10px;
-        }
-
-        .logo img {
-            height: 70px;
-            margin-left: 60px;
-            margin-right: 120px;
-            padding: 10px;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            margin-left: 10px;
-        }
-
-        .dropbtn {
-            background-color: transparent;
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .dropbtn:hover, .dropbtn:focus {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #C2CFD7;
-            min-width: 160px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            border-radius: 4px;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 8px;
             overflow: hidden;
-            opacity: 0;
-            transition: 5s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-            color: #0056b3;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-            opacity: 1;
-        }
-
-        footer {
-            background-color: #4199A7;
+        .car-model-table caption {
+            background: #0b3c5d;
             color: white;
-            font-family: Arial, sans-serif;
-            margin-left: -49px;
-            width: 109%;
+            padding: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
         }
 
+        .car-model-table th,
+        .car-model-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .car-model-table th {
+            background: #0b3c5d;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+        }
+
+        .car-model-table tbody tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        .car-model-table tbody tr:hover {
+            background: #e5e7eb;
+            transition: background-color 0.2s ease;
+        }
+
+        /* Mobile responsive table */
+        @media (max-width: 768px) {
+            .car-model-table {
+                font-size: 0.75rem;
+            }
+
+            .car-model-table th,
+            .car-model-table td {
+                padding: 0.5rem 0.25rem;
+            }
+
+            .car-model-table caption {
+                font-size: 1.25rem;
+                padding: 0.75rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .car-model-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            .car-model-table caption {
+                font-size: 1rem;
+            }
+        }
+
+        /* Footer styles */
         .footer-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-
-        .footer-section {
-            flex: 1;
-            min-width: 200px;
-            margin: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            background: #4199A7;
+            color: white;
         }
 
         .footer-section h4 {
-            font-size: 1.2em;
-            margin-bottom: 15px;
-            color: #fff;
-            border-bottom: 1px solid #fff;
-            padding-bottom: 5px;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 0.5rem;
         }
 
         .footer-section ul {
-            list-style-type: none;
+            list-style: none;
             padding: 0;
         }
 
         .footer-section ul li {
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
         }
 
         .footer-section ul li a {
-            color: #fff;
+            color: white;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .footer-section ul li a:hover {
-            color: #f0f0f0;
+            color: #e5e7eb;
         }
 
         .footer-section.contact address {
             font-style: normal;
-            color: #ddd;
-        }
-
-        .footer-section.contact address a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section.contact address a:hover {
-            color: #fff;
-        }
-
-        .footer-section .contact address {
-            font-style: normal;
             line-height: 1.6;
         }
 
-        .footer-section .contact a {
+        .footer-section.contact address a {
             color: white;
             text-decoration: none;
+            display: block;
+            margin-bottom: 0.25rem;
         }
 
-        .footer-section .contact a:hover {
+        .footer-section.contact address a:hover {
             text-decoration: underline;
         }
 
-        .footer-section .branding .logo {
-            font-size: 1.4em;
-            margin-bottom: 10px;
+        .footer-section.branding .logo {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
         }
 
         .footer-section .social-icons {
             display: flex;
-            gap: 10px;
+            gap: 1rem;
         }
 
         .footer-section .social-icons a {
             color: white;
-            font-size: 1.2em;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section .social-icons a:hover {
+            color: #e5e7eb;
         }
 
         .footer-bottom {
-            background-color: #000;
+            background: #000;
             color: white;
             text-align: center;
-            padding: 10px 0;
-            position: absolute;
-            width: 100%;
+            padding: 1rem;
         }
 
-        .footer-bottom a {
-            color: #0ff;
-            text-decoration: none;
-        }
-
-        .footer-bottom a:hover {
-            text-decoration: underline;
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1rem;
+            }
         }
     </style>
 </head>
-<body>
-    <div class="navbar">
-        <div class="logo">
-            <img src="TN logo.png" alt="Government Logo">
-        </div>
-        
-        <div class="dropdown">
-            <a href="home.html"><button class="dropbtn">Home</button></a>
-        </div>
-        
-        <div class="dropdown">
-            <button class="dropbtn">Govt.Service</button>
-            <div class="dropdown-content">
-                <a href="AadharandLand.html">Aadhar and Land Service</a>
-                <a href="GovernmentScheme.html">Government Schemes</a>
-                <a href="passport.html">Passport Service</a>
-                <a href="pensiondetail.html">Pensioner Service</a>
-                <a href="ration.html">Ration and VoterID Service</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Finance</button>
-            <div class="dropdown-content">
-                <a href="Finance.html">Interest Calculator</a>
-                <a href="financeapi.html">Tax-Saving Recommender</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">HealthService(Chennai)</button>
-            <div class="dropdown-content">
-                <a href="Hospitals.html">Hospitals</a>
-                <a href="DiagnosticCenters.html">Diagnostic Centre</a>
-                <a href="ElderandNurseCare.html">Nurse Care Details</a>
-                <a href="Emergency.html">Emergency Centres</a>
-                <a href="HealthInsurance.html">Health Insurance</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <button class="dropbtn">Transport(Chennai)</button>
-            <div class="dropdown-content">
-                <a href="BusRoutes.html">List Of Buses</a>
-                <a href="BuyOrSell.html">Second Hand Vehicle</a>
-                <a href="CostComparison.html">Cost Comparison</a>
-                <a href="NearestServiceCenters.html">Service Centre</a>
-                <a href="OnspotServiceCenter.html">Onspot Service Center</a>
-            </div>
-        </div> 
-        <div class="dropdown">
-            <a href="#footer-container"><button class="dropbtn">About</button></a>
-        </div>
-        <!-- <div class="dropdown">
-            <button class="dropbtn">Login</button>
-        </div> -->
-        <div class="datetime" id="datetime"></div>
-        <script>
-            function updateDateTime() {
-                const now = new Date();
-                const options = { 
-                    year: 'numeric', 
-                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
-                    day: '2-digit' 
-                };
-                const date = now.toLocaleDateString(undefined, options);
-                const time = now.toLocaleTimeString();
-                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
-            }
-        
-            setInterval(updateDateTime, 1000);
-            updateDateTime(); // Initial call to display date/time immediately
-        </script>
-        
-        
-    </div>
-        <!-- <div class="dropdown">
-            <button class="dropbtn">Login</button>
-        </div> -->
-        <div class="datetime" id="datetime"></div>
-        <script>
-            function updateDateTime() {
-                const now = new Date();
-                const options = { 
-                    year: 'numeric', 
-                    month: 'long', // For full month name use 'long', for short use 'short', for numeric use '2-digit'
-                    day: '2-digit' 
-                };
-                const date = now.toLocaleDateString(undefined, options);
-                const time = now.toLocaleTimeString();
-                document.getElementById('datetime').innerHTML = `${date}, ${time}`;
-            }
-        
-            setInterval(updateDateTime, 1000);
-            updateDateTime(); // Initial call to display date/time immediately
-        </script>
-    </div>
-    <br><br><br><br>
-    <table class="car-model-table">
-        <caption>Car Model Cost Comparison</caption>
-        <thead>
-            <tr>
-                <th>Car Model</th>
-                <th>Min. KM</th>
-                <th>Min. Charge</th>
-                <th>Addl Charge / Km</th>
-                <th>Waiting Charge / Min</th>
-                <th>Night Additional KM Charge</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Q7</td>
-                <td>3</td>
-                <td>₹ 158</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Aveo</td>
-                <td>3</td>
-                <td>₹ 30</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Fiesta</td>
-                <td>0</td>
-                <td>₹ 100</td>
-                <td>14</td>
-                <td>₹ 1</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Ikon</td>
-                <td>3</td>
-                <td>₹ 30</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Scorpio</td>
-                <td>3</td>
-                <td>₹ 158</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Xylo</td>
-                <td>3</td>
-                <td>₹ 158</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Ritz</td>
-                <td>3</td>
-                <td>₹ 30</td>
-                <td>6</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>C-class</td>
-                <td>0</td>
-                <td>₹ 150</td>
-                <td>18</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Corolla Altis</td>
-                <td>3</td>
-                <td>₹ 30</td>
-                <td>18</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Innova</td>
-                <td>3</td>
-                <td>₹ 158</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Land Cruiser</td>
-                <td>3</td>
-                <td>₹ 158</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Fortuner</td>
-                <td>3</td>
-                <td>₹ 158</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Cruze</td>
-                <td>3</td>
-                <td>₹ 30</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Beat</td>
-                <td>3</td>
-                <td>₹ 30</td>
-                <td>6</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Eeco</td>
-                <td>3</td>
-                <td>₹ 158</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Polo</td>
-                <td>3</td>
-                <td>₹ 30</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Platinum Etios</td>
-                <td>3</td>
-                <td>₹ 30</td>
-                <td>14</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Aria</td>
-                <td>3</td>
-                <td>₹ 158</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Etios Liva</td>
-                <td>3</td>
-                <td>₹ 30</td>
-                <td>6</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Brio</td>
-                <td>3</td>
-                <td>₹ 30</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Duster</td>
-                <td>3</td>
-                <td>₹ 158</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Indica</td>
-                <td>3</td>
-                <td>₹ 30</td>
-                <td>6</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Jetta</td>
-                <td>3</td>
-                <td>₹ 30</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Ertiga</td>
-                <td>3</td>
-                <td>₹ 158</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Dzire</td>
-                <td>100</td>
-                <td>₹ 30</td>
-                <td>14</td>
-                <td>₹ 1</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Tavera</td>
-                <td>3</td>
-                <td>₹ 158</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Elantra</td>
-                <td>3</td>
-                <td>₹ 30</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Verito Vibe</td>
-                <td>3</td>
-                <td>₹ 30</td>
-                <td>6</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>GO</td>
-                <td>3</td>
-                <td>₹ 158</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Mobilio</td>
-                <td>3</td>
-                <td>₹ 158</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>City</td>
-                <td>0</td>
-                <td>₹ 150</td>
-                <td>18</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Bolt</td>
-                <td>3</td>
-                <td>₹ 30</td>
-                <td>6</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Figo</td>
-                <td>3</td>
-                <td>₹ 30</td>
-                <td>6</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-            <tr>
-                <td>Land Cruiser Prado</td>
-                <td>3</td>
-                <td>₹ 158</td>
-                <td>0</td>
-                <td>₹ 2</td>
-                <td>₹ 0</td>
-            </tr>
-        </tbody>
-    </table>
 
+<body class="bg-gray-100 font-arial">
+    <!-- Navigation Bar -->
+    <nav class="bg-primary shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="home.html">
+                        <img src="TN logo.png" alt="Government Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="home.html"
+                            class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Home</a>
+
+                        <!-- Govt.Service Dropdown -->
+                        <div class="relative group">
+                            <button
+                                class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Govt.Service</button>
+                            <div
+                                class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <a href="AadharandLand.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Aadhar and Land
+                                    Service</a>
+                                <a href="GovernmentScheme.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Government
+                                    Schemes</a>
+                                <a href="passport.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Passport Service</a>
+                                <a href="pensiondetail.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pensioner
+                                    Service</a>
+                                <a href="ration.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Ration and VoterID
+                                    Service</a>
+                            </div>
+                        </div>
+
+                        <!-- Finance Dropdown -->
+                        <div class="relative group">
+                            <button
+                                class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Finance</button>
+                            <div
+                                class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <a href="Finance.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Interest
+                                    Calculator</a>
+                                <a href="financeapi.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Tax-Saving
+                                    Recommender</a>
+                            </div>
+                        </div>
+
+                        <!-- HealthService Dropdown -->
+                        <div class="relative group">
+                            <button
+                                class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">HealthService(Chennai)</button>
+                            <div
+                                class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <a href="Hospitals.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Hospitals</a>
+                                <a href="DiagnosticCenters.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Diagnostic
+                                    Centre</a>
+                                <a href="ElderandNurseCare.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Nurse Care
+                                    Details</a>
+                                <a href="Emergency.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Emergency
+                                    Centres</a>
+                                <a href="HealthInsurance.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Health Insurance</a>
+                            </div>
+                        </div>
+
+                        <!-- Transport Dropdown -->
+                        <div class="relative group">
+                            <button
+                                class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Transport(Chennai)</button>
+                            <div
+                                class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <a href="BusRoutes.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">List Of Buses</a>
+                                <a href="BuyOrSell.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Second Hand
+                                    Vehicle</a>
+                                <a href="CostComparison.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 bg-gray-100">Cost
+                                    Comparison</a>
+                                <a href="NearestServiceCenters.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Service Centre</a>
+                                <a href="OnspotServiceCenter.html"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Onspot Service
+                                    Center</a>
+                            </div>
+                        </div>
+
+                        <a href="#footer-container"
+                            class="text-white hover:bg-white hover:bg-opacity-20 px-3 py-2 rounded-md text-sm font-medium transition duration-300">About</a>
+                    </div>
+                </div>
+
+                <!-- DateTime Display -->
+                <div class="text-white text-sm font-medium" id="datetime"></div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button"
+                        class="text-white hover:bg-white hover:bg-opacity-20 p-2 rounded-md">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="home.html" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="CostComparison.html"
+                    class="text-white bg-white bg-opacity-20 block px-3 py-2 rounded-md text-base font-medium">Cost
+                    Comparison</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header Section -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Cost Comparison</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">Compare car model costs and charges for different vehicle
+                types.</p>
+        </div>
+
+        <!-- Responsive Table Container -->
+        <div class="overflow-x-auto">
+            <table class="car-model-table">
+                <caption>Car Model Cost Comparison</caption>
+                <thead>
+                    <tr>
+                        <th>Car Model</th>
+                        <th>Min. KM</th>
+                        <th>Min. Charge</th>
+                        <th>Addl Charge / Km</th>
+                        <th>Waiting Charge / Min</th>
+                        <th>Night Additional KM Charge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Q7</td>
+                        <td>3</td>
+                        <td>₹ 158</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Aveo</td>
+                        <td>3</td>
+                        <td>₹ 30</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Fiesta</td>
+                        <td>0</td>
+                        <td>₹ 100</td>
+                        <td>14</td>
+                        <td>₹ 1</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Ikon</td>
+                        <td>3</td>
+                        <td>₹ 30</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Scorpio</td>
+                        <td>3</td>
+                        <td>₹ 158</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Xylo</td>
+                        <td>3</td>
+                        <td>₹ 158</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Ritz</td>
+                        <td>3</td>
+                        <td>₹ 30</td>
+                        <td>6</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>C-class</td>
+                        <td>0</td>
+                        <td>₹ 150</td>
+                        <td>18</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Corolla Altis</td>
+                        <td>3</td>
+                        <td>₹ 30</td>
+                        <td>18</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Innova</td>
+                        <td>3</td>
+                        <td>₹ 158</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Land Cruiser</td>
+                        <td>3</td>
+                        <td>₹ 158</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Fortuner</td>
+                        <td>3</td>
+                        <td>₹ 158</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Cruze</td>
+                        <td>3</td>
+                        <td>₹ 30</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Beat</td>
+                        <td>3</td>
+                        <td>₹ 30</td>
+                        <td>6</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Eeco</td>
+                        <td>3</td>
+                        <td>₹ 158</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Polo</td>
+                        <td>3</td>
+                        <td>₹ 30</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Platinum Etios</td>
+                        <td>3</td>
+                        <td>₹ 30</td>
+                        <td>14</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Aria</td>
+                        <td>3</td>
+                        <td>₹ 158</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Etios Liva</td>
+                        <td>3</td>
+                        <td>₹ 30</td>
+                        <td>6</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Brio</td>
+                        <td>3</td>
+                        <td>₹ 30</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Duster</td>
+                        <td>3</td>
+                        <td>₹ 158</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Indica</td>
+                        <td>3</td>
+                        <td>₹ 30</td>
+                        <td>6</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Jetta</td>
+                        <td>3</td>
+                        <td>₹ 30</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Ertiga</td>
+                        <td>3</td>
+                        <td>₹ 158</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Dzire</td>
+                        <td>100</td>
+                        <td>₹ 30</td>
+                        <td>14</td>
+                        <td>₹ 1</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Tavera</td>
+                        <td>3</td>
+                        <td>₹ 158</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Elantra</td>
+                        <td>3</td>
+                        <td>₹ 30</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Verito Vibe</td>
+                        <td>3</td>
+                        <td>₹ 30</td>
+                        <td>6</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>GO</td>
+                        <td>3</td>
+                        <td>₹ 158</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Mobilio</td>
+                        <td>3</td>
+                        <td>₹ 158</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>City</td>
+                        <td>0</td>
+                        <td>₹ 150</td>
+                        <td>18</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Bolt</td>
+                        <td>3</td>
+                        <td>₹ 30</td>
+                        <td>6</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Figo</td>
+                        <td>3</td>
+                        <td>₹ 30</td>
+                        <td>6</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Land Cruiser Prado</td>
+                        <td>3</td>
+                        <td>₹ 158</td>
+                        <td>0</td>
+                        <td>₹ 2</td>
+                        <td>₹ 0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-container" id="footer-container">
             <div class="footer-section branding">
@@ -680,12 +666,16 @@
                     <a href="Ph:87784 39525">+91 87784 39525</a>
                     <a href="Ph:95978 09593">+91 95978 09593</a>
                     <a href="Ph:90431 44325">+91 90431 44323</a>
-                    <a href="Ph:63826 06757">+91 63826 06757</a> 
-                    <a href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
+                    <a href="Ph:63826 06757">+91 63826 06757</a>
+                    <a
+                        href="mailto:vigneshwar.p.2022.cce@ritchennai.edu.in">vigneshwar.s.2022.cce@ritchennai.edu.in</a><br>
                     <a href="mailto:badri.p.2022.cce@ritchennai.edu.in"></a>badri.p.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"></a>marishwaran.a.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"></a>bavadharini.s.2022.cce@ritchennai.edu.in</a>
-                    <a href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"></a>jinapriya.s.2022.cce@ritchennai.edu.in</a>
+                    <a
+                        href="mailto:marishwaran.a.2022.cce@ritchennai.edu.in"></a>marishwaran.a.2022.cce@ritchennai.edu.in</a>
+                    <a
+                        href="mailto:bavadharini.s.2022.cce@ritchennai.edu.in"></a>bavadharini.s.2022.cce@ritchennai.edu.in</a>
+                    <a
+                        href="mailto:jinapriya.s.2022.cce@ritchennai.edu.in"></a>jinapriya.s.2022.cce@ritchennai.edu.in</a>
                 </address>
             </div>
         </div>
@@ -694,13 +684,34 @@
         </div>
     </footer>
 
-
     <!-- FontAwesome for icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-    <!-- FontAwesome for icons -->
-    
-    
-    <!-- JavaScript for Slideshow -->
-   
+
+    <!-- JavaScript for mobile menu and datetime -->
+    <script>
+        // DateTime functionality
+        function updateDateTime() {
+            const now = new Date();
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: '2-digit'
+            };
+            const date = now.toLocaleDateString(undefined, options);
+            const time = now.toLocaleTimeString();
+            document.getElementById('datetime').innerHTML = `${date}, ${time}`;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
 </body>
+
 </html>

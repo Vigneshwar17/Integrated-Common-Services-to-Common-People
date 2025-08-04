@@ -5,209 +5,451 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interest Calculator</title>
     <style>
-    body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('finance.jpg') no-repeat center center fixed;
-    background-size: cover;
-    margin: 0;
-    padding: 0;
-    color: #e0e0e0;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.container {
-    width: 80%;
-    margin: 50px auto;
-    padding: 30px;
-    background: rgba(107, 105, 105, 0.283);
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('finance.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-h1 {
-    text-align: center;
-    color: #e2e1e1;
-    margin-bottom: 30px;
-    font-size: 2.5em;
-    letter-spacing: 1px;
-}
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 30px;
+            background: rgba(107, 105, 105, 0.283);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
 
-.loan-type-selector {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 30px;
-}
+        h1 {
+            text-align: center;
+            color: #e2e1e1;
+            margin-bottom: 40px;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
 
-.loan-type-selector button {
-    
-    border: none;
-    background-color: #0b3c5d;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1em;
-    margin-left: 10px;
-    
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
+        .loan-type-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+            padding: 0 10px;
+        }
 
-.loan-type-selector button:hover {
-    background-color: #0b3c5d;
-    transform: scale(1.05);
-}
+        .loan-type-selector button {
+            padding: 15px 20px;
+            border: none;
+            background-color: #0b3c5d;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
 
-.form-group {
-    margin-bottom: 25px;
-}
+        .loan-type-selector button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(11, 60, 93, 0.4);
+        }
 
-label {
-    display: block;
-    margin-bottom: 10px;
-    color: #ffffff;
-    font-size: 1.1em;
-}
+        .loan-type-selector button:active {
+            transform: translateY(0);
+        }
 
-input[type="number"] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #444;
-    border-radius: 5px;
-    background-color: #333;
-    color: #ffffff;
-    font-size: 1em;
-}
+        .loan-type-selector button.active {
+            background-color: #0056b3;
+            box-shadow: 0 0 20px rgba(0, 86, 179, 0.5);
+        }
 
-button {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    border: none;
-    background-color: #0b3c5d;
-    
-    color: #fff;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
+        .form-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
 
-button:hover {
-    background-color: #0b3c5d;
-    transform: scale(1.05);
-}
+        .form-group {
+            margin-bottom: 25px;
+        }
 
-#result {
-    margin-top: 30px;
-    background-color: #0b3c5d;
-    padding: 15px;
-    border-radius: 5px;
-    font-size: 1.1em;
-}
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #ffffff;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            font-weight: 500;
+        }
 
+        input[type="number"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #444;
+            border-radius: 8px;
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #ffffff;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            transition: all 0.3s ease;
+        }
 
- </style>
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #0b3c5d;
+            box-shadow: 0 0 10px rgba(11, 60, 93, 0.5);
+            background-color: rgba(51, 51, 51, 0.9);
+        }
+
+        .calculate-btn {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 18px 25px;
+            border: none;
+            background: linear-gradient(135deg, #0b3c5d, #0056b3);
+            color: #fff;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(11, 60, 93, 0.4);
+        }
+
+        .calculate-btn:active {
+            transform: translateY(-1px);
+        }
+
+        #result {
+            margin-top: 40px;
+            background: linear-gradient(135deg, rgba(11, 60, 93, 0.9), rgba(0, 86, 179, 0.8));
+            padding: 25px;
+            border-radius: 12px;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        #result p {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        #result p:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(5px);
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+                margin: 10px auto;
+            }
+
+            .loan-type-selector {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 10px;
+                padding: 0;
+            }
+
+            .loan-type-selector button {
+                padding: 12px 15px;
+            }
+
+            .form-section {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            input[type="number"] {
+                padding: 12px;
+            }
+
+            .calculate-btn {
+                padding: 15px 20px;
+            }
+
+            #result {
+                padding: 20px;
+            }
+
+            #result p {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                margin-bottom: 25px;
+            }
+
+            .loan-type-selector {
+                grid-template-columns: 1fr;
+            }
+
+            .loan-type-selector button {
+                padding: 15px;
+                font-size: 1rem;
+            }
+
+            input[type="number"] {
+                padding: 14px;
+            }
+
+            #result p {
+                font-size: 0.85rem;
+                padding: 8px;
+            }
+        }
+
+        /* Animation for result appearance */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #result.show {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        /* Loading state */
+        .calculate-btn.loading {
+            background: #666;
+            cursor: not-allowed;
+        }
+
+        .calculate-btn.loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid transparent;
+            border-top: 2px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Bank Interest Rates</h1>
+        
         <div class="loan-type-selector">
-            <button id="personalLoanBtn" onclick="selectLoanType('personal')">Personal Loan</button>
-            
-
+            <button id="personalLoanBtn" onclick="selectLoanType('personal')" class="active">Personal Loan</button>
             <button id="homeLoanBtn" onclick="selectLoanType('home')">Home Loan</button>
-            
             <button id="vehicleLoanBtn" onclick="selectLoanType('vehicle')">Vehicle Loan</button>
-           
             <button id="educationLoanBtn" onclick="selectLoanType('education')">Education Loan</button>
         </div>
-        <div class="form-group">
-            <label for="loanAmount">Loan Amount</label>
-            <input type="number" id="loanAmount">
+
+        <div class="form-section">
+            <div class="form-group">
+                <label for="loanAmount">Loan Amount (₹)</label>
+                <input type="number" id="loanAmount" placeholder="Enter loan amount" min="1000" step="1000">
+            </div>
+            <div class="form-group">
+                <label for="tenure">Tenure (in years)</label>
+                <input type="number" id="tenure" placeholder="Enter tenure in years" min="1" max="30">
+            </div>
         </div>
-        <div class="form-group">
-            <label for="tenure">Tenure (in years)</label>
-            <input type="number" id="tenure">
-        </div>
-        <button onclick="calculateInterest()">Calculate Interest</button>
+
+        <button class="calculate-btn" onclick="calculateInterest()">Calculate Interest</button>
+        
         <div id="result"></div>
     </div>
 
     <script>
         let personalLoanBanks = [
-    { name: 'AXIS BANK', interestRate: 10.5 },
-    { name: 'HDFC BANK', interestRate: 10.25 },
-    { name: 'STATE BANK OF INDIA', interestRate: 11.75 },
-    { name: 'CANARA BANK', interestRate: 10.6 },
-    { name: 'BANK OF INDIA', interestRate: 10.4 },
-    { name: 'KOTAK MAHINDRA BANK', interestRate: 16.99},
-    { name: 'TAMILNADU MERCANTILE BANK', interestRate: 14.05 },
-];
+            { name: 'AXIS BANK', interestRate: 10.5 },
+            { name: 'HDFC BANK', interestRate: 10.25 },
+            { name: 'STATE BANK OF INDIA', interestRate: 11.75 },
+            { name: 'CANARA BANK', interestRate: 10.6 },
+            { name: 'BANK OF INDIA', interestRate: 10.4 },
+            { name: 'KOTAK MAHINDRA BANK', interestRate: 16.99},
+            { name: 'TAMILNADU MERCANTILE BANK', interestRate: 14.05 },
+        ];
 
-let homeLoanBanks = [
-    { name: 'AXIS BANK', interestRate: 5.5 },
-    { name: 'HDFC BANK', interestRate: 5.25 },
-    { name: 'STATE BANK OF INDIA', interestRate: 5.75 },
-    { name: 'CANARA BANK', interestRate: 5.6 },
-    { name: 'BANK OF INDIA', interestRate: 5.4 },
-    { name: 'KOTAK MAHINDRA BANK', interestRate: 8.70 },
-    { name: 'TAMILNADU MERCANTILE BANK', interestRate: 9.45 },
-    
-];
+        let homeLoanBanks = [
+            { name: 'AXIS BANK', interestRate: 5.5 },
+            { name: 'HDFC BANK', interestRate: 5.25 },
+            { name: 'STATE BANK OF INDIA', interestRate: 5.75 },
+            { name: 'CANARA BANK', interestRate: 5.6 },
+            { name: 'BANK OF INDIA', interestRate: 5.4 },
+            { name: 'KOTAK MAHINDRA BANK', interestRate: 8.70 },
+            { name: 'TAMILNADU MERCANTILE BANK', interestRate: 9.45 },
+        ];
 
-let vehicleLoanBanks = [
-    { name: 'AXIS BANK', interestRate: 7.5 },
-    { name: 'HDFC BANK', interestRate: 7.25 },
-    { name: 'STATE BANK OF INDIA', interestRate: 7.75 },
-    { name: 'CANARA BANK', interestRate: 7.6 },
-    { name: 'BANK OF INDIA', interestRate: 7.4 },
-    { name: 'KOTAK MAHINDRA BANK', interestRate: 8.2 },
-    { name: 'TAMILNADU MERCANTILE BANK', interestRate: 9.70 },
-];
+        let vehicleLoanBanks = [
+            { name: 'AXIS BANK', interestRate: 7.5 },
+            { name: 'HDFC BANK', interestRate: 7.25 },
+            { name: 'STATE BANK OF INDIA', interestRate: 7.75 },
+            { name: 'CANARA BANK', interestRate: 7.6 },
+            { name: 'BANK OF INDIA', interestRate: 7.4 },
+            { name: 'KOTAK MAHINDRA BANK', interestRate: 8.2 },
+            { name: 'TAMILNADU MERCANTILE BANK', interestRate: 9.70 },
+        ];
 
-let educationLoanBanks = [
-    { name: 'AXIS BANK', interestRate: 6.5 },
-    { name: 'HDFC BANK', interestRate: 6.25 },
-    { name: 'STATE BANK OF INDIA', interestRate: 6.75 },
-    { name: 'CANARA BANK', interestRate: 6.6 },
-    { name: 'BANK OF INDIA', interestRate: 6.4 },
-    { name: 'KOTAK MAHINDRA BANK', interestRate: 11.50 },
-    { name: 'TAMILNADU MERCANTILE BANK', interestRate: 11.75 },
-];
+        let educationLoanBanks = [
+            { name: 'AXIS BANK', interestRate: 6.5 },
+            { name: 'HDFC BANK', interestRate: 6.25 },
+            { name: 'STATE BANK OF INDIA', interestRate: 6.75 },
+            { name: 'CANARA BANK', interestRate: 6.6 },
+            { name: 'BANK OF INDIA', interestRate: 6.4 },
+            { name: 'KOTAK MAHINDRA BANK', interestRate: 11.50 },
+            { name: 'TAMILNADU MERCANTILE BANK', interestRate: 11.75 },
+        ];
 
-let selectedLoanType = 'personal';
+        let selectedLoanType = 'personal';
 
-function selectLoanType(type) {
-    selectedLoanType = type;
-}
+        function selectLoanType(type) {
+            selectedLoanType = type;
+            
+            // Update button active state
+            document.querySelectorAll('.loan-type-selector button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            switch(type) {
+                case 'personal':
+                    document.getElementById('personalLoanBtn').classList.add('active');
+                    break;
+                case 'home':
+                    document.getElementById('homeLoanBtn').classList.add('active');
+                    break;
+                case 'vehicle':
+                    document.getElementById('vehicleLoanBtn').classList.add('active');
+                    break;
+                case 'education':
+                    document.getElementById('educationLoanBtn').classList.add('active');
+                    break;
+            }
+            
+            // Clear previous results
+            document.getElementById('result').innerHTML = '';
+        }
 
-function calculateInterest() {
-    let amount = parseFloat(document.getElementById('loanAmount').value);
-    let tenure = parseInt(document.getElementById('tenure').value);
-    let banks;
-    let result = '';
+        function calculateInterest() {
+            let amount = parseFloat(document.getElementById('loanAmount').value);
+            let tenure = parseInt(document.getElementById('tenure').value);
+            
+            // Input validation
+            if (!amount || amount <= 0) {
+                alert('Please enter a valid loan amount');
+                return;
+            }
+            
+            if (!tenure || tenure <= 0) {
+                alert('Please enter a valid tenure');
+                return;
+            }
+            
+            let banks;
+            let result = '';
 
-    switch (selectedLoanType) {
-        case 'personal':
-            banks = personalLoanBanks;
-            break;
-        case 'home':
-            banks = homeLoanBanks;
-            break;
-        case 'vehicle':
-            banks = vehicleLoanBanks;
-            break;
-        case 'education':
-            banks = educationLoanBanks;
-            break;
-    }
+            switch (selectedLoanType) {
+                case 'personal':
+                    banks = personalLoanBanks;
+                    break;
+                case 'home':
+                    banks = homeLoanBanks;
+                    break;
+                case 'vehicle':
+                    banks = vehicleLoanBanks;
+                    break;
+                case 'education':
+                    banks = educationLoanBanks;
+                    break;
+            }
 
-    banks.forEach(bank => {
-        let interest = amount * tenure * bank.interestRate / 100;
-        result += `<p>${bank.name} - ${bank.interestRate}%: Interest Amount: ${interest}</p>`;
-    });
+            // Add loading state
+            const calculateBtn = document.querySelector('.calculate-btn');
+            calculateBtn.classList.add('loading');
+            calculateBtn.textContent = 'Calculating...';
+            
+            // Simulate calculation delay for better UX
+            setTimeout(() => {
+                banks.forEach(bank => {
+                    let interest = amount * tenure * bank.interestRate / 100;
+                    result += `<p><strong>${bank.name}</strong> - ${bank.interestRate}%: Interest Amount: ₹${interest.toLocaleString('en-IN', {maximumFractionDigits: 2})}</p>`;
+                });
 
-    document.getElementById('result').innerHTML = result;
-}
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = result;
+                resultDiv.classList.add('show');
+                
+                // Remove loading state
+                calculateBtn.classList.remove('loading');
+                calculateBtn.textContent = 'Calculate Interest';
+                
+                // Scroll to results on mobile
+                if (window.innerWidth <= 768) {
+                    resultDiv.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 500);
+        }
 
+        // Add Enter key support for inputs
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input[type="number"]');
+            inputs.forEach(input => {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        calculateInterest();
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
